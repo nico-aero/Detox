@@ -1,6 +1,6 @@
 const _ = require('lodash');
 
-const Storage = require('./Storage');
+const ScopedLaunchArgsEditor = require('./ScopedLaunchArgsEditor');
 
 /**
  * @typedef {Object} LaunchArgsEditorOptions
@@ -9,47 +9,57 @@ const Storage = require('./Storage');
 
 class LaunchArgsEditor {
   constructor() {
-    this._permanent = new Storage();
-    this._transient = new Storage();
+    this._local = new ScopedLaunchArgsEditor();
+    this._shared = new ScopedLaunchArgsEditor();
   }
 
-  /** @param {LaunchArgsEditorOptions} [options] */
+  get shared() {
+    return this._shared;
+  }
+
+  /**
+   * @param {LaunchArgsEditorOptions} [options] - deprecated
+   */
   modify(launchArgs, options) {
     if (!_.isEmpty(launchArgs)) {
       if (options && options.permanent) {
-        this._permanent.assign(launchArgs);
+        this._shared.modify(launchArgs);
       } else {
-        this._transient.assign(launchArgs);
+        this._local.modify(launchArgs);
       }
     }
 
     return this;
   }
 
-  /** @param {LaunchArgsEditorOptions} [options] */
+  /**
+   * @param {LaunchArgsEditorOptions} [options] - deprecated
+   */
   reset(options) {
-    this._transient.reset();
+    this._local.reset();
 
     if (options && options.permanent) {
-      this._permanent.reset();
+      this._shared.reset();
     }
 
     return this;
   }
 
-  /** @param {LaunchArgsEditorOptions} [options] */
+  /**
+   * @param {LaunchArgsEditorOptions} [options] - deprecated
+   */
   get(options) {
     const permanent = options && options.permanent;
 
     if (permanent === true) {
-      return this._permanent.get();
+      return this._shared.get();
     }
 
     if (permanent === false) {
-      return this._transient.get();
+      return this._local.get();
     }
 
-    return _.merge(this._permanent.get(), this._transient.get());
+    return _.merge(this._shared.get(), this._local.get());
   }
 }
 

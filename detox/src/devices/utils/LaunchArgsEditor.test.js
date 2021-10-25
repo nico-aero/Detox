@@ -17,69 +17,54 @@ describe('Device launch-args editor', () => {
     expect(launchArgsEditor.modify().get()).toEqual({});
   });
 
-  test.each([
-    ['transient', false],
-    ['permanent', true],
-  ])('should merge %s values', (_name, permanent) => {
+  it('should merge values', () => {
     expect(launchArgsEditor
-      .modify({ a: 1 }, { permanent })
-      .modify({ b: 2 }, { permanent })
+      .modify({ a: 1 })
+      .modify({ b: 2 })
       .get()).toEqual({ a: 1, b: 2 });
   });
 
-  it('should merge both transient and permanent values', () =>
-    expect(launchArgsEditor
-      .modify({ a: 1 }, { permanent: false })
-      .modify({ b: 2 }, { permanent: true })
-      .get()).toEqual({ a: 1, b: 2 }));
-
-  it('should merge transient values by default', () =>
-    expect(launchArgsEditor
+  it('should merge both local and shared values', () => {
+    launchArgsEditor
       .modify({ a: 1 })
-      .modify({ b: 2 }, { permanent: true })
-      .get({ permanent: true })).toEqual({ b: 2 }));
+      .shared.modify({ b: 2 });
+
+    expect(launchArgsEditor.get()).toEqual({ a: 1, b: 2 });
+  });
 
   it('should not return transient values if permanent values were requested', () =>
     expect(launchArgsEditor
-      .modify({ a: 1 }, { permanent: false })
-      .modify({ b: 2 }, { permanent: true })
-      .get({ permanent: true })).toEqual({ b: 2 }));
-
-  it('should not return permanent values if transient values were requested', () =>
-    expect(launchArgsEditor
-      .modify({ a: 1 }, { permanent: false })
-      .modify({ b: 2 }, { permanent: true })
-      .get({ permanent: false })).toEqual({ a: 1 }));
-
-  it('should reset only transient values by default', () =>
-    expect(launchArgsEditor
-      .modify({ a: 1 }, { permanent: false })
-      .modify({ b: 2 }, { permanent: true })
-      .reset()
+      .modify({ a: 1 })
+      .shared.modify({ b: 2 })
       .get()).toEqual({ b: 2 }));
 
-  it('should reset both permanent and transient values if requested', () =>
-    expect(launchArgsEditor
-      .modify({ a: 1 }, { permanent: false })
-      .modify({ b: 2 }, { permanent: true })
-      .reset({ permanent: true })
-      .get()).toEqual({}));
+  it('should reset only transient values by default', () => {
+    launchArgsEditor.shared.modify({ b: 2 });
 
-  describe.each([[false], [true]])('for options.permanent=%j', (permanent) => {
-    it.each([[null], [undefined]])('should delete property if the new value is %j', (value) =>
-      expect(launchArgsEditor
-        .modify({ value: 1 }, { permanent })
-        .modify({ value }, { permanent })
-        .get()).toEqual({}));
+    expect(launchArgsEditor
+      .modify({ a: 1 })
+      .reset()
+      .get()).toEqual({ b: 2 });
+  });
+
+  it('should reset both permanent and transient values if requested', () => {
+    launchArgsEditor.modify({ a: 1 }).shared.modify({ b: 2 });
+    launchArgsEditor.reset().shared.reset();
+    expect(launchArgsEditor.get()).toEqual({});
   });
 
   it('should return every time a copy of values', () => {
     expect(launchArgsEditor.get()).not.toBe(launchArgsEditor.get());
+    expect(launchArgsEditor.shared.get()).not.toBe(launchArgsEditor.shared.get());
   });
 
   it('should return every time a deep copy of values', () => {
     launchArgsEditor.modify({ a: { b: 'c' } });
     launchArgsEditor.get().a.b = 'd';
     expect(launchArgsEditor.get()).toEqual({ a: { b: 'c' } });
+
+    launchArgsEditor.shared.modify({ a: { b: 'c' } });
+    launchArgsEditor.shared.get().a.b = 'd';
+    expect(launchArgsEditor.shared.get()).toEqual({ a: { b: 'c' } });
   });
 });
