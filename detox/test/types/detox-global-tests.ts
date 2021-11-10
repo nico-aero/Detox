@@ -17,7 +17,9 @@ describe("Test", () => {
 
     beforeAll(async () => {
         await device.reloadReactNative();
-        await device.takeScreenshot("test screenshot");
+        (await device.takeScreenshot("test screenshot")).endsWith('.png');
+        (await device.captureViewHierarchy()).endsWith('.viewhierarchy');
+        (await device.captureViewHierarchy('a')).endsWith('.viewhierarchy');
     });
 
     afterAll(async () => {
