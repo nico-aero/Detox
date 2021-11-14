@@ -413,6 +413,10 @@ if (device.getPlatform() === 'ios') {
 
 Takes a screenshot of the device. For full details on taking screenshots with Detox, refer to the [screen-shots guide](APIRef.Screenshots.md).
 
+#### `device.captureViewHierarchy([name])`
+
+TODO
+
 #### `device.shake()` **iOS Only**
 
 Simulate shake
