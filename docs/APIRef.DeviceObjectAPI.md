@@ -416,6 +416,7 @@ Takes a screenshot of the device. For full details on taking screenshots with De
 #### `device.captureViewHierarchy([name])`
 
 TODO
+exclude files
 
 #### `device.shake()` **iOS Only**
 
