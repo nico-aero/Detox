@@ -27,7 +27,7 @@ npm run build:android
 
 ##### iOS
 
-Install the necessary POD's:
+Install the necessary pods:
 
 ```sh
 cd detox
@@ -54,7 +54,7 @@ npm run test:android-release
 
 ### Running this project in Debug mode
 
-The project's tests can also be executed with the app running in debug mode (mainly, with Javascript code getting bundled on-the-fly using the `metro` server).
+The project’s tests can also be executed with the app running in debug mode (mainly, with Javascript code getting bundled on-the-fly using the `metro` server).
 
 For that, first run the `metro` server:
 

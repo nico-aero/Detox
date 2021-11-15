@@ -2,7 +2,7 @@
 
 ### Configuration File
 
-In order for Detox to know what device & app to use (and a lot more, actually), it needs some configuration to be statically available in a configuration file. It supports both standalone configuration files, and a configuration bundling inside the project's `package.json`.
+In order for Detox to know what device & app to use (and a lot more, actually), it needs some configuration to be statically available in a configuration file. It supports both standalone configuration files, and a configuration bundling inside the project’s `package.json`.
 
 In essence, Detox scans for the configuration to use, through multiple files. It starts from the current working directory, and runs over the following options, in this order:
 
@@ -14,7 +14,7 @@ In essence, Detox scans for the configuration to use, through multiple files. It
 1. `package.json` (`"detox"` section)
 
 Options 1-5 allow for a standalone Detox configuration in either a `json` format or using Javascript syntax.
-Option 6 means the configuration is available in `json` format inside the project's `package.json`, which is more suitable if you like having all of your project's configurations in one place.
+Option 6 means the configuration is available in `json` format inside the project’s `package.json`, which is more suitable if you like having all of your project’s configurations in one place.
 
 Please find the [Detox example app](/examples/demo-react-native/detox.config.js) as a working reference. Also, look at
 [the typings file](https://github.com/wix/Detox/blob/master/detox/index.d.ts) provided by Detox.
@@ -416,7 +416,7 @@ Detox can either initialize a server using a generated configuration, or can be 
 }
 ```
 
-When you define a session config, the Detox server won't start automatically anymore — it is assumed that
+When you define a session config, the Detox server won’t start automatically anymore — it is assumed that
 you will be running it independently via `detox run-server` CLI command. Alternatively, you can set the
 `autoStart` property to be explicitly `true`:
 
@@ -466,13 +466,13 @@ To disable `debugSynchronization` explicitly, use `0`.
 
 #### Build Configuration
 
-In your detox config (in `package.json`) paste your build command into the configuration's `build` field.
+In your detox config (in `package.json`) paste your build command into the configuration’s `build` field.
 The build command will be triggered when running `detox build`.
 **This is only a convenience method, to help you manage building multiple configurations of your app and couple them to your tests. You can also choose not to use it and provide a compiled `app` by yourself.**
 
 You can choose to build your project in any of these ways...
 
-* If there's only one configuration, you can simply use:
+* If There’s only one configuration, you can simply use:
 
   ```sh
   detox build
@@ -500,7 +500,7 @@ You can choose to build your project in any of these ways...
 
 #### Test Configuration
 
-* If there's only one configuration, you can simply use:
+* If There’s only one configuration, you can simply use:
 
   ```sh
   detox test ./e2e

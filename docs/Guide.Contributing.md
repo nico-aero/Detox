@@ -2,17 +2,17 @@
 
 This guide is about contributing to our codebase.
 
-We don't have any special guidelines - just some setup walk-through's!
+We Don’t have any special guidelines - just some setup walk-through’s!
 
 ### Environment
 
 #### Install Homebrew
 
-If you haven't yet - install [`brew`](https://brew.sh/).
+If you haven’t yet - install [`brew`](https://brew.sh/).
 
 #### Install Node.js v12.x or newer
 
-There's more than one way to install Node.js:
+There’s more than one way to install Node.js:
 
 - Download from the [official download page](https://nodejs.org/en/download/)
 - Use [Homebrew](https://formulae.brew.sh/formula/node)
@@ -126,7 +126,7 @@ open coverage/lcov-report/index.html
 
 ###### 2. Running Detox E2E Coverage Tests
 
-Detox has a suite of end-to-end tests to test its own API while developing (and for regression); We maintain a special application that is "tested" against Detox's API, but essentially, it's the API that is tested, not the app.
+Detox has a suite of end-to-end tests to test its own API while developing (and for regression); We maintain a special application that is "tested" against Detox’s API, but essentially, it’s the API that is tested, not the app.
 
 To run the tests, you must first build the native code and then run based on your target of choice (Android / iOS):
 
@@ -160,7 +160,7 @@ Each build can be triggered separately by running its Gradle assembling task (un
 ./gradlew assembleFromBinDebug
 ```
 
-To run from Android Studio, React Native's `react.gradle` script may require `node` to be in path.
+To run from Android Studio, React Native’s `react.gradle` script may require `node` to be in path.
 On MacOS, environment variables can be exported to desktop applications by adding the following to your `.bashrc`/`.zshrc`:
 
 ```sh
@@ -185,4 +185,4 @@ This is in fact a monorepo that also sports some example projects (for usage ref
 - `examples/demo-pure-native-android`: Demonstrates usage of the *pure* [Detox-Native](../detox/detox-native/README.md) project
 - more...
 
-**In order to run E2E tests associated with any of these projects, refer to the [project-specific](../examples) README's.**
+**In order to run E2E tests associated with any of these projects, refer to the [project-specific](../examples) READMEs.**

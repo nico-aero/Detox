@@ -2,7 +2,7 @@
 
 `detox` is globally available in every test file, though currently it is only used in the setup/init file.
 
->NOTE: detox is test runner independent, and we encourage you to choose your own test runner, but for the sake of demonstration we will use `mocha`'s syntax.
+>NOTE: detox is test runner independent, and we encourage you to choose your own test runner, but for the sake of demonstration we will use `mocha`’s syntax.
 
 ### Methods
 
@@ -17,7 +17,7 @@
 
 The setup phase happens inside `detox.init()`. This is the phase where detox reads its configuration, starts a server, loads its expectation library and starts a simulator.
 
-**If you're using _mocha_**, in your `init.js` add:
+**If you’re using _mocha_**, in your `init.js` add:
 
 ```js
 const detox = require('detox');
@@ -59,7 +59,7 @@ before(async () => {
 
 #### `detox.beforeEach()`
 
-This method should be called at the start of every test to let Detox's artifacts lifecycle know it is the time to start recording logs and videos, or to take another `beforeEach.png` screenshot. Although this is one of usage of `beforeEach`, Detox does not limit itself to this usage and may utilize calls to `beforeEach` for additional purposes in the future.
+This method should be called at the start of every test to let Detox’s artifacts lifecycle know it is the time to start recording logs and videos, or to take another `beforeEach.png` screenshot. Although this is one of usage of `beforeEach`, Detox does not limit itself to this usage and may utilize calls to `beforeEach` for additional purposes in the future.
 
 ```typescript
 declare function beforeEach(testSummary: {
@@ -69,9 +69,9 @@ declare function beforeEach(testSummary: {
 })
 ```
 
-Usually, you are not supposed to write own implementation of this call, instead rely on Detox in-house adapters for [mocha](/examples/demo-react-native/e2e/init.js) and [jest](/examples/demo-react-native-jest/e2e/init.js) as in the examples. It should alleviate transitions to newer Detox versions for you as the chances are that API specification won't prove itself as sufficient and it may undergo rewrites and extensions.
+Usually, you are not supposed to write own implementation of this call, instead rely on Detox in-house adapters for [mocha](/examples/demo-react-native/e2e/init.js) and [jest](/examples/demo-react-native-jest/e2e/init.js) as in the examples. It should alleviate transitions to newer Detox versions for you as the chances are that API specification won’t prove itself as sufficient and it may undergo rewrites and extensions.
 
-> NOTE: If you are implementing support for a test runner different from Mocha and Jest, please keep in mind that *pending* (also known as *skipped*) tests should not trigger `detox.beforeEach()` at all, neither `detox.afterEach()`. The rule of thumb is either you guarantee you call them both, or you don't call anyone.
+> NOTE: If you are implementing support for a test runner different from Mocha and Jest, please keep in mind that *pending* (also known as *skipped*) tests should not trigger `detox.beforeEach()` at all, neither `detox.afterEach()`. The rule of thumb is either you guarantee you call them both, or you Don’t call anyone.
 
 #### `detox.afterEach()`
 
@@ -91,7 +91,7 @@ Normally, you are not supposed to write own implementation of this call, as ment
 
 The cleanup phase should happen after all the tests have finished. This is the phase where detox server shuts down. The simulator will also shut itself down if `--cleanup` flag is added to `detox test`
 
-**If you're using _mocha_**, in your `init.js` add:
+**If you’re using _mocha_**, in your `init.js` add:
 
 ```js
 after(async () => {
@@ -103,7 +103,7 @@ after(async () => {
 
 :warning: **Beta**
 
-Trace a subprocess of your test's runtime such that it would leave traces inside the [Timeline artifact](APIRef.Artifacts.md#timeline-plugin), for a later inspection.
+Trace a subprocess of your test’s runtime such that it would leave traces inside the [Timeline artifact](APIRef.Artifacts.md#timeline-plugin), for a later inspection.
 
 Example:
 
@@ -128,7 +128,7 @@ At the bottom right, you can see what portion of the test was spent in handling 
 
 :warning: **Beta**
 
-This is similar to the `traceCall()` API, except that it gives more freedom with respect to when a section's start and ending times are defined, so as to monitor a nontrivial flow. As a usage example:
+This is similar to the `traceCall()` API, except that it gives more freedom with respect to when a section’s start and ending times are defined, so as to monitor a nontrivial flow. As a usage example:
 
 ```js
 it('Verify sanity things', async () => {

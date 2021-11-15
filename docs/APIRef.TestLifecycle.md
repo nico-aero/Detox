@@ -1,6 +1,6 @@
 ## Test Lifecycle
 
-Detox is test runner independent, and we encourage you to choose your own test runner, but for the sake of demonstration we will use `mocha`'s syntax.
+Detox is test runner independent, and we encourage you to choose your own test runner, but for the sake of demonstration we will use `mocha`’s syntax.
 
 ### Initial Setup
 

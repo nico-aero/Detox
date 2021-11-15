@@ -13,7 +13,7 @@ Typically, the process of setting up such servers - especially in a parallel tes
 1. Allocating a port for a mock server, dynamically.
 2. Bringing up a mock server instance bound to that port (e.g. at `localhost:1234`).
 3. Launching the app with a predefined argument that holds the port, for example `mockServerPort=1234`.
-   (It is assumed here that there's designated mocked code inside the app that can read `mockServerPort` and rewire all connections to `localhost:1234` instead of to the real production server).
+   (It is assumed here that There’s designated mocked code inside the app that can read `mockServerPort` and rewire all connections to `localhost:1234` instead of to the real production server).
 
 In this context, launch argument are useful for implementing step #3.
 
@@ -32,13 +32,13 @@ User-defined launch arguments specification is very flexible, and can be defined
 
 Examples:
 
-1. In an environment where `mockServerPort` is statically pre-set to `1001` in Detox configuration, and then set to to `1003` using `device.appLaunchArgs` inside a test, the app would eventually be launched with `1003` as its value, in calls to `device.launchApp()` in that test.
+1. In an environment where `mockServerPort` is statically pre-set to `1001` in Detox configuration, and then set to `1003` using `device.appLaunchArgs` inside a test, the app would eventually be launched with `1003` as its value, in calls to `device.launchApp()` in that test.
 2. (Scenario continues) In subsequent calls to `device.launchApp()` with this parameter: `device.launchApp({ launchArgs: {mockServerPort: 1004} })`, the app will be (re-)launched with `1004` as the value for `mockServerPort`.
 
 ### In-App Arguments Access
 
 On iOS, the specified launch arguments are passed as the process launch arguments and available through normal means.
 
-On Android, the launch arguments are set as bundle-extra's into the activity's intent. It will therefore be accessible on the native side via the current activity as: `currentActivity.getIntent().getBundleExtra("launchArgs")`.
+On Android, the launch arguments are set as bundle-extra’s into the activity’s intent. It will therefore be accessible on the native side via the current activity as: `currentActivity.getIntent().getBundleExtra("launchArgs")`.
 
-Further handling of these launch arguments is up to the user's responsibility and is out of scope for Detox.
+Further handling of these launch arguments is up to the user’s responsibility and is out of scope for Detox.

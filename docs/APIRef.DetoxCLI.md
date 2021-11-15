@@ -55,7 +55,7 @@ Run the command defined in `build` property of the specified **configuration**.
 
 | Option | Description |
 | --- | --- |
-| -c, --configuration \<device config\> | Select a device configuration from your defined configurations, if not supplied, and there's only one configuration, detox will default to it |
+| -c, --configuration \<device config\> | Select a device configuration from your defined configurations, if not supplied, and There’s only one configuration, detox will default to it |
 | -C, --config-path \<configPath\>      | Specify Detox config file path. If not supplied, detox searches for .detoxrc[.js] or "detox" section in package.json |
 | -i, --if-missing                      | Execute the build command only if the app binary is missing. |
 | -s, --silent                          | Do not fail with error if an app config has no build command. |
@@ -70,7 +70,7 @@ Initiating your test suite[^1].
 | Option                                        | Description |
 | ---                                           | --- |
 | -C, --config-path \<configPath\>              | Specify Detox config file path. If not supplied, detox searches for .detoxrc[.js] or "detox" section in package.json |
-| -c, --configuration \<device config\>         | Select a device configuration from your defined configurations, if not supplied, and there's only one configuration, detox will default to it |
+| -c, --configuration \<device config\>         | Select a device configuration from your defined configurations, if not supplied, and There’s only one configuration, detox will default to it |
 | -o, --runner-config \<config\>                | Test runner config file, defaults to 'e2e/mocha.opts' for mocha and 'e2e/config.json' for jest. |
 | -n, --device-name [name]                      | Override the device name specified in a configuration. Useful for running a single build configuration on multiple devices. |
 | -l, --loglevel [value]                        | Log level: fatal, error, warn, info, verbose, trace |
@@ -85,16 +85,16 @@ Initiating your test suite[^1].
 | -R, --retries                                 | [Jest Circus Only] Re-spawn the test runner for individual failing suite files until they pass, or &lt;N&gt; times at most.|
 | -r, --reuse                                   | Reuse existing installed app (do not delete + reinstall) for a faster run. |
 | -u, --cleanup                                 | Shutdown simulator when test is over, useful for CI scripts, to make sure detox exists cleanly with no residue |
-| -w, --workers                                 | Specifies number of workers the test runner should spawn, requires a test runner with parallel execution support (Detox CLI currently supports Jest). *Note: For workers > 1, Jest's spec-level reporting is disabled, by default (can be overridden using --jest-report-specs).* |
+| -w, --workers                                 | Specifies number of workers the test runner should spawn, requires a test runner with parallel execution support (Detox CLI currently supports Jest). *Note: For workers > 1, Jest’s spec-level reporting is disabled, by default (can be overridden using --jest-report-specs).* |
 | --jest-report-specs | [Jest Only] Whether to output logs per each running spec, in real-time. By default, disabled with multiple workers. |
 | -H, --headless                                | [Android Only] Launch Emulator in headless mode. Useful when running on CI. |
 | --gpu                                         | [Android Only] Launch Emulator with the specific -gpu [gpu mode] parameter. |
 | --device-launch-args | A list of passthrough-arguments to use when (if) devices (Android emulator / iOS simulator) are launched by Detox.<br />**Note: the value must be specified after an equal sign (`=`) and inside quotes.** Usage example:<br />`--device-launch-args="-http-proxy http://1.1.1.1:8000 -no-snapshot-load"` |
 | --app-launch-args | Custom arguments to pass (through) onto the app every time it is launched. The same **note** applies here, as for **--device-launch-args**.<br />See [launch arguments guide](APIRef.LaunchArgs.md) for complete info. |
 | --no-color                                    | Disable colors in log output |
-| --use-custom-logger | Use Detox' custom console-logging implementation, for logging Detox (non-device) logs. Disabling will fallback to node.js / test-runner's implementation (e.g. Jest / Mocha).<br />*Default: true* |
-| --force-adb-install | Due to problems with the `adb install` command on Android, Detox resorts to a different scheme for install APK's. Setting true will disable that and force usage of `adb install`, instead.<br/>This flag is temporary until the Detox way proves stable.<br/>*Default: false* |
-| --inspect-brk | Uses [node's --inspect-brk](https://nodejs.org/en/docs/guides/debugging-getting-started/#enable-inspector) flag to let users debug the jest/mocha test runner <br />*Default: false* |
+| --use-custom-logger | Use Detox' custom console-logging implementation, for logging Detox (non-device) logs. Disabling will fallback to node.js / test-runner’s implementation (e.g. Jest / Mocha).<br />*Default: true* |
+| --force-adb-install | Due to problems with the `adb install` command on Android, Detox resorts to a different scheme for installing APKs. Setting true will disable that and force usage of `adb install`, instead.<br/>This flag is temporary until the Detox way proves stable.<br/>*Default: false* |
+| --inspect-brk | Uses [node’s --inspect-brk](https://nodejs.org/en/docs/guides/debugging-getting-started/#enable-inspector) flag to let users debug the jest/mocha test runner <br />*Default: false* |
 | --help                                        | Show help |
 
 ##### DETOX_ARGV_OVERRIDE
