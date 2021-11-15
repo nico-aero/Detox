@@ -4,7 +4,8 @@ exports.plugins = [
   [
     require('remark-lint-no-dead-urls'),
     {
-      skipUrlPatterns: [/^https:\/\/developer\.android\.com(?:\/.*)?/]
+      gotOptions: { concurrency: 1 },
+      skipUrlPatterns: [/^https:\/\/developer\.android\.com(?:\/.*)?/],
     }
   ]
 ];

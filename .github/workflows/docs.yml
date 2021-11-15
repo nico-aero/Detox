@@ -1,4 +1,4 @@
-name: Docs
+name: Doclint
 
 on:
   push:
@@ -22,7 +22,7 @@ on:
 
 jobs:
   markdownlint:
-    name: markdownlint
+    name: Markdown
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -32,7 +32,7 @@ jobs:
       - uses: bahmutov/npm-install@v1
         with:
           useLockFile: false
-      - name: Lint Phase 1: markdownlint
+      - name: Phase 1: markdownlint
         run: npm run docs:lint
-      - name: Lint Phase 2: remark
+      - name: Phase 2: remark
         run: npm run docs:remark
