@@ -10,7 +10,7 @@ Use [actions](APIRef.ActionsOnElement.md) to simulate use interaction with eleme
 
 - [`by.id()`](#byidid)
 - [`by.label()`](#bylabellabel)
-- [`by.text()`](#bytexttext-discouraged-on-ios)
+- [`by.text()`](#bytexttext)
 - [`by.type()`](#bytypeclassname)
 - [`by.traits()`](#bytraitstraits-ios-only) **iOS Only**
 - [`withAncestor()`](#withancestormatcher)
@@ -55,7 +55,7 @@ element(by.type('android.widget.ImageView')); //Android class canonical name
 
 #### `by.traits([traits])` **iOS Only**
 
-Matches elements by their [accessibility traits](https://developer.apple.com/documentation/uikit/accessibility/uiaccessibility/accessibility_traits).
+Matches elements by their [accessibility traits](https://developer.apple.com/documentation/uikit/uiaccessibilityelement/1619584-accessibilitytraits).
 
 Currently supported values:
 

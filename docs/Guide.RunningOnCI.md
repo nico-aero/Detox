@@ -92,11 +92,11 @@ script:
 
 #### • Running Detox on [Bitrise](https://www.bitrise.io/)
 
-Bitrise is a popular CI service for automating React Native apps. If you are looking to get started with Bitrise, check out [this](http://blog.bitrise.io/2017/07/25/how-to-set-up-a-react-native-app-on-bitrise.html) guide.
+Bitrise is a popular CI service for automating React Native apps. If you are looking to get started with Bitrise, check out [this](https://blog.bitrise.io/post/how-to-set-up-a-react-native-app-on-bitrise) guide.
 
 You can run Detox on Bitrise by creating a new workflow. Below is an example of the Bitrise **.yml** file for a workflow called `tests`.
 
-Additionally, you can use a [webhook](http://devcenter.bitrise.io/webhooks/) on Bitrise to post the build status directly into your Slack channel.
+Additionally, you can use a [webhook](https://devcenter.bitrise.io/en/apps/webhooks/adding-incoming-webhooks.html) on Bitrise to post the build status directly into your Slack channel.
 
 ```yml
 ---

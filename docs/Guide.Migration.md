@@ -293,7 +293,7 @@ See [#1514](https://github.com/wix/Detox/issues/1514).
 
 ### Migrating to 12.7.0 from older (nonbreaking)
 
-**This is only relevant to those running Detox using [`Jest` as the test runner](APIRef.Configuration.md#test-runner-configuration)**!
+**This is only relevant to those running Detox using [`Jest` as the test runner](Guide.Jest.md)**!
 
 In `12.7.0` we've greatly improved our support in Jest - trying to tackle these two caveats which hold developers back from embracing it:
 
@@ -307,7 +307,7 @@ In `12.7.0` we've worked out a configuration scheme that aims at solving these b
 
 ### Migrating from Detox 12.4.x to 12.5.0 (nonbreaking)
 
-Starting Detox `12.5.0`, we ship Android with precompiled sources under a  `.aar` file. The complete configuration process is thoroughly described in the [Android setup guide](Introduction.Android.md#2-add-detox-dependency-to-an-android-project) - but it mostly fits **new** projects. For existing projects, migrating is strongly recommended; Here's the diff:
+Starting Detox `12.5.0`, we ship Android with precompiled sources under a  `.aar` file. The complete configuration process is thoroughly described in the [Android setup guide](Introduction.Android.md) - but it mostly fits **new** projects. For existing projects, migrating is strongly recommended; Here's the diff:
 
 Root `settings.gradle` file:
 
@@ -491,7 +491,7 @@ dependencies {
 
 #### Step 2
 
-Rewrite your `DetoxTest.java` file according to the updated [Android setup guide](Introduction.Android.md#4-create-android-test-class) (step 4).
+Rewrite your `DetoxTest.java` file according to the updated [Android setup guide](Introduction.Android.md#5-create-a-detox-test-class).
 
 ### Migrating from Detox 9.x.x to 10.x.x
 
@@ -554,7 +554,7 @@ dependencies {
 }
 ```
 
-An example for the above changes can be found on [`demo-react-native` project](https://github.com/wix/detox/pull/914/files#diff-a4582798f3b7df5ccd62283b37b5573e)
+An example for the above changes can be found on [`demo-react-native` project](https://github.com/wix/Detox/pull/914/files#diff-a4582798f3b7df5ccd62283b37b5573e)
 
 More details about Espresso dependencies [here](https://developer.android.com/training/testing/espresso/setup)
 
@@ -668,7 +668,7 @@ For more information see [CLI documentation](APIRef.DetoxCLI.md).
 ### Migrating from Detox 4.x.x to 5.x.x
 
 The clearest example for for the 4->5 API changes is the change log of detox's own test suite.
-Check [detox test change log](https://github.com/wix/detox/commit/c636e2281d83d07fe0b479681c1a8a6b809823ff#diff-bf5e338e4f0bb49210688c7691dc8589) for a real life example.
+Check [detox test change log](https://github.com/wix/Detox/commit/c636e2281d83d07fe0b479681c1a8a6b809823ff#diff-bf5e338e4f0bb49210688c7691dc8589) for a real life example.
 
 #### Version 5.x.x breaks detox's API in 4 different places
 

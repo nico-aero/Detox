@@ -15,8 +15,10 @@ Artifacts are disabled by default. To enable them, specify via **launch argument
 * To take `.png` screenshots before and after each test, add `--take-screenshots all` (or `--take-screenshots failing`, if you want to keep only screenshots of failing tests).  
 Alternatively, you might leverage the [device.takeScreenshot()](APIRef.DeviceObjectAPI.md#devicetakescreenshotname) API for manual control.
 
+##### Artifacts root directory
+
 * To change artifacts root directory location (by default it is `./artifacts`), add `--artifacts-location <path>`.  
-**NOTE:** <a id="slash-convention">There</a> is a slightly obscure convention. If you want to create automatically a subdirectory with timestamp and configuration name (to avoid file overwrites upon consequent reruns), specify a path to directory that does not end with a slash. Otherwise, if you want to put artifacts straight to the specified directory (in a case where you make a single run only, e.g. on CI), add a slash (or a backslash) to the end.
+**NOTE:** There is a slightly obscure convention. If you want to create automatically a subdirectory with timestamp and configuration name (to avoid file overwrites upon consequent reruns), specify a path to directory that does not end with a slash. Otherwise, if you want to put artifacts straight to the specified directory (in a case where you make a single run only, e.g. on CI), add a slash (or a backslash) to the end.
 
 ```sh
 detox test --artifacts-location /tmp/detox_artifacts  # will also append /android.emu.release.2018-06-14 08:54:11Z
@@ -45,11 +47,13 @@ The `artifacts` object has the following properties:
 
 | Property    | Example values                  | Default value | Description |
 |-------------|---------------------------------|---------------|-------------|
-| rootDir     | `".artifacts/"`                 | `./artifacts` | A directory, where all the recorded artifacts will be placed in. Please note that there is a trailing slash convention [described above](#slash-convention). |
-| pathBuilder | `"./e2e/config/pathbuilder.js"` | `undefined`   | Path to a module that exports a custom `PathBuilder` [<sup>\[a\]</sup>](#pathBuilder) |
+| rootDir     | `".artifacts/"`                 | `./artifacts` | A directory, where all the recorded artifacts will be placed in. Please note that there is a trailing slash convention [described above](#artifacts-root-directory). |
+| pathBuilder | `"./e2e/config/pathbuilder.js"` | `undefined`   | Path to a module that exports a custom `PathBuilder` [ᵃ](#path-builder) |
 | plugins     | `{ ... }`                       | ... see below | ... see below |
 
-<a id=pathBuilder><sup>a</sup><code>PathBuilder</code></a> should be either an _object_ with a method `buildPathForTestArtifact` or a _class_ &mdash; see the corresponding interfaces below:
+##### Path builder
+
+**ᵃ** PathBuilder</code></a> should be either an _object_ with a method `buildPathForTestArtifact` or a _class_ &mdash; see the corresponding interfaces below:
 
 ```typescript
 interface PathBuilder {

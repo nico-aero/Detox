@@ -150,7 +150,7 @@ FYI Android test project includes two flavors:
 
 - `fromBin` - (**standard use case**) utilizes the precompiled .aar from `node_modules` just like a standard RN project.
 - `fromSource` - compiles the project with RN sources from `node_modules`, this is useful when developing and debugging Espresso idle resource.
-[Here](https://facebook.github.io/react-native/docs/building-from-source.html#android) are the prerequisites to compiling React Native from source.
+[Here](https://github.com/facebook/react-native/wiki/Building-from-source#android) are the prerequisites to compiling React Native from source.
 
 Each build can be triggered separately by running its Gradle assembling task (under `detox/test/android/`):
 

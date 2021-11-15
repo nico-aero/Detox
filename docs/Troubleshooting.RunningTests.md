@@ -13,7 +13,7 @@ For troubleshooting of other issue, refer to our [troubleshooting index](Trouble
 * [Can't Find My Component Even Though I Added a `testID` to Its Props](#cant-find-my-component-even-though-i-added-a-testid-to-its-props)
 * [Test Tries to Find My Component Before It's Created](#test-tries-to-find-my-component-before-its-created)
 * [Can't synchronize the test with my app](#cant-synchronize-the-test-with-my-app)
-* [Unknown option "configuration" (Mocha.js)](#unknown-option-configuration-mocha.js)
+* [Unknown option "configuration" (Mocha.js)](#unknown-option-configuration-mochajs)
 * [An Element is Not Visible](#an-element-is-not-visible)
 * [Debug View Hierarchy](#debug-view-hierarchy)
 * [Compare to a Working Setup](#compare-to-a-working-setup)

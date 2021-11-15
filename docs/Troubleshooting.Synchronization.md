@@ -63,7 +63,7 @@ Then, reproduce your issue, and you should see output similar to the following:
 18:11:41 ⏱ “Network Request” with object: “URL: “http://localhost:9001/delay/3000””
 ```
 
-See [this document](https://github.com/wix/DetoxSync/blob/master/IdleStatusDocumentation.md) for documentation of the synchronization debut output.
+See [this document](https://github.com/wix/DetoxSync/blob/master/StatusDocumentation.md) for documentation of the synchronization debut output.
 
 #### Lower-level Idling Resources Debug (iOS Only)
 

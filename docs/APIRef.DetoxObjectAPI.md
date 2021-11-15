@@ -11,7 +11,7 @@
 - [`detox.afterEach()`](#detoxaftereach)
 - [`detox.cleanup()`](#detoxcleanup)
 - [`detox.traceCall()`](#detoxtracecall)
-- [`detox.trace.startSection(), detox.trace.endSection()`](#detoxtracestartsection,-detoxtraceendsection)
+- [`detox.trace.startSection(), detox.trace.endSection()`](#detoxtracestartsection-detoxtraceendsection)
 
 #### `detox.init()`
 
@@ -75,7 +75,7 @@ Usually, you are not supposed to write own implementation of this call, instead 
 
 #### `detox.afterEach()`
 
-You are expected to call this method only after the test and all its inner `afterEach()`-es complete. Besides passing test title and full name you should pay heed on delivering a valid status field: *failed* or *passed*. If the test has another status (e.g. *skipped*), please comply to the note above in [detox.beforeEach()](#detox.beforeEach) or use one of these two values as a fallback.
+You are expected to call this method only after the test and all its inner `afterEach()`-es complete. Besides passing test title and full name you should pay heed on delivering a valid status field: *failed* or *passed*. If the test has another status (e.g. *skipped*), please comply to the note above in [detox.beforeEach()](#detoxbeforeEach) or use one of these two values as a fallback.
 
 ```typescript
 declare function afterEach(testSummary: {
@@ -85,7 +85,7 @@ declare function afterEach(testSummary: {
 })
 ```
 
-Normally, you are not supposed to write own implementation of this call, as mentioned earlier in the [detox.beforeEach()](#detox.beforeEach) documentation.
+Normally, you are not supposed to write own implementation of this call, as mentioned earlier in the [detox.beforeEach()](#detoxbeforeEach) documentation.
 
 #### `detox.cleanup()`
 

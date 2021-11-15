@@ -224,7 +224,7 @@ await element(by.id('pickerView')).setColumnToValue(1, "6");
 await element(by.id('pickerView')).setColumnToValue(2, "Hello World");
 ```
 
-> **Note:** When working with date pickers, you should always set an explicit locale when launching your app in order to prevent flakiness from different date and time styles. See [here](https://github.com/wix/Detox/blob/master/docs/APIRef.DeviceObjectAPI.md#9-launch-with-a-specific-language-ios-only) for more information.
+> **Note:** When working with date pickers, you should always set an explicit locale when launching your app in order to prevent flakiness from different date and time styles. See [here](APIRef.DeviceObjectAPI.md#9-languageandlocalelaunch-with-a-specific-language-andor-local-ios-only) for more information.
 
 #### `setDatePickerDate(dateString, dateFormat)`  iOS only
 
