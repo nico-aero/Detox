@@ -12,7 +12,7 @@ If you are a maintainer of such a project and you wish to upgrade your Detox dep
 
 #### Migrating Custom Drivers
 
-The core of the change is that Detox' drivers framework is **no longer a single monolith**, responsible for everything platform-specific. Rather, it’s been broken down to these sub-responsibilies:
+The core of the change is that Detox' drivers framework is **no longer a single monolith**, responsible for everything platform-specific. Rather, it’s been broken down to these subresponsibilies:
 
 - Allocation: The process of launching / selecting a device over which the tests would run in the current execution.
 - Validation: Execution environment checkups.
@@ -31,7 +31,7 @@ Everything here will be based on the changes made in the [`detox-puppeteer` exam
 
 - Create a new class, called `PuppeteerDeviceAllocation` (change name to something that would make sense in your project).
 - Move everything currently in `PuppeteerDriver.acquireFreeDevice()` and `.shutdown()` onto `PuppeteerDeviceAllocation.allocate()` and `.free()`, respectively.
-- Create a pojo class called `PuppeteerAllocCookie`. This class should hold anything that would later be required in order to specify the specifically associated device (example: `UDID` for iOS simulators, `adb` names for Android devices).
+- Create a POJO class called `PuppeteerAllocCookie`. This class should hold anything that would later be required in order to specify the specifically associated device (example: `UDID` for iOS simulators, `adb` names for Android devices).
 - Make `.allocate()` return an instance of your cookie class. Puppeteer example: [here](https://github.com/ouihealth/detox-puppeteer/pull/13/files#diff-818f6c5309fffe5c710e542216ffdb55f468fd2f8035feb0b0c917785489aca7R841).
 - **Delete `PuppeteerDriver.acquireFreeDevice()` and `PuppeteerDriver.shutdown()`.**
 
@@ -60,7 +60,7 @@ Add the new class to the `module.exports` list, under the name: `ArtifactPlugins
 **Runtime:**
 
 - Optionally rename your class from `PuppeteerDriver` to `PuppeteerRuntimeDriver`.
-- In the methods remaining in the class accepting the `deviceId` arg: **remove the deviceId arg entirely**. This might break your implementation - Don’t worry, continue reading.
+- In the methods remaining in the class accepting the `deviceId` arg: **remove the `deviceId` arg entirely**. This might break your implementation - Don’t worry, continue reading.
 - If applicable, change the signature of the class' c'tor to accept the cookie as it’s 2nd argument (instance previously allocated in `PuppeteerAllocationDriver.allocate()`). Save data from the cookie as part of the driver’s state, in order to unbreak your implementation, following the previous step.
 - Add two methods: `getExternalId()` and `getDeviceName()`. Implement them such that they would comply with the `device.id` and `device.name` [API contracts](APIRef.DeviceObjectAPI.md), respectively.
 
@@ -68,7 +68,7 @@ Export the runtime driver class in the `module.exports` list as `RuntimeDriverCl
 
 ##### Troubleshooting
 
-For issue related to these migrations, approach us by [submitting an issue on Github](https://github.com/wix/Detox/issues/new/choose). Please apply the `Detox19` label.
+For issue related to these migrations, approach us by [submitting an issue on GitHub](https://github.com/wix/Detox/issues/new/choose). Please apply the `Detox19` label.
 
 ### 18.6.0
 
@@ -84,7 +84,7 @@ If you are seeing issues with the new sync system, please open an issue.
 
 **Breaking:**
 
-- **iOS.** Detox now requires iOS 13.0 and above iOS simulator runtimers, and iOS 12.x and below are no longer supported. This does not require that you drop support for iOS 12.x in your apps, just that tests will no longer work on iOS 12 and below. Please make sure your tests are running on iOS 13 or above
+- **iOS.** Detox now requires iOS 13.0 and above iOS simulator runtimes, and iOS 12.x and below are no longer supported. This does not require that you drop support for iOS 12.x in your apps, just that tests will no longer work on iOS 12 and below. Please make sure your tests are running on iOS 13 or above
 - **JS.** :warning: Detox no longer launches the app automatically (even if asked to do so in configuration) — you have to launch your app explicitly:
 
 ```diff
@@ -124,9 +124,9 @@ Fixes the issue from **17.4.7** (see below) - now the migration guide for **17.4
 
 This release was not meant to be breaking in any sense, but unfortunately there are two minor caveats that leaked in.
 
-#### jest-cli
+#### `jest-cli`
 
-From now on, Detox explicitly depends on `jest-cli` package (marked as a peerDependency), That’s why if you see an error like the one below:
+From now on, Detox explicitly depends on `jest-cli` package (marked as a peer dependency), That’s why if you see an error like the one below:
 
 ```plain text
 Cannot find module 'jest-cli/build/cli/args'
@@ -142,7 +142,7 @@ Cannot find module 'jest-cli/build/cli/args'
 +  "jest-cli": "26.x.x",
 ```
 
-#### detox-cli
+#### `detox-cli`
 
 If you were using `detox-cli` global package, make sure to upgrade it before proceeding to `detox@17.4.7`.
 
@@ -283,9 +283,9 @@ After:
 
 ### 14.0.0
 
-Detox 14.0.0 drops support for iOS 9.x simulators, and thus it also drops support for any API that is deprecated in iOS 10 and above. This includes legacy [remote](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623013-application?language=objc) and [local](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622930-application?language=objc) notifications handling API. These APIs have been deprecated since iOS 10, and we believe We’ve given app developers enough time to use the modern APIs. Make sure you transition to the [UserNotifications framework](https://developer.apple.com/documentation/usernotifications?language=objc) as soon as possible.
+Detox 14.0.0 drops support for iOS 9.x simulators, and thus it also drops support for any API that is deprecated in iOS 10 and above. This includes legacy [remote](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623013-application?language=objc) and [local](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622930-application?language=objc) notifications handling API. These APIs have been deprecated since iOS 10, and we believe We’ve given app developers enough time to use the modern APIs. Make sure you transition to the [`UserNotifications` framework](https://developer.apple.com/documentation/usernotifications?language=objc) as soon as possible.
 
-**Please note that for React Native apps, [PushNotificationIOS (`RCTPushNotificationManager`)](https://facebook.github.io/react-native/docs/pushnotificationios) is severely outdated and does not support these modern APIs.** It is recommended to transition to a more modern solution. While it is sad that such an important app feature is let to stagnate so much by Facebook, it cannot be the concern of Detox. It is up to RN users to keep their apps up to date with the latest Apple APIs.
+**Please note that for React Native apps, [`PushNotificationIOS` (`RCTPushNotificationManager`)](https://facebook.github.io/react-native/docs/pushnotificationios) is severely outdated and does not support these modern APIs.** It is recommended to transition to a more modern solution. While it is sad that such an important app feature is let to stagnate so much by Facebook, it cannot be the concern of Detox. It is up to RN users to keep their apps up to date with the latest Apple APIs.
 
 Our [own React Native notifications solution](https://github.com/wix/react-native-notifications) supports these modern APIs.
 
@@ -316,7 +316,7 @@ Root `settings.gradle` file:
 -project(':detox').projectDir = new File(rootProject.projectDir, '../node_modules/detox/android/detox')
 ```
 
-Root buildscript (i.e. `build.gradle`):
+Root `buildscript` (i.e. `build.gradle`):
 
 ```diff
 allprojects {
@@ -329,7 +329,7 @@ allprojects {
  }
 ```
 
-App buildscript (i.e. `app/build.gradle`):
+App `buildscript` (i.e. `app/build.gradle`):
 
 ```diff
  dependencies {
@@ -338,9 +338,9 @@ App buildscript (i.e. `app/build.gradle`):
  }
 ```
 
-#### Proguard Configuration
+#### ProGuard Configuration
 
-If you have Detox Proguard rules integrated into the `app/build.gradle`, be sure to switch to an explicit search path:
+If you have Detox ProGuard rules integrated into the `app/build.gradle`, be sure to switch to an explicit search path:
 
 ```diff
      buildTypes {
@@ -358,7 +358,7 @@ If you have Detox Proguard rules integrated into the `app/build.gradle`, be sure
 
 The deprecation of `"specs"` (in `package.json`) introduced in 12.1.0 is **no longer relevant**.
 It is valid now, like it was before, but from now on the semantics has been slightly changed -
-it acts as a fallback for the default root for your Detox e2e specs, in cases when
+it acts as a fallback for the default root for your Detox E2E specs, in cases when
 you Don’t specify it explicitly, e.g.:
 
 ```sh
@@ -495,7 +495,7 @@ Rewrite your `DetoxTest.java` file according to the updated [Android setup guide
 
 ### Migrating from Detox 9.x.x to 10.x.x
 
-If your project does not already use Kotlin, add the Kotlin Gradle-plugin to your classpath in `android/build.gradle`:
+If your project does not already use Kotlin, add the Kotlin Gradle-plugin to your `classpath` in `android/build.gradle`:
 
 ```groovy
 buildscript {
@@ -511,7 +511,7 @@ buildscript {
 
 _Note: most guides advise of defining a global `kotlinVersion` constant - as in this example, but that is not mandatory._
 
-**IMPORTANT:** Detox aims at a playing fair with your app, and so it allows you to explicitly define the kotlin version for it to use - so as to align it with your own; Please do so - in your root `android/build.gradle` configuration file:
+**IMPORTANT:** Detox aims at a playing fair with your app, and so it allows you to explicitly define the Kotlin version for it to use - so as to align it with your own; Please do so - in your root `android/build.gradle` configuration file:
 
 ```groovy
 buildscript {
@@ -674,9 +674,9 @@ Check [detox test change log](https://github.com/wix/Detox/commit/c636e2281d83d0
 
 ##### 1. Promise based flow
 
-All of the API calls are now promise based, and must use either promise chains or async-await.
+All of the API calls are now promise based, and must use either promise chains or `async`-`await`.
 
-Here’s an example of async call to tap an element
+Here’s an example of an async call to tap an element:
 
 ```js
 // <=4.x.x
@@ -801,7 +801,7 @@ The new configuration holds a dictionary of `configurations`.
   }
 ```
 
-##### 3.1 Start using detox-cli
+##### 3.1 Start using `detox-cli`
 
 You will now be able to run builds and tests from your command line `detox build` and `detox test`, read more about CLI tools [here](https://github.com/wix/Detox/blob/7323ad98f576a10404b24feba662d064cda9cc30/docs/APIRef.DetoxCLI.md)
 

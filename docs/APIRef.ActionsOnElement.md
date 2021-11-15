@@ -54,7 +54,7 @@ await element(by.id('tappable')).multiTap(3);
 
 Simulates a long press on the element at its activation point.
 
-`duration` (iOS only) — press during time, in milliseconds. Optional (default is 1000ms).
+`duration` (iOS only) — press during time, in milliseconds. Optional (default is 1000 ms).
 
 ```js
 await element(by.id('tappable')).longPress();
@@ -113,7 +113,7 @@ await element(by.id('PinchableScrollView')).pinch(0.001); //Zooms out a lot
 
 #### `scrollToIndex(index)`  Android only
 
-Scrolls until it reaches the element with the provided index. This works for ReactScrollView and ReactHorizontalScrollView.
+Scrolls until it reaches the element with the provided index. This works for `ReactScrollView` and `ReactHorizontalScrollView`.
 
 `index`—the index of the target element <br/>
 
@@ -257,7 +257,7 @@ Returns an object, representing various attributes of the element.
 Retrieved attributes are:
 
 - `text`: The text value of any textual element.
-- `label`: The label of the element. Matches `accessibilityLabel` for ios, and `contentDescription` for android.
+- `label`: The label of the element. Matches `accessibilityLabel` for iOS, and `contentDescription` for android.
 - `placeholder`: The placeholder text value of the element. Matches `hint` on android.
 - `enabled`: Whether or not the element is enabled for user interaction.
 - `identifier`: The identifier of the element. Matches `accessibilityIdentifier` on iOS, and the main view tag, on Android - both commonly **holding the component’s test ID in React Native apps**.

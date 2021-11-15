@@ -13,7 +13,7 @@ In essence, Detox scans for the configuration to use, through multiple files. It
 1. `detox.config.json`
 1. `package.json` (`"detox"` section)
 
-Options 1-5 allow for a standalone Detox configuration in either a `json` format or using Javascript syntax.
+Options 1-5 allow for a standalone Detox configuration in either a `json` format or using JavaScript syntax.
 Option 6 means the configuration is available in `json` format inside the project’s `package.json`, which is more suitable if you like having all of your project’s configurations in one place.
 
 Please find the [Detox example app](/examples/demo-react-native/detox.config.js) as a working reference. Also, look at
@@ -484,7 +484,7 @@ You can choose to build your project in any of these ways...
   detox build --configuration yourConfiguration
   ```
 
-* Building with xcodebuild:
+* Building with `xcodebuild`:
 
   ```sh
   xcodebuild -project ios/YourProject.xcodeproj -scheme YourProject -sdk iphonesimulator -derivedDataPath ios/build
@@ -517,11 +517,11 @@ where `./e2e` is the path to your Detox tests folder.
 #### Faster Test Runs with App Reuse
 
 By default the app is removed, reinstalled and launched before each run.
-Starting fresh is critical in CI but in dev you might be able to save time between test runs and reuse the app that was previously installed in the simulator. To do so use the `reuse` flag and run your tests like this:
+Starting fresh is critical in CI but during the development you might be able to save time between test runs and reuse the app that was previously installed in the simulator. To do so use the `reuse` flag and run your tests like this:
 
 ```sh
 detox test ./e2e --reuse
 ```
 
-This is especially useful with React Native dev mode when making Javascript code changes that are getting picked up by the packager (and thus no reinstall is needed). This can save up to 7 seconds per run!
+This is especially useful with React Native development mode when making JavaScript code changes that are getting picked up by the packager (and thus no reinstall is needed). This can save up to 7 seconds per run!
 You should not use this option if you made native code changes or if your app relies on local ("disk") storage.

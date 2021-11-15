@@ -12,10 +12,10 @@ exports.plugins = [
       .use(require('retext-english'))
       .use(require('retext-syntax-mentions'))
       .use(require('retext-syntax-urls'))
-      // .use(require('retext-spell'), {
-      //   dictionary: require('dictionary-en'),
-      //   personal: require('fs').readFileSync('.retext-spell.dic'),
-      // })
+      .use(require('retext-spell'), {
+        dictionary: require('dictionary-en'),
+        personal: require('fs').readFileSync('.retext-spell.dic'),
+      })
       .use(require('retext-contractions'))
       .use(require('retext-diacritics'))
       .use(require('retext-indefinite-article'))

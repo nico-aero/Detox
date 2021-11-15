@@ -9,13 +9,13 @@
 
 * **In version 11 we switched to using Android Espresso of Android’s new [androidx.\*  support libraries](https://developer.android.com/jetpack/androidx/).** We did this in order to stay up to date with Google’s latest features and bug fixes, in the hopes of using them to improve our own Android support (which gets better every day!).
 
-* **In version 10, We’ve made [Kotlin](https://kotlinlang.org/) mandatory for integrating Detox into your Android project.** In the very least, you must include the Kotlin gradle plugin in your project, as we shall see later on. Nevertheless, this is a breaking change so bear that in mind when upgrading. In any case, worry not of the impact on your app, as - unless you effectively use Kotlin in your own native code, **there will be no impact on the final APK**, in terms of size and methods count.
+* **In version 10, We’ve made [Kotlin](https://kotlinlang.org/) mandatory for integrating Detox into your Android project.** In the very least, you must include the Kotlin Gradle plugin in your project, as we shall see later on. Nevertheless, this is a breaking change so bear that in mind when upgrading. In any case, worry not of the impact on your app, as - unless you effectively use Kotlin in your own native code, **there will be no impact on the final APK**, in terms of size and methods count.
 
-* **As of version 7** we require Android gradle plugin 3.0.0 or newer. This is a breaking change that makes it impossible to support previous Android gradle plugin versions.
+* **As of version 7** we require Android Gradle plugin 3.0.0 or newer. This is a breaking change that makes it impossible to support previous Android Gradle plugin versions.
 
   <https://developer.android.com/studio/build/gradle-plugin-3-0-0-migration.html>
 
-  For older Android gradle plugin support use `detox@6.x.x` instead ([previous setup guide here](https://github.com/wix/detox/blob/97654071573053def90e8207be8eba011408f977/docs/Introduction.Android.md)).
+  For older Android Gradle plugin support use `detox@6.x.x` instead ([previous setup guide here](https://github.com/wix/detox/blob/97654071573053def90e8207be8eba011408f977/docs/Introduction.Android.md)).
 
 **Note: As a rule of thumb, we consider all old major versions discontinued; We only support the latest Detox major version.**
 
@@ -66,7 +66,7 @@ Whether you’ve selected to apply the configuration in a  `.detoxrc.json` or bu
 
 >For a comprehensive explanation of Detox configuration, refer to the [dedicated API-reference guide](APIRef.Configuration.md).
 
-Pay attention to `-DtestBuildType`, set either to `debug` or `release` according to the main apk type.
+Pay attention to `-DtestBuildType`, set either to `debug` or `release` according to the main APK type.
 
 Following device types could be used to control Android devices:
 
@@ -78,9 +78,9 @@ Following device types could be used to control Android devices:
 
 For a complete, working example, refer to the [Detox example app](/examples/demo-react-native/detox.config.js).
 
-##### 2a. Using product flavors
+##### Using product flavors
 
-If you are using custom [productFlavors](https://developer.android.com/studio/build/build-variants#product-flavors) the config needs to be applied a bit differently. This example shows how a `beta` product flavor would look for both debug and release build types:
+If you are using custom [`productFlavors`](https://developer.android.com/studio/build/build-variants#product-flavors) the config needs to be applied a bit differently. This example shows how a `beta` product flavor would look for both debug and release build types:
 
 ```json
 "detox" : {
@@ -122,7 +122,7 @@ If you are using custom [productFlavors](https://developer.android.com/studio/bu
 > **Starting Detox 12.5.0, Detox is shipped as a precompiled `.aar`.**
 > To configure Detox as a _compiling dependency_, nevertheless -- refer to the _Setting Detox up as a compiling dependency_ section at the bottom.
 
-In your *root* buildscript (i.e. `android/build.gradle`), register both `google()` _and_ detox as repository lookup points in all projects:
+In your *root* `buildscript` (i.e. `android/build.gradle`), register both `google()` _and_ detox as repository lookup points in all projects:
 
 ```groovy
 // Note: add the 'allproject' section if it doesn’t exist
@@ -138,7 +138,7 @@ allprojects {
 }
 ```
 
-In your app’s buildscript (i.e. `android/app/build.gradle`) add this in `dependencies` section:
+In your app’s `buildscript` (i.e. `android/app/build.gradle`) add this in `dependencies` section:
 
 ```groovy
 dependencies {
@@ -165,7 +165,7 @@ Please be aware that the `minSdkVersion` needs to be at least 18.
 
 #### 4. Add Kotlin
 
-If your project does not already support Kotlin, add the Kotlin Gradle-plugin to your classpath in the root build-script (i.e.`android/build.gradle`):
+If your project does not already support Kotlin, add the Kotlin Gradle-plugin to your `classpath` in the root build-script (i.e.`android/build.gradle`):
 
 ```groovy
 buildscript {
@@ -191,7 +191,7 @@ Detox requires a dummy implementation of a single Android-native test.
 
 #### 6. Enable clear-text (unencrypted) traffic for Detox
 
-Starting Android SDK v28, Google have disabled all clear-text network traffic by default. Namely, unless explicitly configured, all of your application’s outgoing unencrypted traffic (i.e. non-TLS using HTTP rather than HTTPS) is blocked by the device.
+Starting from Android SDK API level 28, Google have disabled all clear-text network traffic by default. Namely, unless explicitly configured, all of your application’s outgoing unencrypted traffic (i.e. non-TLS using HTTP rather than HTTPS) is blocked by the device.
 
 For Detox to work, Detox test code running on the device must connect to the test-running host through it’s virtual localhost interface<sup>(*)</sup> using simple HTTP traffic. Therefore, the following network-security exemption configuration must be applied --
 
@@ -226,9 +226,9 @@ For full details, refer to [Android’s security-config guide](https://developer
 
 > *(\*) 10.0.2.2 for Google emulators, 10.0.3.2 for Genymotion emulators.*
 
-#### 7. Proguard (Minification, Obfuscation)
+#### 7. ProGuard (Minification, Obfuscation)
 
-In apps running [minification using Proguard](https://developer.android.com/studio/build/shrink-code), in order for Detox to work well on release builds, please enable some Detox proguard-configuration rules by applying the custom configuration file on top of your own. Typically, this is defined using the `proguardFiles` statement in the minification-enabled build-type in your `app/build.gradle`:
+In apps running [minification using ProGuard](https://developer.android.com/studio/build/shrink-code), in order for Detox to work well on release builds, please enable some Detox ProGuard configuration rules by applying the custom configuration file on top of your own. Typically, this is defined using the `proguardFiles` statement in the minification-enabled build-type in your `app/build.gradle`:
 
 ```groovy
     buildTypes {
@@ -268,10 +268,10 @@ Here we utilize Gradle’s `initWith` to easily define `releaseE2E` in a way tha
 
 Following the example, you would then have to build your app using `gradlew assembleReleaseE2E` rather than `gradlew assembleRelease` before running Detox, and instruct Detox (i.e. via `binaryPath` in the Detox configuration file) to use the APK resulted specifically by *that* Gradle target (e.g. in `app/build/apk/releaseE2E/app-releaseE2E.apk` instead of the equivalent `app/build/apk/release/app-release.apk`).
 
-> Note: if you app contains flavours -- that makes things a bit trickier, but the approach can generally be adjusted to support that as well.
+> Note: if you app contains flavors -- that makes things a bit trickier, but the approach can generally be adjusted to support that as well.
 
-**Last but not least:** If you’re having issue with Detox' Proguard rules, please report them [here](https://github.com/wix/Detox/issues/new/choose).
-A special thanks to [GEllickson-Hover](https://github.com/GEllickson-Hover) for reporting issues related to obfuscation in [#2431](https://github.com/wix/Detox/issues/2431).
+**Last but not least:** If you’re having issue with Detox' ProGuard rules, please report them [here](https://github.com/wix/Detox/issues/new/choose).
+A special thanks to [@GEllickson-Hover](https://github.com/GEllickson-Hover) for reporting issues related to obfuscation in [#2431](https://github.com/wix/Detox/issues/2431).
 
 #### 8. Test Butler Support (Optional)
 
@@ -333,7 +333,7 @@ include ':detox'
 project(':detox').projectDir = new File(rootProject.projectDir, '../node_modules/detox/android/detox')
 ```
 
-In your *root* buildscript (i.e. `android/build.gradle`), register `google()` as a repository lookup point in all projects:
+In your *root* `buildscript` (i.e. `android/build.gradle`), register `google()` as a repository lookup point in all projects:
 
 ```groovy
 // Note: add the 'allproject' section if it doesn’t exist
@@ -345,7 +345,7 @@ allprojects {
 }
 ```
 
-In your app’s buildscript (i.e. `android/app/build.gradle`) add this in `dependencies` section:
+In your app’s `buildscript` (i.e. `android/app/build.gradle`) add this in `dependencies` section:
 
 ```groovy
 dependencies {
@@ -354,7 +354,7 @@ dependencies {
 }
 ```
 
-In your app’s buildscript (i.e. `android/app/build.gradle`) add this to the `defaultConfig` subsection:
+In your app’s `buildscript` (i.e. `android/app/build.gradle`) add this to the `defaultConfig` subsection:
 
 ```groovy
 android {

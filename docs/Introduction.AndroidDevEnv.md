@@ -27,7 +27,7 @@ Namely, that the version is `1.8.x_abc`.
 
 > Note: Do not be confused by the Java version potentially used by your browsers, etc. For `Detox`, what the command-line sees is what matters.
 
-On MacOS, in particular, java comes from both the OS _and_ possibly other installers such as `homebrew`, so you are more likely to go into a mess: see [this Stackoverflow post](https://stackoverflow.com/questions/24342886/how-to-install-java-8-on-mac).
+On MacOS, in particular, java comes from both the OS _and_ possibly other installers such as `homebrew`, so you are more likely to go into a mess: see [this Stack Overflow post](https://stackoverflow.com/questions/24342886/how-to-install-java-8-on-mac).
 
 ---
 
@@ -110,7 +110,7 @@ At this point, you should be able to launch the emulator from Android Studio, bu
 
 We won’t go into all the details but once the proper image is installed using the `sdkmanager`, the option becomes available in the AVD creation dialog  (see `Target` column of the Virtual Device Configuration screen below):
 
-![Sdk manager in AS](img/android/aosp-image-as.png)
+![SDK manager in AS](img/android/aosp-image-as.png)
 
 ![Install AOSP in AS](img/android/install-aosp-as.png)
 
@@ -146,8 +146,8 @@ Do this again after the emulator is back up, but set `No` in the `auto-save` opt
 
 You can also try these as alternative sources for this:
 
-* [Snapshots in Google devs page](https://developer.android.com/studio/run/emulator#snapshots) for full details on snapshots.
-* [Highly detailed blogpost](https://devblogs.microsoft.com/xamarin/android-emulator-quick-boot/)
+* [Snapshots in Google Developers page](https://developer.android.com/studio/run/emulator#snapshots) for full details on snapshots.
+* [Highly detailed blog post](https://devblogs.microsoft.com/xamarin/android-emulator-quick-boot/)
 
 ### Setting up a quick-boot snapshot from command-line
 

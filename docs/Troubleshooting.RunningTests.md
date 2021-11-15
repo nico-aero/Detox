@@ -1,6 +1,6 @@
 ## Dealing With Problems With Running Tests
 
-This page is about issues related to executing your Detox tests, typically triggerred when running `detox test` (and not `detox build`, for example).
+This page is about issues related to executing your Detox tests, typically triggered when running `detox test` (and not `detox build`, for example).
 
 For troubleshooting of other issue, refer to our [troubleshooting index](Troubleshooting.md).
 
@@ -34,7 +34,7 @@ See [here](https://github.com/wix/detox/blob/master/docs/Troubleshooting.Synchro
 
 #### No simulators found (iOS)
 
-In order to run tests on a simulator, you need to have simulator images installed on your machine. This process is performed by Xcode itself. You can list all available simulators using simctl by typing `xcrun simctl list` in terminal.
+In order to run tests on a simulator, you need to have simulator images installed on your machine. This process is performed by Xcode itself. You can list all available simulators using `simctl` by typing `xcrun simctl list` in terminal.
 
 If you’re missing a simulator, make sure Xcode is installed and use it to download the simulator. Take a look at the Preferences screen, some screenshots can be seen [here](http://stackoverflow.com/questions/33738113/how-to-install-ios-9-1-simulator-in-xcode-version-7-1-1-7b1005).
 
@@ -189,7 +189,7 @@ After you upgrade, you can configure the default path to your end-to-end tests f
  }
 ```
 
-Please mind that if your e2e tests are located at the default path (`e2e`), then you Don’t need to add `"specs"` property explicitly to `package.json`.
+Please mind that if your E2E tests are located at the default path (`e2e`), then you Don’t need to add `"specs"` property explicitly to `package.json`.
 
 #### An Element is Not Visible
 

@@ -89,7 +89,7 @@ A typical Detox configuration in `.detoxrc.json` file looks like:
 }
 ```
 
-##### e2e/config.json
+##### `e2e/config.json`
 
 | Property               | Value                                          | Description                                                  |
 | ---------------------- | ---------------------------------------------- | ------------------------------------------------------------ |
@@ -112,7 +112,7 @@ A typical `jest-circus` configuration in `e2e/config.json` file would look like:
 }
 ```
 
-##### e2e/environment.js
+##### `e2e/environment.js`
 
 If you are not familiar with Environment concept in Jest, you could check [their documentation](https://jestjs.io/docs/en/configuration#testenvironment-string).
 

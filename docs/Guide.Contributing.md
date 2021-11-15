@@ -29,7 +29,7 @@ brew install node
 Either install `npm` or check that you have it installed, using their [official guide](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 > **NOTE: For Detox, please use the latest `npm` version `6.x.x` (i.e not version 7.0.0 or newer).**
 
-#### Install the monorepo dev manager, `lerna`
+#### Install the monorepo management tool, `lerna`
 
 ```sh
 npm install -g lerna@3.x.x
@@ -53,7 +53,7 @@ brew install watchman
 
 #### iOS
 
-For iOS, you must install Xcode and related tools. Refer to our [iOS dev-env guide](Introduction.iOSDevEnv.md).
+For iOS, you must install Xcode and related tools. Refer to our [Setting Up an iOS Environment](Introduction.iOSDevEnv.md) guide.
 
 You must also have `xcpretty` installed:
 
@@ -63,7 +63,7 @@ gem install xcpretty
 
 #### Android
 
-For Android, you need to have Java and the Android SDK properly set up. Refer to our [Android dev-env guide](Introduction.AndroidDevEnv.md).
+For Android, you need to have Java and the Android SDK properly set up. Refer to our [Setting Up an Android Development & Testing Environment](Introduction.AndroidDevEnv.md) guide.
 
 ### Detox
 
@@ -93,9 +93,9 @@ lerna bootstrap
 
 The following steps can be run manually in order to build / test the various components of Detox.
 
-###### 0. (React Native ≤ v55) Fixing Compilation Issues in RN Sources
+###### 0. (React Native ≤ 0.55.x) Fixing Compilation Issues in RN Sources
 
-Detox Android test project uses React Native sources instead of the precompiled AAR. The test project uses RN51 and RN53, both have issues with compilation ([Fixed in RN55](https://github.com/facebook/react-native/commit/d8bb990abc226e778e2f32c2de3c6661c0aa64e5#diff-f44163238d434a443b56bd27b3ba0578)). In order to fix this issue, from inside `detox/test` run:
+Detox Android test project uses React Native sources instead of the precompiled AAR. The test project uses React Native 0.51 and 0.53, both have issues with compilation ([fixed in 0.55](https://github.com/facebook/react-native/commit/d8bb990abc226e778e2f32c2de3c6661c0aa64e5#diff-f44163238d434a443b56bd27b3ba0578)). In order to fix this issue, from inside `detox/test` run:
 
 ```sh
 mv node_modules/react-native/ReactAndroid/release.gradle node_modules/react-native/ReactAndroid/release.gradle.bak
@@ -148,7 +148,7 @@ To run the tests, you must first build the native code and then run based on you
 
 FYI Android test project includes two flavors:
 
-- `fromBin` - (**standard use case**) utilizes the precompiled .aar from `node_modules` just like a standard RN project.
+- `fromBin` - (**standard use case**) utilizes the precompiled `.aar` from `node_modules` just like a standard RN project.
 - `fromSource` - compiles the project with RN sources from `node_modules`, this is useful when developing and debugging Espresso idle resource.
 [Here](https://github.com/facebook/react-native/wiki/Building-from-source#android) are the prerequisites to compiling React Native from source.
 

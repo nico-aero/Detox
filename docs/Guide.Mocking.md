@@ -23,9 +23,9 @@ This replacement mechanism provides a lot of flexibility to change implementatio
 #### Configuration
 
 0. For RN < 0.55, setup `react-native-repackager` in your library.
-1. Configure the metro bundler to use the extensions defined by `RN_SRC_EXT`:
+1. Configure the Metro bundler to use the extensions defined by `RN_SRC_EXT`:
    * If you use 0.55 <= RN < 0.59, create a file called `rn-cli.config.js` in the root folder.
-   * If you use RN >= 0.59 (which in turn uses Metro with breaking changes introduced in [0.43](https://github.com/facebook/metro/releases/tag/v0.43.0)) the file should be named `metro.config.js` or `metro.config.json` (or define metro field in `package.json`) to root dir.
+   * If you use RN >= 0.59 (which in turn uses Metro with breaking changes introduced in [0.43](https://github.com/facebook/metro/releases/tag/v0.43.0)) the file should be named `metro.config.js` or `metro.config.json` (or define metro field in `package.json`) to the root directory.
 
    Then set up `resolver.sourceExts` to prioritize any given source extension over the default one:
 
@@ -88,4 +88,4 @@ If you want to mock a module, here is an example of how to do it:
      ```
 
 1. Run Metro using the information in [Triggering](#Triggering)
-1. On your simulator, enable debug mode and you should see "We are now using our mocked NativeModule"
+1. On your simulator, enable debug mode and you should see "We are now using our mocked `NativeModule`"

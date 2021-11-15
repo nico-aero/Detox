@@ -20,7 +20,7 @@ detox <command> [options]
 
 | Command | Description |
 | --- | --- |
-| [init](#init)              | Create initial e2e tests folder for jest or mocha |
+| [init](#init)              | Create initial E2E tests folder for jest or mocha |
 | [build](#build)            | **Convenience method.** Run the command defined in 'build' property of the specified configuration. |
 | [test](#test)              | Initiating your test suite |
 | [run-server](#run-server)  | Starts a standalone detox server |
@@ -97,7 +97,7 @@ Initiating your test suite[^1].
 | --inspect-brk | Uses [node’s --inspect-brk](https://nodejs.org/en/docs/guides/debugging-getting-started/#enable-inspector) flag to let users debug the jest/mocha test runner <br />*Default: false* |
 | --help                                        | Show help |
 
-##### DETOX_ARGV_OVERRIDE
+##### `DETOX_ARGV_OVERRIDE`
 
 If you happen to be troubleshooting Detox tests inside a complex script, or a failing CI build
 (e.g., on TeamCity or Jenkins), there is an escape-hatch feature for running Detox with
@@ -137,7 +137,7 @@ Hence, **extra arguments to** `detox test` **will be forwarded to your test runn
 path a subdirectory with configuration name and timestamp (e.g. `artifacts/android.emu.release.2018-06-12 05:52:43Z`).
 In other words, the path with a slash at the end assumes you do not want a subdirectory inside.
 For more details, please check the [Enabling artifacts](APIRef.Artifacts.md#artifacts).
-The default value is **artifacts** (plus a subdir).
+The default value is **artifacts** (plus a subdirectory).
 
 #### run-server
 

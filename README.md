@@ -49,7 +49,7 @@ The most difficult part of automated testing on mobile is the tip of the testing
 * **Automatically Synchronized:** Stops flakiness at the core by monitoring asynchronous operations in your app.
 * **Made For CI:** Execute your E2E tests on CI platforms like Travis without grief.
 * **Test Runner Independent:** Use Jest, Mocha, AVA, or any other JavaScript test runner you like (spoiler: we have our favorite).
-* **Debuggable:** Modern async-await API allows breakpoints in asynchronous tests to work as expected.
+* **Debuggable:** Modern `async`-`await` API allows breakpoints in asynchronous tests to work as expected.
 
 ## Supported Versions
 

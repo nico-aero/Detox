@@ -36,7 +36,7 @@ The location of `DETOX_LIBRARY_ROOT_PATH` may vary depending on the operating sy
   * `~/Library/Detox`.
 * Linux:
   * `$XDG_DATA_HOME/Detox`, if `$XDG_DATA_HOME` is defined;
-  * `~/.local/share/Detox`, elsewise.
+  * `~/.local/share/Detox`, otherwise.
 * Windows:
   * `%LOCALAPPDATA%\data\Detox`, if `%LOCALAPPDATA%` is defined;
   * `%USERPROFILE%\Application Data\Detox`, otherwise.

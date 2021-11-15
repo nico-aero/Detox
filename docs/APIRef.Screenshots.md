@@ -10,7 +10,7 @@ Screenshots can be taken in two levels:
 In both cases, the concept is mainly useful for verifying the proper visual structure and layout of elements appearing on the device’s screen, in the form of a snapshot-test. Namely, by following these conceptual steps:
 
 1. Taking a screenshot, once, and manually verifying it, visually.
-2. Storing it as an e2e-test asset (i.e. the _snapshot_).
+2. Storing it as an E2E test asset (i.e. the _snapshot_).
 3. Using it as the point-of-reference for comparison against screenshots taken in consequent tests, from that point on.
 
 ```js
@@ -34,7 +34,7 @@ function expectBitmapsToBeEqual(imagePath, expectedImagePath) {
 }
 ```
 
-**Important:** The recommended, more practical way of doing this, is by utilizing more advanced 3rd-party image snapshotting & comparison tools such as [applitools](https://applitools.com).
+**Important:** The recommended, more practical way of doing this, is by utilizing more advanced 3rd-party image snapshotting & comparison tools such as [Applitools](https://applitools.com).
 
 ### Device-level Screenshots
 

@@ -34,7 +34,7 @@ This package makes it easier to operate Detox from the command line. `detox-cli`
 npm install -g detox-cli
 ```
 
-### Install Platform-specific Dependencies, Tools and Dev-kits
+### Install Platform-specific Dependencies, Tools and SDKs
 
 Depending on the platform/s you’re aiming at (iOS, Android), take the time to run through these environment setup guides:
 
@@ -72,7 +72,7 @@ npm install detox --save-dev --no-package-lock
 
 ### Set Up a Test Runner
 
-Detox delegates the actual Javascript test-code execution to a dedicated test-runner. It supports the popular `Jest` and `Mocha` out of the box. You need to choose and set up one of them now, but it *is* possible to switch later on, should you change your mind.
+Detox delegates the actual JavaScript test-code execution to a dedicated test-runner. It supports the popular `Jest` and `Mocha` out of the box. You need to choose and set up one of them now, but it *is* possible to switch later on, should you change your mind.
 
 - **[Jest](https://jestjs.io/) is the recommended test runner for use with Detox**, since it provides parallel test execution and a complete lifecycle integration with Detox. To set up, follow [our comprehensive guide for Jest](Guide.Jest.md).
 - [Mocha](https://mochajs.org/), albeit its integration is less complete, is still lightweight, and a bit easier to set up. To set up, follow [our guide for Mocha](Guide.Mocha.md).

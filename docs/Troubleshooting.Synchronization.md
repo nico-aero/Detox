@@ -12,11 +12,11 @@ When this works it’s like magic. You simply execute actions one after the othe
 
 * **Network requests** - Detox monitors in-flight requests over the network.
 
-* **Main thread (native)** - Detox monitors pending native operations on the main thread (main dispatch queue and main NSOperationQueue).
+* **Main thread (native)** - Detox monitors pending native operations on the main thread (main dispatch queue and main `NSOperationQueue`).
 
 * **Layout of UI** - Detox monitors UI layout operations. There’s also special support for React Native layout which includes the Shadow Queue where [yoga](https://github.com/facebook/yoga) runs.
 
-* **Timers** - Detox monitors timers (explicit asynchronous delays). There’s special support for JavaScript timers like setTimeout and setInterval.
+* **Timers** - Detox monitors timers (explicit asynchronous delays). There’s special support for JavaScript timers like `setTimeout` and `setInterval`.
 
 * **Animations** - Detox monitors active animations and transitions. There’s special support for React Native animations with the Animated library.
 
@@ -141,7 +141,7 @@ This makes sense only if we’re not waiting enough (or if We’ve disabled auto
 
 ### Tweaking and fine-tuning the synchronization mechanisms
 
-> This isn’t exposed yet, TBD
+> This isn’t exposed yet, to be done...
 
 ### Modifying your app to avoid waiting too much
 
@@ -149,7 +149,7 @@ When facing a synchronization issue and tweaking doesn’t help, consider modify
 
 You can also modify your app, for the sake of tests only, by using mocking. Read more [here](https://github.com/wix/Detox/blob/master/docs/Guide.Mocking.md).
 
-#### setTimeout and setInterval
+#### `setTimeout` and `setInterval`
 
 By default, Detox is designed to ignore `setInterval` and will only wait for `setTimeout` of up to 1.5 seconds. If you have an endless polling loop with short intervals implemented with `setTimeout`, switch the implementation to `setInterval`. If possible, avoid aggressive polling in your app altogether, the poor single JavaScript thread we have doesn’t like it.
 

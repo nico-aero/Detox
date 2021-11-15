@@ -66,12 +66,12 @@ In order to introduce a third-party Driver, there is a set of core classes you m
 * Allocation: The process of launching / selecting a device over which the tests would run.
 * Pre-validation: The checkup of the execution-environment (e.g. verifying the Android SDK is installed).
 * Artifact handlers registration: The process where platform-based artifacts generation handlers are registered (e.g. handlers for taking screenshots, which are different between the Android and iOS platforms).
-* Runtime: The de-facto execution of test logic.
+* Runtime: The _de facto_ execution of test logic.
 * Matchers: The matching of visible elements and visibility assertion.
 
 To understand the exact contract of these classes, refer to [`examples/demo-plugin/driver.js`](https://github.com/wix/Detox/blob/master/examples/demo-plugin/driver.js) for a dummy implementation, or to [detox-puppeteer](https://github.com/ouihealth/detox-puppeteer) for an actual implementation of such as driver.
 
-Very roughtly speaking, this is the expected skeletal implementation:
+Very roughly speaking, this is the expected skeletal implementation:
 
 ```js
 const DeviceDriverBase = require('detox/src/devices/runtime/drivers/DeviceDriverBase');

@@ -32,5 +32,7 @@ jobs:
       - uses: bahmutov/npm-install@v1
         with:
           useLockFile: false
-      - name: markdownlint
+      - name: Lint Phase 1: markdownlint
         run: npm run docs:lint
+      - name: Lint Phase 2: remark
+        run: npm run docs:remark

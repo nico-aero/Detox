@@ -10,7 +10,7 @@ Before you go anywhere further, follow the
 [Setting Detox up as a compiling dependency](Introduction.Android.md#setting-detox-up-as-a-compiling-dependency)
 section from the **Detox for Android** document.
 
-### Add "manual" device configurations to your .detoxrc
+### Add "manual" device configurations to your `.detoxrc`
 
 Locate your `.detoxrc` config file or the corresponding `detox` section in your `package.json`
 and add a configuration similar to this one:
@@ -108,7 +108,7 @@ detoxSessionId | test
 Press any key to continue...
 ```
 
-Now it is time to switch back to Android Studio. However, if for some reason you wish to terminate the process, use Ctrl+C to exit.
+Now it is time to switch back to Android Studio. However, if for some reason you wish to terminate the process, use `Ctrl+C` to exit.
 
 ### Launching the app
 

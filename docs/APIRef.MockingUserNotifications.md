@@ -136,7 +136,7 @@ const userNotification = {
 
 #### Payload
 
-On Android, the content will be available via the activity’s [`getIntent()`](https://developer.android.com/reference/android/app/Activity#getIntent()) API, inside the intent’s _extra_ bundle. Under some limitations, that includes data-cascading so as to provide comprehensive support for Javascript’s advanced object-hierarchy capabilities as much as possible. As an example, consider this payload:
+On Android, the content will be available via the activity’s [`getIntent()`](https://developer.android.com/reference/android/app/Activity#getIntent()) API, inside the intent’s _extra_ bundle. Under some limitations, that includes data-cascading so as to provide comprehensive support for JavaScript’s advanced object-hierarchy capabilities as much as possible. As an example, consider this payload:
 
 ```javascript
 const userNotification = {
