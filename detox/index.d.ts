@@ -1118,7 +1118,7 @@ declare global {
             swipe(direction: Direction, speed?: Speed, percentage?: number, normalizedStartingPointX?: number, normalizedStartingPointY?: number): Promise<void>;
 
             /**
-             * Sets a picker view’s column to the given value. This function supports both date pickers and general picker views. (iOS Only)
+             * Sets a picker view's column to the given value. This function supports both date pickers and general picker views. (iOS Only)
              * Note: When working with date pickers, you should always set an explicit locale when launching your app in order to prevent flakiness from different date and time styles.
              * See [here](https://github.com/wix/Detox/blob/master/docs/APIRef.DeviceObjectAPI.md#9-launch-with-a-specific-language-ios-only) for more information.
              *

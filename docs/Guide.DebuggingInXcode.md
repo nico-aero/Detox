@@ -1,6 +1,6 @@
 ## Debugging in Xcode During Detox Tests
 
-> This is mostly useful for investigating weird crashes or when contributing to Detox itself. **This workflow isn’t standard. Don’t use it unless you have a good reason.**
+> This is mostly useful for investigating weird crashes or when contributing to Detox itself. **This workflow isn't standard. Don't use it unless you have a good reason.**
 
 ### Add Detox Framework to Your Project
 
@@ -23,7 +23,7 @@ Edit your Detox configuration to add the following configuration:
   },
   "session": {
     "server": "ws://localhost:8099",
-    "sessionId": <your app’s bundle identifier>
+    "sessionId": <your app's bundle identifier>
   }
 }
 ```

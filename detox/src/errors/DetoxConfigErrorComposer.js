@@ -540,7 +540,7 @@ Examine your Detox config${this._atPath()}`,
 
   oldSchemaHasAppAndApps() {
     return new DetoxConfigError({
-      message: `Your configuration ${J(this.configurationName)} appears to be in a legacy format, which can’t contain "app" or "apps".`,
+      message: `Your configuration ${J(this.configurationName)} appears to be in a legacy format, which can't contain "app" or "apps".`,
       hint: `Remove "type" property from configuration and use "device" property instead:\n` +
         `a) "device": { "type": ${J(this._getSelectedConfiguration().type)}, ... }\n` +
         `b) "device": "<alias-to-device>" // you should add that device configuration to "devices" with the same key` +

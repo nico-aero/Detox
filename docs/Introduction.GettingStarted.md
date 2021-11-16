@@ -12,7 +12,7 @@ You will find that some steps are longer than the others: some are just one-para
 
 `Node.js` is the JavaScript runtime Detox will run on. **Install Node.js `v12.0` or above**.
 
-There’s more than one way to install Node.js:
+There's more than one way to install Node.js:
 
 - Download from the [official download page](https://nodejs.org/en/download/)
 - Use [Homebrew](https://formulae.brew.sh/formula/node)
@@ -36,7 +36,7 @@ npm install -g detox-cli
 
 ### Install Platform-specific Dependencies, Tools and SDKs
 
-Depending on the platform/s you’re aiming at (iOS, Android), take the time to run through these environment setup guides:
+Depending on the platform/s you're aiming at (iOS, Android), take the time to run through these environment setup guides:
 
 - [Android](Introduction.AndroidDevEnv.md)
 - [iOS](Introduction.iOSDevEnv.md)
@@ -81,7 +81,7 @@ Detox delegates the actual JavaScript test-code execution to a dedicated test-ru
 
 ### Apply Detox Configuration
 
-If you’ve completed the test-runner setup successfully using `detox init`, you should have a `.detoxrc.json` file containing a skeletal configuration for Detox to use. This configuration is only half-baked and needs to be set up properly. You now need to either create or edit that file, and apply the actual configuration suitable for your specific project.
+If you've completed the test-runner setup successfully using `detox init`, you should have a `.detoxrc.json` file containing a skeletal configuration for Detox to use. This configuration is only half-baked and needs to be set up properly. You now need to either create or edit that file, and apply the actual configuration suitable for your specific project.
 
 Detox scans for a configuration through multiple files. It starts from the current working directory, and runs over the following options, in this order:
 
@@ -119,6 +119,6 @@ Use the Detox command line tools to test your project easily:
 detox test --configuration <your configuration name>
 ```
 
-That’s it. Your first failing Detox test is running!
+That's it. Your first failing Detox test is running!
 
-Next, we’ll go over usage and how to make this test [actually pass](Introduction.WritingFirstTest.md).
+Next, we'll go over usage and how to make this test [actually pass](Introduction.WritingFirstTest.md).

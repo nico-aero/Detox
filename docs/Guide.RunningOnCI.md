@@ -56,7 +56,7 @@ detox test --configuration ios.sim.release --cleanup
 
 #### • Running Detox on [Travis CI](https://travis-ci.org/)
 
-Detox’s own build is running on Travis, check out Detox’s [`.travis.yml`](/.travis.yml) file to see how it’s done.
+Detox's own build is running on Travis, check out Detox's [`.travis.yml`](/.travis.yml) file to see how it's done.
 
 This is a simple example configuration to get you started with Detox on Travis:
 

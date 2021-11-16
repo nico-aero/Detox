@@ -54,7 +54,7 @@ npm run test:android-release
 
 ### Running this project in Debug mode
 
-The project’s tests can also be executed with the app running in debug mode (mainly, with JavaScript code getting bundled on-the-fly using the `metro` server).
+The project's tests can also be executed with the app running in debug mode (mainly, with JavaScript code getting bundled on-the-fly using the `metro` server).
 
 For that, first run the `metro` server:
 

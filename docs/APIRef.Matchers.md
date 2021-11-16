@@ -4,7 +4,7 @@ Detox uses [matchers](APIRef.Matchers.md) to match UI elements in your app.
 
 Use [actions](APIRef.ActionsOnElement.md) to simulate use interaction with elements and [expectations](APIRef.Expect.md) to verify element states.
 
-**Note:** For best results, it is recommended to match elements by unique identifiers. Matching by text or labels can introduce test flakiness when your app’s text change or when changing your app’s localization.
+**Note:** For best results, it is recommended to match elements by unique identifiers. Matching by text or labels can introduce test flakiness when your app's text change or when changing your app's localization.
 
 ### Methods
 
@@ -112,7 +112,7 @@ If a matcher resolves into multiple matched UI elements, you may specify which e
 
 On iOS, matched elements are sorted by their x and y axes.
 
-**Note:** Due to different underlying implementations of Detox on iOS and Android, as well as other differences in the OS implementations, as well as RN implementation differences on each OS, indices may not match between iOS and Android. Relying on indices may also introduce flakiness in your tests as your app’s user interface is updated. It is recommended to use unique identifier matchers for your elements.
+**Note:** Due to different underlying implementations of Detox on iOS and Android, as well as other differences in the OS implementations, as well as RN implementation differences on each OS, indices may not match between iOS and Android. Relying on indices may also introduce flakiness in your tests as your app's user interface is updated. It is recommended to use unique identifier matchers for your elements.
 
 ```js
 element(by.text('Product')).atIndex(2);
