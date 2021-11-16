@@ -384,7 +384,7 @@ await device.enableSynchronization();
 
 #### `device.setURLBlacklist([urls])`
 
-Exclude synchronization with respect to network activity (i.e. Don’t wait for network to go idle before moving forward in the test execution) according to **specific** endpoints, denoted as URL reg-exp’s. To disable endpoints at initialization, pass in the black-list as an [app-launch argument](APIRef.LaunchArgs.md) named `detoxURLBlacklistRegex` (as explained [here](#11-detoxurlblacklistregexinitialize-the-url-blacklist-at-app-launch)).
+Exclude synchronization with respect to network activity (i.e. don’t wait for network to go idle before moving forward in the test execution) according to **specific** endpoints, denoted as URL reg-exp’s. To disable endpoints at initialization, pass in the black-list as an [app-launch argument](APIRef.LaunchArgs.md) named `detoxURLBlacklistRegex` (as explained [here](#11-detoxurlblacklistregexinitialize-the-url-blacklist-at-app-launch)).
 
 ```js
 await device.setURLBlacklist(['.*127.0.0.1.*', '.*my.ignored.endpoint.*']);

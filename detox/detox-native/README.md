@@ -15,7 +15,7 @@
 
 ## Android
 
-On Android, the project mostly aims to be an improvement over what We’ve found to be shortcomings in `Espresso`’s ability to produce stable and reliable UI tests. However, it also aims at offering additional interesting features.
+On Android, the project mostly aims to be an improvement over what we’ve found to be shortcomings in `Espresso`’s ability to produce stable and reliable UI tests. However, it also aims at offering additional interesting features.
 
 **If you find Espresso unstable / unreliable, or are looking for some additional features, `Detox-Native` can help :muscle:**
 

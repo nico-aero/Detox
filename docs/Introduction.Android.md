@@ -9,7 +9,7 @@
 
 * **In version 11 we switched to using Android Espresso of Android’s new [androidx.\*  support libraries](https://developer.android.com/jetpack/androidx/).** We did this in order to stay up to date with Google’s latest features and bug fixes, in the hopes of using them to improve our own Android support (which gets better every day!).
 
-* **In version 10, We’ve made [Kotlin](https://kotlinlang.org/) mandatory for integrating Detox into your Android project.** In the very least, you must include the Kotlin Gradle plugin in your project, as we shall see later on. Nevertheless, this is a breaking change so bear that in mind when upgrading. In any case, worry not of the impact on your app, as - unless you effectively use Kotlin in your own native code, **there will be no impact on the final APK**, in terms of size and methods count.
+* **In version 10, we’ve made [Kotlin](https://kotlinlang.org/) mandatory for integrating Detox into your Android project.** In the very least, you must include the Kotlin Gradle plugin in your project, as we shall see later on. Nevertheless, this is a breaking change so bear that in mind when upgrading. In any case, worry not of the impact on your app, as - unless you effectively use Kotlin in your own native code, **there will be no impact on the final APK**, in terms of size and methods count.
 
 * **As of version 7** we require Android Gradle plugin 3.0.0 or newer. This is a breaking change that makes it impossible to support previous Android Gradle plugin versions.
 

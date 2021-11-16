@@ -25,7 +25,7 @@ In addition, the runtime driver is no longer state-less -- basically, allowing i
 
 ##### How to migrate
 
-Everything here will be based on the changes made in the [`detox-puppeteer` example](https://github.com/ouihealth/detox-puppeteer) - names included (please Don’t use them as-is in your own implementation!).
+Everything here will be based on the changes made in the [`detox-puppeteer` example](https://github.com/ouihealth/detox-puppeteer) - names included (please don’t use them as-is in your own implementation!).
 
 **Allocation:**
 
@@ -60,7 +60,7 @@ Add the new class to the `module.exports` list, under the name: `ArtifactPlugins
 **Runtime:**
 
 - Optionally rename your class from `PuppeteerDriver` to `PuppeteerRuntimeDriver`.
-- In the methods remaining in the class accepting the `deviceId` arg: **remove the `deviceId` arg entirely**. This might break your implementation - Don’t worry, continue reading.
+- In the methods remaining in the class accepting the `deviceId` arg: **remove the `deviceId` arg entirely**. This might break your implementation - don’t worry, continue reading.
 - If applicable, change the signature of the class' c'tor to accept the cookie as it’s 2nd argument (instance previously allocated in `PuppeteerAllocationDriver.allocate()`). Save data from the cookie as part of the driver’s state, in order to unbreak your implementation, following the previous step.
 - Add two methods: `getExternalId()` and `getDeviceName()`. Implement them such that they would comply with the `device.id` and `device.name` [API contracts](APIRef.DeviceObjectAPI.md), respectively.
 
@@ -126,7 +126,7 @@ This release was not meant to be breaking in any sense, but unfortunately there 
 
 #### `jest-cli`
 
-From now on, Detox explicitly depends on `jest-cli` package (marked as a peer dependency), That’s why if you see an error like the one below:
+From now on, Detox explicitly depends on `jest-cli` package (marked as a peer dependency), that’s why if you see an error like the one below:
 
 ```plain text
 Cannot find module 'jest-cli/build/cli/args'
@@ -283,7 +283,7 @@ After:
 
 ### 14.0.0
 
-Detox 14.0.0 drops support for iOS 9.x simulators, and thus it also drops support for any API that is deprecated in iOS 10 and above. This includes legacy [remote](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623013-application?language=objc) and [local](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622930-application?language=objc) notifications handling API. These APIs have been deprecated since iOS 10, and we believe We’ve given app developers enough time to use the modern APIs. Make sure you transition to the [`UserNotifications` framework](https://developer.apple.com/documentation/usernotifications?language=objc) as soon as possible.
+Detox 14.0.0 drops support for iOS 9.x simulators, and thus it also drops support for any API that is deprecated in iOS 10 and above. This includes legacy [remote](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623013-application?language=objc) and [local](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622930-application?language=objc) notifications handling API. These APIs have been deprecated since iOS 10, and we believe we’ve given app developers enough time to use the modern APIs. Make sure you transition to the [`UserNotifications` framework](https://developer.apple.com/documentation/usernotifications?language=objc) as soon as possible.
 
 **Please note that for React Native apps, [`PushNotificationIOS` (`RCTPushNotificationManager`)](https://facebook.github.io/react-native/docs/pushnotificationios) is severely outdated and does not support these modern APIs.** It is recommended to transition to a more modern solution. While it is sad that such an important app feature is let to stagnate so much by Facebook, it cannot be the concern of Detox. It is up to RN users to keep their apps up to date with the latest Apple APIs.
 
@@ -295,7 +295,7 @@ See [#1514](https://github.com/wix/Detox/issues/1514).
 
 **This is only relevant to those running Detox using [`Jest` as the test runner](Guide.Jest.md)**!
 
-In `12.7.0` We’ve greatly improved our support in Jest - trying to tackle these two caveats which hold developers back from embracing it:
+In `12.7.0` we’ve greatly improved our support in Jest - trying to tackle these two caveats which hold developers back from embracing it:
 
 1. Jest file-level summary logs take precedence over 'plain' output, which makes them and all other logs (e.g. user in-test logging) seem cluttered.
 2. Plain logs output is batched, and thus often does not show in real-time as the test is run. This is particularly annoying when running tests on the local computer.
@@ -303,11 +303,11 @@ In `12.7.0` We’ve greatly improved our support in Jest - trying to tackle thes
 
 _Put in simple words, Jest is optimized for running tests concurrently using multiple workers. This isn’t the case when writing/debugging tests on a local machine._
 
-In `12.7.0` We’ve worked out a configuration scheme that aims at solving these by streamlining all test-related outputs. **Please follow the updated [Jest installation guide](Guide.Jest.md), to set it up.**
+In `12.7.0` we’ve worked out a configuration scheme that aims at solving these by streamlining all test-related outputs. **Please follow the updated [Jest installation guide](Guide.Jest.md), to set it up.**
 
 ### Migrating from Detox 12.4.x to 12.5.0 (nonbreaking)
 
-Starting Detox `12.5.0`, we ship Android with precompiled sources under a  `.aar` file. The complete configuration process is thoroughly described in the [Android setup guide](Introduction.Android.md) - but it mostly fits **new** projects. For existing projects, migrating is strongly recommended; Here’s the diff:
+Starting Detox `12.5.0`, we ship Android with precompiled sources under a  `.aar` file. The complete configuration process is thoroughly described in the [Android setup guide](Introduction.Android.md) - but it mostly fits **new** projects. For existing projects, migrating is strongly recommended; here’s the diff:
 
 Root `settings.gradle` file:
 
@@ -359,7 +359,7 @@ If you have Detox ProGuard rules integrated into the `app/build.gradle`, be sure
 The deprecation of `"specs"` (in `package.json`) introduced in 12.1.0 is **no longer relevant**.
 It is valid now, like it was before, but from now on the semantics has been slightly changed -
 it acts as a fallback for the default root for your Detox E2E specs, in cases when
-you Don’t specify it explicitly, e.g.:
+you don’t specify it explicitly, e.g.:
 
 ```sh
 detox test   # translates to: mocha <...args> e2e
@@ -615,7 +615,7 @@ const detox = require('detox');
 const adapter = require('detox/runners/jest/adapter');
 
 jest.setTimeout(120000);
-jasmine.getEnv().addReporter(adapter); // Don’t forget this line
+jasmine.getEnv().addReporter(adapter); // don’t forget this line
 
 beforeAll(async () => {
   await detox.init();

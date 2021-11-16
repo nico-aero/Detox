@@ -142,7 +142,7 @@ If you feel like you see too often this timeout error while debugging:
 
 ```plain text
 Waited for the new RN-context for too long! (60 seconds)
-If you think That’s not long enough, consider applying a custom Detox runtime-config in DetoxTest.runTests().
+If you think that’s not long enough, consider applying a custom Detox runtime-config in DetoxTest.runTests().
 ```
 
 you can temporarily hack the timeout here:

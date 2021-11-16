@@ -6,7 +6,7 @@ Synchronizing manually with `sleep()` commands is a bad idea. It’s flaky, comp
 
 Instead, Detox tries to synchronize the test with the app completely *automatically*.
 
-When this works it’s like magic. You simply execute actions one after the other without worrying about timing, and Detox waits for the app to stabilize before moving to the next test line. If There’s an in-flight request to a server, for example, the test will not move forward until the request completes.
+When this works it’s like magic. You simply execute actions one after the other without worrying about timing, and Detox waits for the app to stabilize before moving to the next test line. If there’s an in-flight request to a server, for example, the test will not move forward until the request completes.
 
 ### What operations do we try to synchronize with automatically
 
@@ -91,7 +91,7 @@ await device.launchApp({
 
 ### Switching to manual synchronization as a workaround
 
-We always have the fail-safe of turning off automatic synchronization and waiting manually by ourselves. This isn’t the recommended approach but sometimes we Don’t have a choice.
+We always have the fail-safe of turning off automatic synchronization and waiting manually by ourselves. This isn’t the recommended approach but sometimes we don’t have a choice.
 
 #### How do we turn off automatic synchronization?
 
@@ -137,7 +137,7 @@ await device.launchApp({
 
 #### How do we wait manually?
 
-This makes sense only if we’re not waiting enough (or if We’ve disabled automatic synchronization). Use the `withTimeout()` API to wait until an expectation is met. The API is documented [here](/docs/APIRef.Expect.md#withtimeouttimeout).
+This makes sense only if we’re not waiting enough (or if we’ve disabled automatic synchronization). Use the `withTimeout()` API to wait until an expectation is met. The API is documented [here](/docs/APIRef.Expect.md#withtimeouttimeout).
 
 ### Tweaking and fine-tuning the synchronization mechanisms
 

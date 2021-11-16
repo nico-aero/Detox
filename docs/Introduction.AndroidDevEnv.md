@@ -41,7 +41,7 @@ If otherwise the version is simply wrong, try these refs for Macs; consider empl
 
 ## Android SDK
 
-If you have Android Studio installed - as most of us do, then the SDK should be available for you somewhere on your machine<sup>*</sup>. However, for CI agents -- possibly running with no GUI, or if you simply Don’t want the somewhat bloated piece of software on your computer, it is possible to simply download the SDK and tool-set, purely. Both cases are covered in Google’s [Android guide about Android Studio](https://developer.android.com/studio/). For the pure-tools option, refer to the `Command line tools only` section at the bottom.
+If you have Android Studio installed - as most of us do, then the SDK should be available for you somewhere on your machine<sup>*</sup>. However, for CI agents -- possibly running with no GUI, or if you simply don’t want the somewhat bloated piece of software on your computer, it is possible to simply download the SDK and tool-set, purely. Both cases are covered in Google’s [Android guide about Android Studio](https://developer.android.com/studio/). For the pure-tools option, refer to the `Command line tools only` section at the bottom.
 
 For more help on setting the SDK up, [this guide might be helpful](https://www.androidcentral.com/installing-android-sdk-windows-mac-and-linux-tutorial).
 
@@ -54,9 +54,9 @@ _<sup>* Inspect the content of your `ANDROID_SDK_ROOT` and `ANDROID_HOME` enviro
 
 ## Android (AOSP) Emulators
 
-Mobile-apps' automation needs an Android device to run on. If you haven’t already done so, you should  [set up an Emulator](https://developer.android.com/studio/run/emulator). But, wait - Don’t go and install the default one: read through, first.
+Mobile-apps' automation needs an Android device to run on. If you haven’t already done so, you should  [set up an Emulator](https://developer.android.com/studio/run/emulator). But, wait - don’t go and install the default one: read through, first.
 
-We’ve long proven that for automation - which requires a stable and deterministic environment, Google’s emulators running with Google APIs simply Don’t deliver what’s needed. Be it the preinstalled Google play-services - which tend to take up a lot of CPU, or even Google’s `gboard` Keyboard - which is full-featured but overly bloated: These encourage flakiness in tests, which we are desperate to avoid in automation.
+We’ve long proven that for automation - which requires a stable and deterministic environment, Google’s emulators running with Google APIs simply don’t deliver what’s needed. Be it the preinstalled Google play-services - which tend to take up a lot of CPU, or even Google’s `gboard` Keyboard - which is full-featured but overly bloated: These encourage flakiness in tests, which we are desperate to avoid in automation.
 
 Fortunately, the Android team at Google offers a pretty decent alternative: **AOSP emulators** (Android Open-Source Project). While possibly lacking some of the extended Google services, and a bit less fancy overall, **we strongly recommend** to strictly use this flavor of emulators for running automation/Detox tests. They can be installed alongside regular emulators.
 

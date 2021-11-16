@@ -472,7 +472,7 @@ The build command will be triggered when running `detox build`.
 
 You can choose to build your project in any of these ways...
 
-* If There’s only one configuration, you can simply use:
+* If there’s only one configuration, you can simply use:
 
   ```sh
   detox build
@@ -500,7 +500,7 @@ You can choose to build your project in any of these ways...
 
 #### Test Configuration
 
-* If There’s only one configuration, you can simply use:
+* If there’s only one configuration, you can simply use:
 
   ```sh
   detox test ./e2e

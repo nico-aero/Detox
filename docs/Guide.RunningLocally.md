@@ -22,6 +22,6 @@ Type the following inside your project root:
 detox test
 ```
 
-This will use Detox to find the app executable We’ve built in step 1, install it on a simulator and run Detox tests against it.
+This will use Detox to find the app executable we’ve built in step 1, install it on a simulator and run Detox tests against it.
 
 **Note:** If you have multiple configurations, you will need to specify the configuration to test.

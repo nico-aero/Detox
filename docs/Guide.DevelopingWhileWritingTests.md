@@ -6,7 +6,7 @@ The main idea behind this workflow is to run your app in debug with Detox on a s
 
 ### Step 1: Build Your App in Debug
 
-Detox is going to need the executable for your app. This means we need to build it first. Since we want a build That’s connected to the live React Native packager (to update bundle changes), we’re going to need a *debug* build.
+Detox is going to need the executable for your app. This means we need to build it first. Since we want a build that’s connected to the live React Native packager (to update bundle changes), we’re going to need a *debug* build.
 
 There are multiple ways to build your app, let’s find the alternative you like best:
 
@@ -45,7 +45,7 @@ Type the following inside your project root:
 detox test
 ```
 
-This will use Detox to find the app executable We’ve built in step 1, install it on a simulator and run Detox tests against it.
+This will use Detox to find the app executable we’ve built in step 1, install it on a simulator and run Detox tests against it.
 
 ### Step 4: Make Changes to Your App’s Codebase as Usual
 

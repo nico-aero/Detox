@@ -13,7 +13,7 @@ Typically, the process of setting up such servers - especially in a parallel tes
 1. Allocating a port for a mock server, dynamically.
 2. Bringing up a mock server instance bound to that port (e.g. at `localhost:1234`).
 3. Launching the app with a predefined argument that holds the port, for example `mockServerPort=1234`.
-   (It is assumed here that There’s designated mocked code inside the app that can read `mockServerPort` and rewire all connections to `localhost:1234` instead of to the real production server).
+   (It is assumed here that there’s designated mocked code inside the app that can read `mockServerPort` and rewire all connections to `localhost:1234` instead of to the real production server).
 
 In this context, launch argument are useful for implementing step #3.
 

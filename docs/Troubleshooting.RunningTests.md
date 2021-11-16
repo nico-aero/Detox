@@ -189,7 +189,7 @@ After you upgrade, you can configure the default path to your end-to-end tests f
  }
 ```
 
-Please mind that if your E2E tests are located at the default path (`e2e`), then you Don’t need to add `"specs"` property explicitly to `package.json`.
+Please mind that if your E2E tests are located at the default path (`e2e`), then you don’t need to add `"specs"` property explicitly to `package.json`.
 
 #### An Element is Not Visible
 
@@ -213,7 +213,7 @@ The first is supposed to show what is seen on screen. The second shows the inter
 
 If you are developing a React Native app, then the following applies. If, for instance, you see that tapping fails due to a view with `pointerEvents="none"` obscuring your target — well, the only solutions are: either to make the obscurer a descendant of your target (instead of being a sibling), or to tap on the parent container.
 
-If you see that your issue cannot be solved via testID replacement or a simple hierarchy rearrangement, then There’s a chance this is a bug in Detox. Make sure to provide your `ui.viewhierarchy` artifact, the pictures generated under `visibilityFailingRects` and `visibilityFailingScreenshots` folders and a comprehensive description of the issue backed up with sound arguments.
+If you see that your issue cannot be solved via testID replacement or a simple hierarchy rearrangement, then there’s a chance this is a bug in Detox. Make sure to provide your `ui.viewhierarchy` artifact, the pictures generated under `visibilityFailingRects` and `visibilityFailingScreenshots` folders and a comprehensive description of the issue backed up with sound arguments.
 
 #### Debug View Hierarchy
 
