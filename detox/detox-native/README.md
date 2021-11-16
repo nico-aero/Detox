@@ -1,4 +1,5 @@
 <!-- markdownlint-configure-file { "first-line-heading": 0 } -->
+
 <p align="center">
  <img alt="Detox" width=380 src="https://raw.githubusercontent.com/wix/Detox/master/docs/img/DetoxLogo.png"/>
 </p>
@@ -21,8 +22,8 @@ On Android, the project mostly aims to be an improvement over what we’ve found
 
 Below is the set of actions Detox offers.
 
-* [**Tap Gestures**](#tap-gestures): `tap()`, `doubleTap()`, `multiTap()`
-* [**Gray-Box Scrolling:**](#gray-box-scrolling) `scrollDownBy()`, `scrollUpBy()`, `scrollLeftBy()`, `scrollRightBy()`
+- [**Tap Gestures**](#tap-gestures): `tap()`, `doubleTap()`, `multiTap()`
+- [**Gray-Box Scrolling:**](#gray-box-scrolling) `scrollDownBy()`, `scrollUpBy()`, `scrollLeftBy()`, `scrollRightBy()`
 
 ### Tap Gestures
 

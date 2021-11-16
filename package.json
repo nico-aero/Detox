@@ -3,8 +3,8 @@
   "private": true,
   "scripts": {
     "docs:lint": "markdownlint '**/*.md'",
-    "docs:lint:fix": "markdownlint --fix '**/*.md'",
     "docs:remark": "remark --silently-ignore --frail .",
+    "docs:fix": "npm run docs:remark -- -o && npm run docs:lint -- --fix",
     "test:e2e:ios": "pushd detox/test && npm run e2e:ios && popd",
     "test:e2e:android": "pushd detox/test && npm run e2e:android && popd",
     "release": "node scripts/ci.release.js",

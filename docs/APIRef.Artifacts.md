@@ -8,17 +8,17 @@ Artifacts are disabled by default. To enable them, specify via **launch argument
 
 #### Launch Arguments
 
-* To record `.log` files, add `--record-logs all` (or `--record-logs failing`, if you want to keep logs only for failing tests).
-* To record `.mp4` test run videos, add `--record-videos all` (or `--record-videos failing`, if you want to keep video recordings only for failing tests).
-* To record `.dtxrec` (Detox Instruments recordings) for each test, add `--record-performance all`. To open those recordings, you’ll need [Detox Instruments](https://github.com/wix/DetoxInstruments). **NOTE:** only iOS is supported.
-* To capture `.uihierarchy` snapshots (**iOS only, Xcode 12.0+**) on view action failures, add `--capture-view-hierarchy enabled`.
-* To take `.png` screenshots before and after each test, add `--take-screenshots all` (or `--take-screenshots failing`, if you want to keep only screenshots of failing tests).  
-Alternatively, you might leverage the [device.takeScreenshot()](APIRef.DeviceObjectAPI.md#devicetakescreenshotname) API for manual control.
+- To record `.log` files, add `--record-logs all` (or `--record-logs failing`, if you want to keep logs only for failing tests).
+- To record `.mp4` test run videos, add `--record-videos all` (or `--record-videos failing`, if you want to keep video recordings only for failing tests).
+- To record `.dtxrec` (Detox Instruments recordings) for each test, add `--record-performance all`. To open those recordings, you’ll need [Detox Instruments](https://github.com/wix/DetoxInstruments). **NOTE:** only iOS is supported.
+- To capture `.uihierarchy` snapshots (**iOS only, Xcode 12.0+**) on view action failures, add `--capture-view-hierarchy enabled`.
+- To take `.png` screenshots before and after each test, add `--take-screenshots all` (or `--take-screenshots failing`, if you want to keep only screenshots of failing tests).\
+  Alternatively, you might leverage the [device.takeScreenshot()](APIRef.DeviceObjectAPI.md#devicetakescreenshotname) API for manual control.
 
 ##### Artifacts root directory
 
-* To change artifacts root directory location (by default it is `./artifacts`), add `--artifacts-location <path>`.  
-**NOTE:** There is a slightly obscure convention. If you want to create automatically a subdirectory with timestamp and configuration name (to avoid file overwrites upon consequent reruns), specify a path to directory that does not end with a slash. Otherwise, if you want to put artifacts straight to the specified directory (in a case where you make a single run only, e.g. on CI), add a slash (or a backslash) to the end.
+- To change artifacts root directory location (by default it is `./artifacts`), add `--artifacts-location <path>`.\
+  **NOTE:** There is a slightly obscure convention. If you want to create automatically a subdirectory with timestamp and configuration name (to avoid file overwrites upon consequent reruns), specify a path to directory that does not end with a slash. Otherwise, if you want to put artifacts straight to the specified directory (in a case where you make a single run only, e.g. on CI), add a slash (or a backslash) to the end.
 
 ```sh
 detox test --artifacts-location /tmp/detox_artifacts  # will also append /android.emu.release.2018-06-14 08:54:11Z
@@ -45,15 +45,15 @@ Detox merges those configurations, and the per-device artifacts configuration ha
 
 The `artifacts` object has the following properties:
 
-| Property    | Example values                  | Default value | Description |
-|-------------|---------------------------------|---------------|-------------|
+| Property    | Example values                  | Default value | Description                                                                                                                                                          |
+| ----------- | ------------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | rootDir     | `".artifacts/"`                 | `./artifacts` | A directory, where all the recorded artifacts will be placed in. Please note that there is a trailing slash convention [described above](#artifacts-root-directory). |
-| pathBuilder | `"./e2e/config/pathbuilder.js"` | `undefined`   | Path to a module that exports a custom `PathBuilder` [ᵃ](#path-builder) |
-| plugins     | `{ ... }`                       | ... see below | ... see below |
+| pathBuilder | `"./e2e/config/pathbuilder.js"` | `undefined`   | Path to a module that exports a custom `PathBuilder` [ᵃ](#path-builder)                                                                                              |
+| plugins     | `{ ... }`                       | ... see below | ... see below                                                                                                                                                        |
 
 ##### Path builder
 
-**ᵃ** `PathBuilder` should be either an _object_ with a method `buildPathForTestArtifact` or a _class_ &mdash; see the corresponding interfaces below:
+**ᵃ** `PathBuilder` should be either an _object_ with a method `buildPathForTestArtifact` or a _class_ — see the corresponding interfaces below:
 
 ```typescript
 interface PathBuilder {
@@ -144,17 +144,17 @@ Below is a default screenshot plugin object configuration, which is loaded impli
 
 The other string presets override the following properties compared to the default configuration:
 
-* `none` => `{ enabled: false }`.
-* `failing` => `{ shouldTakeAutomaticSnapshots: true, keepOnlyFailedTestsArtifacts: true }`.
-* `all` => `{ shouldTakeAutomaticSnapshots: true, keepOnlyFailedTestsArtifacts: false }`
+- `none` => `{ enabled: false }`.
+- `failing` => `{ shouldTakeAutomaticSnapshots: true, keepOnlyFailedTestsArtifacts: true }`.
+- `all` => `{ shouldTakeAutomaticSnapshots: true, keepOnlyFailedTestsArtifacts: false }`
 
 The individual property behavior is the following:
 
-* If `enabled` is _false_, then the screenshots will never be saved to the artifacts folder.
-* If `shouldTakeAutomaticSnapshots` is _false_, then no one of the events described in `takeWhen` object is going to trigger a screenshot.
-* If `keepOnlyFailedTestsArtifacts` is _true_, then only screenshots from a failed test will be saved to the artifacts folder.
-* If `takeWhen` is _undefined_, it is going to have the default value described above (all props are true).
-* If `takeWhen` is set to be an empty object `{}`, that is equivalent to:
+- If `enabled` is _false_, then the screenshots will never be saved to the artifacts folder.
+- If `shouldTakeAutomaticSnapshots` is _false_, then no one of the events described in `takeWhen` object is going to trigger a screenshot.
+- If `keepOnlyFailedTestsArtifacts` is _true_, then only screenshots from a failed test will be saved to the artifacts folder.
+- If `takeWhen` is _undefined_, it is going to have the default value described above (all props are true).
+- If `takeWhen` is set to be an empty object `{}`, that is equivalent to:
 
 ```json
 {
@@ -201,21 +201,21 @@ The final outcome is a JSON-like file named `detox.trace.json`, which, if loaded
 
 ![Timeline artifact example](img/timeline-artifact.png)
 
-This _tracing_ view provides a visual, hierarchical representation of the of the various processes that took place during the execution of the testing session, over the execution’s *time-line*. These processes appear as hierarchical _sections_ -- sometimes visually ordered in a parent-child way, depending on their formation time and context.
+This _tracing_ view provides a visual, hierarchical representation of the of the various processes that took place during the execution of the testing session, over the execution’s _time-line_. These processes appear as hierarchical _sections_ -- sometimes visually ordered in a parent-child way, depending on their formation time and context.
 To name a few predefined events, which are generated by Detox itself:
 
-* **`detoxInit`:** Initialization of Detox, prior to running the suites associated with a specific tests file.
-* **`awaitBoot`:** Waiting for an emulator to complete booting (thus being ready to run tests). Done in the surrounding context of `detoxInit` (and hence visually appears "below" it), as waiting for emulators' boot is an inherent part of Detox' initialization.
-* **`appInstall`**, **`appUninstall`**.
-* **"Sanity":** Execution of a user test suite called _Sanity_.
-* **`reloadRN`:** A dynamic reload of the React-Native. Bound to calls to `device.reloadReactNative()`, specifically.
+- **`detoxInit`:** Initialization of Detox, prior to running the suites associated with a specific tests file.
+- **`awaitBoot`:** Waiting for an emulator to complete booting (thus being ready to run tests). Done in the surrounding context of `detoxInit` (and hence visually appears "below" it), as waiting for emulators' boot is an inherent part of Detox' initialization.
+- **`appInstall`**, **`appUninstall`**.
+- **"Sanity":** Execution of a user test suite called _Sanity_.
+- **`reloadRN`:** A dynamic reload of the React-Native. Bound to calls to `device.reloadReactNative()`, specifically.
 
 In the above example, the following can be observed:
 
-1. There were 2 test workers (the Worker #1, Worker #2 time-lines) executing a total of two test suites.
-2. There were 2 Android emulators used for running the test session, namely `emulator-17800` and `emulator-12466`. They were used by worker 1 and worker 2, respectively.
-3. It took about a total of 54 seconds to initialize and run all the tests.
-4. The first worker took longer to initialize (as depicted by the `detoxInit` section). In particular, that happened because it took longer for the associated emulator too finish bootstrapping (see the child `awaitBoot` section). That suggests there might be a problem with the test execution environment.
+1. There were 2 test workers (the Worker [#1](https://github.com/wix/Detox/issues/1), Worker [#2](https://github.com/wix/Detox/issues/2) time-lines) executing a total of two test suites.
+1. There were 2 Android emulators used for running the test session, namely `emulator-17800` and `emulator-12466`. They were used by worker 1 and worker 2, respectively.
+1. It took about a total of 54 seconds to initialize and run all the tests.
+1. The first worker took longer to initialize (as depicted by the `detoxInit` section). In particular, that happened because it took longer for the associated emulator too finish bootstrapping (see the child `awaitBoot` section). That suggests there might be a problem with the test execution environment.
 
 ###### Purpose
 
@@ -226,22 +226,23 @@ The artifact can in fact be even better utilized -- to the level of inspecting t
 ### Artifacts Structure
 
 1. **Artifacts root folder** is created per detox test run. If, for instance,`--artifacts-location /tmp` is used with `--configuration ios.sim.release` configuration on 14th June 2018 at 11:02:11 GMT+02, then the folder `/tmp/ios.sim.release.2018-06-14 09:02:11Z` is created.
+
 1. **Test folder** is created per test inside the root folder. The folder name consists of the test number, and the test’s full name provided to `detox.afterEach(testSummary)` as explained above and in [detox object](APIRef.DetoxObjectAPI.md) documentation. For instance, for the above example, the following folders will be created inside `/tmp/ios.sim.release.2018-06-14 09:02:11Z`:
 
-    ```plain text
-    ✗ Assertions should assert an element has (accessibility)
-    ✓ Network Synchronization Sync with short network requests - 100ms
-    ```
+   ```plain text
+   ✗ Assertions should assert an element has (accessibility)
+   ✓ Network Synchronization Sync with short network requests - 100ms
+   ```
 
 1. **Artifacts files** are created inside the test folders. The files suffixes stand for the files types (currently there are .err.log and .out.log), and the files prefixes are the launch numbers of the application per test (if the app was executed more than once per test, you will have several artifacts of each type - one per launch). For instance, a test folder may contain the following artifacts files:
 
-    ```plain text
-    test.log
-    test.mp4
-    test.dtxrec/
-    beforeEach.png
-    afterEach.png
-    ```
+   ```plain text
+   test.log
+   test.mp4
+   test.dtxrec/
+   beforeEach.png
+   afterEach.png
+   ```
 
 #### Example of the structure
 

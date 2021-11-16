@@ -6,19 +6,19 @@ For troubleshooting of other issue, refer to our [troubleshooting index](Trouble
 
 ### Table of Contents
 
-* [Trace Mode](#trace-mode)
-* [Tests execution hangs](#tests-execution-hangs)
-* [No Simulators Found (iOS)](#no-simulators-found-ios)
-* [Syntax Error: Unexpected Token](#syntax-error-unexpected-token)
-* [Can’t Find My Component Even Though I Added a `testID` to Its Props](#cant-find-my-component-even-though-i-added-a-testid-to-its-props)
-* [Test Tries to Find My Component Before It’s Created](#test-tries-to-find-my-component-before-its-created)
-* [Can’t synchronize the test with my app](#cant-synchronize-the-test-with-my-app)
-* [Unknown option "configuration" (Mocha.js)](#unknown-option-configuration-mochajs)
-* [An Element is Not Visible](#an-element-is-not-visible)
-* [Debug View Hierarchy](#debug-view-hierarchy)
-* [Compare to a Working Setup](#compare-to-a-working-setup)
-* [Take a Look at Past Issues](#take-a-look-at-past-issues)
-* [How to Open a New Issue](#how-to-open-a-new-issue)
+- [Trace Mode](#trace-mode)
+- [Tests execution hangs](#tests-execution-hangs)
+- [No Simulators Found (iOS)](#no-simulators-found-ios)
+- [Syntax Error: Unexpected Token](#syntax-error-unexpected-token)
+- [Can’t Find My Component Even Though I Added a `testID` to Its Props](#cant-find-my-component-even-though-i-added-a-testid-to-its-props)
+- [Test Tries to Find My Component Before It’s Created](#test-tries-to-find-my-component-before-its-created)
+- [Can’t synchronize the test with my app](#cant-synchronize-the-test-with-my-app)
+- [Unknown option "configuration" (Mocha.js)](#unknown-option-configuration-mochajs)
+- [An Element is Not Visible](#an-element-is-not-visible)
+- [Debug View Hierarchy](#debug-view-hierarchy)
+- [Compare to a Working Setup](#compare-to-a-working-setup)
+- [Take a Look at Past Issues](#take-a-look-at-past-issues)
+- [How to Open a New Issue](#how-to-open-a-new-issue)
 
 #### Trace Mode
 
@@ -52,19 +52,19 @@ This can be a result of various reasons. It is generally up to you to debug and 
 
 ##### If you do not see your app running on the device
 
-* You might have forgotten to run `device.launchApp()` in the beginning of your test.
-* The app might have crashed before Detox has had a chance to connect to it. To get the crash details, you can run Detox tests with `--record-logs all` CLI option and then inspect the device logs in the artifacts folder.
-* **On Android**, there might be a problem with the native test code in the `DetoxTest.java` file. Revisit the [associated section](Introduction.Android.md#5-create-a-detox-test-class) in the setup guide.
+- You might have forgotten to run `device.launchApp()` in the beginning of your test.
+- The app might have crashed before Detox has had a chance to connect to it. To get the crash details, you can run Detox tests with `--record-logs all` CLI option and then inspect the device logs in the artifacts folder.
+- **On Android**, there might be a problem with the native test code in the `DetoxTest.java` file. Revisit the [associated section](Introduction.Android.md#5-create-a-detox-test-class) in the setup guide.
 
 ##### If you _do_ see your app running on the device
 
-* **On Android with SDK≥28**, the app’s connection to the Detox test server is blocked due to clear-traffic blockage (as reported in issue [#1450](https://github.com/wix/Detox/issues/1450)).
+- **On Android with SDK≥28**, the app’s connection to the Detox test server is blocked due to clear-traffic blockage (as reported in issue [#1450](https://github.com/wix/Detox/issues/1450)).
   The main step for getting this fixed is to revisit the [associated section](Introduction.Android.md#6-enable-clear-text-unencrypted-traffic-for-detox) in the setup guide, which discusses network-security. Alternatively, the `android:usesCleartextTraffic="true"` attribute can be configured in the `<application>` tag of the app’s `AndroidManifest.xml`, but **that is highly discouraged**.
-* If you’ve applied the above suggestion but the app fails to connect to the Detox test server, nonetheless: Refer to the device’s logs, which should contain messages about failed connection attempts (get them using the `--record-logs all` argument)
-* The app could be running without Detox native code injected. In this case, first, make sure you’re not trying to run in manual launch mode (where this behavior is valid). If so, examine the logs from the device (get them using the `--record-logs all` argument). If you see a crash related to Detox’s native code, you are welcome to report it on our GitHub tracker.
-* If you are in fact debugging your native code integration with Detox, these guides may prove helpful:
-  * <https://github.com/wix/Detox/blob/master/docs/Guide.DebuggingInAndroidStudio.md>
-  * <https://github.com/wix/Detox/blob/master/docs/Guide.DebuggingInXcode.md>
+- If you’ve applied the above suggestion but the app fails to connect to the Detox test server, nonetheless: Refer to the device’s logs, which should contain messages about failed connection attempts (get them using the `--record-logs all` argument)
+- The app could be running without Detox native code injected. In this case, first, make sure you’re not trying to run in manual launch mode (where this behavior is valid). If so, examine the logs from the device (get them using the `--record-logs all` argument). If you see a crash related to Detox’s native code, you are welcome to report it on our GitHub tracker.
+- If you are in fact debugging your native code integration with Detox, these guides may prove helpful:
+  - <https://github.com/wix/Detox/blob/master/docs/Guide.DebuggingInAndroidStudio.md>
+  - <https://github.com/wix/Detox/blob/master/docs/Guide.DebuggingInXcode.md>
 
 #### Syntax Error: Unexpected Token
 
@@ -144,7 +144,7 @@ await element(by.text('Login')).tap();
 await expect(element(by.text('Welcome'))).toBeVisible();
 ```
 
-In the test above, after tapping the Login button, the app performs several complex asynchronous operations until the Welcome message is displayed post-login. These can include querying a server, waiting for a response and then running an animated transition to the Welcome screen. Detox attempts to simplify your test code by synchronizing *automatically* with these asynchronous operations. What happens if for some reason the automatic synchronization doesn’t work? As a result, Detox will not wait correctly until the Welcome screen appears and instead will continue immediately to the next line and try to run the expectation. Since the screen is not there yet, the test will fail.
+In the test above, after tapping the Login button, the app performs several complex asynchronous operations until the Welcome message is displayed post-login. These can include querying a server, waiting for a response and then running an animated transition to the Welcome screen. Detox attempts to simplify your test code by synchronizing _automatically_ with these asynchronous operations. What happens if for some reason the automatic synchronization doesn’t work? As a result, Detox will not wait correctly until the Welcome screen appears and instead will continue immediately to the next line and try to run the expectation. Since the screen is not there yet, the test will fail.
 
 **Solution:** When you suspect that automatic synchronization didn’t work, you have a fail-safe by synchronizing manually with `waitFor`. Using `waitFor` will poll until the expectation is met. This isn’t a recommended approach so please use it as a workaround and open and issue to resolve the synchronization issue.
 
@@ -200,14 +200,14 @@ Test Failed: View "<RCTScrollView: 0x7f8d32296d70>" is not visible: view does no
 ```
 
 1. Try retrieving `ui.viewhierarchy` artifact — sometimes examining the hierarchy visually can give you insights.
-Add a line `"uiHierarchy": "enabled"` to your artifacts configuration in `.detoxrc.js`, like in an example here: [Artifacts Configuration](https://github.com/wix/Detox/blob/master/docs/APIRef.Configuration.md#artifacts-configuration). After a rerun, you should find
-a `ui.viewhierarchy` in a folder of your failing test. Please mind that you need Xcode 12 at least to open `*.viewhierarchy` files.
+   Add a line `"uiHierarchy": "enabled"` to your artifacts configuration in `.detoxrc.js`, like in an example here: [Artifacts Configuration](https://github.com/wix/Detox/blob/master/docs/APIRef.Configuration.md#artifacts-configuration). After a rerun, you should find
+   a `ui.viewhierarchy` in a folder of your failing test. Please mind that you need Xcode 12 at least to open `*.viewhierarchy` files.
 
-2. Besides, you can rerun your iOS app tests with `--take-screenshots failing`. What will happen is, for each view that fails visibility, two images will be saved at `artifacts/<configuration-timestamp-dir>/<test name>/visibilityFailingRects` (and `.../visibilityFailingScreenshots` folder aside) with autogenerated names, e.g. `DETOX_VISIBILITY_CustomView_0x7ffe9f50df10_TEST.png`:
+1. Besides, you can rerun your iOS app tests with `--take-screenshots failing`. What will happen is, for each view that fails visibility, two images will be saved at `artifacts/<configuration-timestamp-dir>/<test name>/visibilityFailingRects` (and `.../visibilityFailingScreenshots` folder aside) with autogenerated names, e.g. `DETOX_VISIBILITY_CustomView_0x7ffe9f50df10_TEST.png`:
 
-| in `visibilityFailingScreenshots` | in `visibilityFailingRects` |
-|:-------:|:---------:|
-|<img alt="visible" src="https://user-images.githubusercontent.com/2270433/94178906-68872380-fea4-11ea-845c-c55c25b68c0e.png" height=480>|<img alt="internals" src="https://user-images.githubusercontent.com/2270433/94178919-6c1aaa80-fea4-11ea-8db6-64f1f4b21361.png" height=480>|
+|                                                     in `visibilityFailingScreenshots`                                                    |                                                         in `visibilityFailingRects`                                                        |
+| :--------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------: |
+| <img alt="visible" src="https://user-images.githubusercontent.com/2270433/94178906-68872380-fea4-11ea-845c-c55c25b68c0e.png" height=480> | <img alt="internals" src="https://user-images.githubusercontent.com/2270433/94178919-6c1aaa80-fea4-11ea-8db6-64f1f4b21361.png" height=480> |
 
 The first is supposed to show what is seen on screen. The second shows the internal buffer that Detox tests for visibility; if the pixels aren’t transparent enough and less than 75% of tested region is not transparent, the view is not considered visible.
 
@@ -224,18 +224,11 @@ If you see that your issue cannot be solved via testID replacement or a simple h
 Do the following:
 
 1. Start a debuggable app (not a release build) in your simulator
-
-2. Open Xcode
-
-3. Attach Xcode to your app’s process
-<img src="img/attach-to-process.jpg">
-
-4. Press the `Debug View Hierarchy` button
-<img src="img/debug-view-hierarchy.jpg">
-
-5. This will open the hierarchy viewer, and will show a breakdown of your app’s native view hierarchy. Here you can browse through the views
-
-6. React Native testIDs are manifested as *accessibility identifiers* in the native view hierarchy
+1. Open Xcode
+1. Attach Xcode to your app’s process <img src="img/attach-to-process.jpg">
+1. Press the `Debug View Hierarchy` button <img src="img/debug-view-hierarchy.jpg">
+1. This will open the hierarchy viewer, and will show a breakdown of your app’s native view hierarchy. Here you can browse through the views
+1. React Native testIDs are manifested as _accessibility identifiers_ in the native view hierarchy
 
 Let’s see an example. We will find the following view in the native hierarchy:
 
@@ -259,7 +252,7 @@ First, install, build and make sure the tests are indeed passing. If they are, t
 
 #### Take a Look at Past Issues
 
-Before opening a new issue, search the [list of issues](https://github.com/wix/detox/issues?utf8=%E2%9C%93&q=is%3Aissue) on GitHub. There’s a good chance somebody faced the same problem you are having.
+Before opening a new issue, search the [list of issues](https://github.com/wix/detox/issues?utf8=%E2%9C%93\&q=is%3Aissue) on GitHub. There’s a good chance somebody faced the same problem you are having.
 
 #### How to Open a New Issue
 

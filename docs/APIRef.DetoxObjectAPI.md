@@ -2,7 +2,7 @@
 
 `detox` is globally available in every test file, though currently it is only used in the setup/init file.
 
->NOTE: detox is test runner independent, and we encourage you to choose your own test runner, but for the sake of demonstration we will use `mocha`’s syntax.
+> NOTE: detox is test runner independent, and we encourage you to choose your own test runner, but for the sake of demonstration we will use `mocha`’s syntax.
 
 ### Methods
 
@@ -71,11 +71,11 @@ declare function beforeEach(testSummary: {
 
 Usually, you are not supposed to write own implementation of this call, instead rely on Detox in-house adapters for [mocha](/examples/demo-react-native/e2e/init.js) and [jest](/examples/demo-react-native-jest/e2e/init.js) as in the examples. It should alleviate transitions to newer Detox versions for you as the chances are that API specification won’t prove itself as sufficient and it may undergo rewrites and extensions.
 
-> NOTE: If you are implementing support for a test runner different from Mocha and Jest, please keep in mind that *pending* (also known as *skipped*) tests should not trigger `detox.beforeEach()` at all, neither `detox.afterEach()`. The rule of thumb is either you guarantee you call them both, or you don’t call anyone.
+> NOTE: If you are implementing support for a test runner different from Mocha and Jest, please keep in mind that _pending_ (also known as _skipped_) tests should not trigger `detox.beforeEach()` at all, neither `detox.afterEach()`. The rule of thumb is either you guarantee you call them both, or you don’t call anyone.
 
 #### `detox.afterEach()`
 
-You are expected to call this method only after the test and all its inner `afterEach()`-es complete. Besides passing test title and full name you should pay heed on delivering a valid status field: *failed* or *passed*. If the test has another status (e.g. *skipped*), please comply to the note above in [detox.beforeEach()](#detoxbeforeEach) or use one of these two values as a fallback.
+You are expected to call this method only after the test and all its inner `afterEach()`-es complete. Besides passing test title and full name you should pay heed on delivering a valid status field: _failed_ or _passed_. If the test has another status (e.g. _skipped_), please comply to the note above in [detox.beforeEach()](#detoxbeforeEach) or use one of these two values as a fallback.
 
 ```typescript
 declare function afterEach(testSummary: {

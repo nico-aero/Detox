@@ -1,5 +1,12 @@
 exports.frail = true;
 
+exports.settings = {
+  bullet: '-',
+  emphasis: '_',
+  listItemIndent: 1,
+  incrementListMarker: false,
+};
+
 exports.plugins = [
   // GitHub and its flavored markdown integration
   require('remark-gfm'),

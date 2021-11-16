@@ -4,9 +4,9 @@
 
 ### Public Properties
 
-* [`device.id`](#deviceid)
-* [`device.name`](#devicename)
-* [`device.appLaunchArgs`](#deviceapplaunchargs)
+- [`device.id`](#deviceid)
+- [`device.name`](#devicename)
+- [`device.appLaunchArgs`](#deviceapplaunchargs)
 
 #### `device.id`
 
@@ -59,37 +59,37 @@ This is the most flexible way of editing the launch arguments. Refer to the [lau
 
 ### Methods
 
-* [`device.selectApp(name)`](#deviceselectappname)
-* [`device.launchApp(params)`](#devicelaunchappparams)
-* [`device.terminateApp()`](#deviceterminateapp)
-* [`device.sendToHome()`](#devicesendtohome)
-* [`device.reloadReactNative()`](#devicereloadreactnative)
-* [`device.installApp()`](#deviceinstallapp)
-* [`device.uninstallApp()`](#deviceuninstallapp)
-* [`device.openURL({url, sourceApp[optional]})`](#deviceopenurlurl-sourceappoptional)
-* [`device.sendUserNotification(params)`](#devicesendusernotificationparams)
-* [`device.sendUserActivity(params)` **iOS Only**](#devicesenduseractivityparams-ios-only)
-* [`device.setOrientation(orientation)`](#devicesetorientationorientation)
-* [`device.setLocation(lat, lon)`](#devicesetlocationlat-lon)
-* [`device.enableSynchronization()`](#deviceenablesynchronization)
-* [`device.disableSynchronization()`](#devicedisablesynchronization)
-* [`device.setURLBlacklist([urls])`](#deviceseturlblacklisturls)
-* [`device.resetContentAndSettings()` **iOS Only**](#deviceresetcontentandsettings-ios-only)
-* [`device.getPlatform()`](#devicegetplatform)
-* [`device.takeScreenshot([name])`](#devicetakescreenshotname)
-* [`device.shake()` **iOS Only**](#deviceshake-ios-only)
-* [`device.setBiometricEnrollment(bool)` **iOS Only**](#devicesetbiometricenrollmentbool-ios-only)
-* [`device.matchFace()` **iOS Only**](#devicematchface-ios-only)
-* [`device.unmatchFace()` **iOS Only**](#deviceunmatchface-ios-only)
-* [`device.matchFinger()` **iOS Only**](#devicematchfinger-ios-only)
-* [`device.unmatchFinger()` **iOS Only**](#deviceunmatchfinger-ios-only)
-* [`device.clearKeychain()` **iOS Only**](#deviceclearkeychain-ios-only)
-* [`device.setStatusBar()` **iOS Only**](#devicesetstatusbar-ios-only)
-* [`device.resetStatusBar()` **iOS Only**](#deviceresetstatusbar-ios-only)
-* [`device.reverseTcpPort()` **Android Only**](#devicereversetcpport-android-only)
-* [`device.unreverseTcpPort()` **Android Only**](#deviceunreversetcpport-android-only)
-* [`device.pressBack()` **Android Only**](#devicepressback-android-only)
-* [`device.getUiDevice()` **Android Only**](#devicegetuidevice-android-only)
+- [`device.selectApp(name)`](#deviceselectappname)
+- [`device.launchApp(params)`](#devicelaunchappparams)
+- [`device.terminateApp()`](#deviceterminateapp)
+- [`device.sendToHome()`](#devicesendtohome)
+- [`device.reloadReactNative()`](#devicereloadreactnative)
+- [`device.installApp()`](#deviceinstallapp)
+- [`device.uninstallApp()`](#deviceuninstallapp)
+- [`device.openURL({url, sourceApp[optional]})`](#deviceopenurlurl-sourceappoptional)
+- [`device.sendUserNotification(params)`](#devicesendusernotificationparams)
+- [`device.sendUserActivity(params)` **iOS Only**](#devicesenduseractivityparams-ios-only)
+- [`device.setOrientation(orientation)`](#devicesetorientationorientation)
+- [`device.setLocation(lat, lon)`](#devicesetlocationlat-lon)
+- [`device.enableSynchronization()`](#deviceenablesynchronization)
+- [`device.disableSynchronization()`](#devicedisablesynchronization)
+- [`device.setURLBlacklist([urls])`](#deviceseturlblacklisturls)
+- [`device.resetContentAndSettings()` **iOS Only**](#deviceresetcontentandsettings-ios-only)
+- [`device.getPlatform()`](#devicegetplatform)
+- [`device.takeScreenshot([name])`](#devicetakescreenshotname)
+- [`device.shake()` **iOS Only**](#deviceshake-ios-only)
+- [`device.setBiometricEnrollment(bool)` **iOS Only**](#devicesetbiometricenrollmentbool-ios-only)
+- [`device.matchFace()` **iOS Only**](#devicematchface-ios-only)
+- [`device.unmatchFace()` **iOS Only**](#deviceunmatchface-ios-only)
+- [`device.matchFinger()` **iOS Only**](#devicematchfinger-ios-only)
+- [`device.unmatchFinger()` **iOS Only**](#deviceunmatchfinger-ios-only)
+- [`device.clearKeychain()` **iOS Only**](#deviceclearkeychain-ios-only)
+- [`device.setStatusBar()` **iOS Only**](#devicesetstatusbar-ios-only)
+- [`device.resetStatusBar()` **iOS Only**](#deviceresetstatusbar-ios-only)
+- [`device.reverseTcpPort()` **Android Only**](#devicereversetcpport-android-only)
+- [`device.unreverseTcpPort()` **Android Only**](#deviceunreversetcpport-android-only)
+- [`device.pressBack()` **Android Only**](#devicepressback-android-only)
+- [`device.getUiDevice()` **Android Only**](#devicegetuidevice-android-only)
 
 #### `device.selectApp(name)`
 
@@ -363,7 +363,7 @@ await device.setLocation(32.0853, 34.7818);
 
 Temporarily disable synchronization (idle/busy monitoring) with the app - namely, stop waiting for the app to go idle before moving forward in the test execution.
 
-This API is useful for cases where test assertions must be made in an area of your application where it is okay for it to ever remain partly *busy* (e.g. due to an endlessly repeating on-screen animation).
+This API is useful for cases where test assertions must be made in an area of your application where it is okay for it to ever remain partly _busy_ (e.g. due to an endlessly repeating on-screen animation).
 However, using it inherently suggests that you are likely to resort to applying `sleep()`’s in your test code - testing that area, **which is not recommended and can never be 100% stable.** Therefore, as a rule of thumb, test code running "inside" a sync-disabled mode must be reduced to the bare minimum.
 
 Note: Synchronization is enabled by default, and it gets **re-enabled on every launch of a new instance of the app.**

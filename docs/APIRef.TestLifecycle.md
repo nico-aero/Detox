@@ -17,7 +17,7 @@ Of course, you can add any of your initializations in this phase.
 
 ### Before and After Each Test
 
-Despite being a recent and *still* an optional formation, `detox.beforeEach` and `detox.afterEach` lifecycle functions are **highly** recommended to be called in your test setups. The newer features (including test artifacts: video recordings, screenshots, logs) are not expected to work without these calls.
+Despite being a recent and _still_ an optional formation, `detox.beforeEach` and `detox.afterEach` lifecycle functions are **highly** recommended to be called in your test setups. The newer features (including test artifacts: video recordings, screenshots, logs) are not expected to work without these calls.
 
 > **TIP**: This API is still apt to change in future, thus to minimize the risks, you are encouraged to switch to the built-in adapters for `mocha` and `jest` like in examples here: [mocha adapter example](/examples/demo-react-native/e2e/init.js), [jest adapter example](/examples/demo-react-native-jest/e2e/init.js).
 
