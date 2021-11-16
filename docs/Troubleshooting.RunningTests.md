@@ -10,9 +10,9 @@ For troubleshooting of other issue, refer to our [troubleshooting index](Trouble
 - [Tests execution hangs](#tests-execution-hangs)
 - [No Simulators Found (iOS)](#no-simulators-found-ios)
 - [Syntax Error: Unexpected Token](#syntax-error-unexpected-token)
-- [Can't Find My Component Even Though I Added a `testID` to Its Props](#cant-find-my-component-even-though-i-added-a-testid-to-its-props)
-- [Test Tries to Find My Component Before It's Created](#test-tries-to-find-my-component-before-its-created)
-- [Can't synchronize the test with my app](#cant-synchronize-the-test-with-my-app)
+- [Can’t Find My Component Even Though I Added a `testID` to Its Props](#cant-find-my-component-even-though-i-added-a-testid-to-its-props)
+- [Test Tries to Find My Component Before It’s Created](#test-tries-to-find-my-component-before-its-created)
+- [Can’t synchronize the test with my app](#cant-synchronize-the-test-with-my-app)
 - [Unknown option "configuration" (Mocha.js)](#unknown-option-configuration-mochajs)
 - [An Element is Not Visible](#an-element-is-not-visible)
 - [Debug View Hierarchy](#debug-view-hierarchy)
@@ -22,7 +22,7 @@ For troubleshooting of other issue, refer to our [troubleshooting index](Trouble
 
 #### Trace Mode
 
-It's a good idea to get as much information as possible about what's going on. We can enable trace mode during tests by running our tests with:
+It’s a good idea to get as much information as possible about what’s going on. We can enable trace mode during tests by running our tests with:
 
 ```sh
 detox test --loglevel trace
@@ -36,7 +36,7 @@ See [here](https://github.com/wix/detox/blob/master/docs/Troubleshooting.Synchro
 
 In order to run tests on a simulator, you need to have simulator images installed on your machine. This process is performed by Xcode itself. You can list all available simulators using `simctl` by typing `xcrun simctl list` in terminal.
 
-If you're missing a simulator, make sure Xcode is installed and use it to download the simulator. Take a look at the Preferences screen, some screenshots can be seen [here](http://stackoverflow.com/questions/33738113/how-to-install-ios-9-1-simulator-in-xcode-version-7-1-1-7b1005).
+If you’re missing a simulator, make sure Xcode is installed and use it to download the simulator. Take a look at the Preferences screen, some screenshots can be seen [here](http://stackoverflow.com/questions/33738113/how-to-install-ios-9-1-simulator-in-xcode-version-7-1-1-7b1005).
 
 Once the desired simulator is installed and returned by `xcrun simctl list`, double check its name in the list and make sure this name is found in the `detox` configuration entry in `package.json`. The reference for the configuration options is available [here](APIRef.Configuration.md).
 
@@ -45,7 +45,7 @@ Once the desired simulator is installed and returned by `xcrun simctl list`, dou
 **Issue:** A while after running Detox, you get a message about failure to connect to the running app, in the logs:
 
 ```plain text
-Detox can't seem to connect to the test app(s)!
+Detox can’t seem to connect to the test app(s)!
 ```
 
 This can be a result of various reasons. It is generally up to you to debug and find the root cause. In any case, below are the common ones.
@@ -58,10 +58,10 @@ This can be a result of various reasons. It is generally up to you to debug and 
 
 ##### If you _do_ see your app running on the device
 
-- **On Android with SDK≥28**, the app's connection to the Detox test server is blocked due to clear-traffic blockage (as reported in issue [#1450](https://github.com/wix/Detox/issues/1450)).
-  The main step for getting this fixed is to revisit the [associated section](Introduction.Android.md#6-enable-clear-text-unencrypted-traffic-for-detox) in the setup guide, which discusses network-security. Alternatively, the `android:usesCleartextTraffic="true"` attribute can be configured in the `<application>` tag of the app's `AndroidManifest.xml`, but **that is highly discouraged**.
-- If you've applied the above suggestion but the app fails to connect to the Detox test server, nonetheless: Refer to the device's logs, which should contain messages about failed connection attempts (get them using the `--record-logs all` argument)
-- The app could be running without Detox native code injected. In this case, first, make sure you're not trying to run in manual launch mode (where this behavior is valid). If so, examine the logs from the device (get them using the `--record-logs all` argument). If you see a crash related to Detox's native code, you are welcome to report it on our GitHub tracker.
+- **On Android with SDK≥28**, the app’s connection to the Detox test server is blocked due to clear-traffic blockage (as reported in issue [#1450](https://github.com/wix/Detox/issues/1450)).
+  The main step for getting this fixed is to revisit the [associated section](Introduction.Android.md#6-enable-clear-text-unencrypted-traffic-for-detox) in the setup guide, which discusses network-security. Alternatively, the `android:usesCleartextTraffic="true"` attribute can be configured in the `<application>` tag of the app’s `AndroidManifest.xml`, but **that is highly discouraged**.
+- If you’ve applied the above suggestion but the app fails to connect to the Detox test server, nonetheless: Refer to the device’s logs, which should contain messages about failed connection attempts (get them using the `--record-logs all` argument)
+- The app could be running without Detox native code injected. In this case, first, make sure you’re not trying to run in manual launch mode (where this behavior is valid). If so, examine the logs from the device (get them using the `--record-logs all` argument). If you see a crash related to Detox’s native code, you are welcome to report it on our GitHub tracker.
 - If you are in fact debugging your native code integration with Detox, these guides may prove helpful:
   - <https://github.com/wix/Detox/blob/master/docs/Guide.DebuggingInAndroidStudio.md>
   - <https://github.com/wix/Detox/blob/master/docs/Guide.DebuggingInXcode.md>
@@ -87,7 +87,7 @@ child_process.js:531
 
 1. Update Node to a version **8.3.0 or higher**.
 
-#### Can't Find My Component Even Though I Added a `testID` to Its Props
+#### Can’t Find My Component Even Though I Added a `testID` to Its Props
 
 **Issue:** Detox fails to match a component even though it has a `testID`. Detox will throw the following error:
 
@@ -111,7 +111,7 @@ Error Trace: [
 ]
 ```
 
-**Solution:** React Native only supports the `testID` prop on the native built-in components. If you've created a custom composite component, you will have to support this prop yourself. You should probably propagate the `testID` prop to one of your rendered children (a built-in component):
+**Solution:** React Native only supports the `testID` prop on the native built-in components. If you’ve created a custom composite component, you will have to support this prop yourself. You should probably propagate the `testID` prop to one of your rendered children (a built-in component):
 
 ```jsx
 export class MyCompositeComponent extends Component {
@@ -135,7 +135,7 @@ render() {
 }
 ```
 
-#### Test Tries to Find My Component Before It's Created
+#### Test Tries to Find My Component Before It’s Created
 
 **Issue:** Due to a synchronization issue, the test tries to perform an expectation and fails because it runs the expectation too soon. Consider this example:
 
@@ -144,9 +144,9 @@ await element(by.text('Login')).tap();
 await expect(element(by.text('Welcome'))).toBeVisible();
 ```
 
-In the test above, after tapping the Login button, the app performs several complex asynchronous operations until the Welcome message is displayed post-login. These can include querying a server, waiting for a response and then running an animated transition to the Welcome screen. Detox attempts to simplify your test code by synchronizing _automatically_ with these asynchronous operations. What happens if for some reason the automatic synchronization doesn't work? As a result, Detox will not wait correctly until the Welcome screen appears and instead will continue immediately to the next line and try to run the expectation. Since the screen is not there yet, the test will fail.
+In the test above, after tapping the Login button, the app performs several complex asynchronous operations until the Welcome message is displayed post-login. These can include querying a server, waiting for a response and then running an animated transition to the Welcome screen. Detox attempts to simplify your test code by synchronizing _automatically_ with these asynchronous operations. What happens if for some reason the automatic synchronization doesn’t work? As a result, Detox will not wait correctly until the Welcome screen appears and instead will continue immediately to the next line and try to run the expectation. Since the screen is not there yet, the test will fail.
 
-**Solution:** When you suspect that automatic synchronization didn't work, you have a fail-safe by synchronizing manually with `waitFor`. Using `waitFor` will poll until the expectation is met. This isn't a recommended approach so please use it as a workaround and open and issue to resolve the synchronization issue.
+**Solution:** When you suspect that automatic synchronization didn’t work, you have a fail-safe by synchronizing manually with `waitFor`. Using `waitFor` will poll until the expectation is met. This isn’t a recommended approach so please use it as a workaround and open and issue to resolve the synchronization issue.
 
 Full documentation about `waitFor` is available [here](/docs/APIRef.waitFor.md). This is what the fixed test would look like:
 
@@ -155,7 +155,7 @@ await element(by.text('Login')).tap();
 await waitFor(element(by.text('Welcome'))).toBeVisible().withTimeout(2000);
 ```
 
-#### Can't synchronize the test with my app
+#### Can’t synchronize the test with my app
 
 If you suspect that the test is failing because Detox fails to synchronize the test steps with your app, take a look at this in-depth [synchronization troubleshooting tutorial](/docs/Troubleshooting.Synchronization.md).
 
@@ -189,7 +189,7 @@ After you upgrade, you can configure the default path to your end-to-end tests f
  }
 ```
 
-Please mind that if your E2E tests are located at the default path (`e2e`), then you don't need to add `"specs"` property explicitly to `package.json`.
+Please mind that if your E2E tests are located at the default path (`e2e`), then you don’t need to add `"specs"` property explicitly to `package.json`.
 
 #### An Element is Not Visible
 
@@ -209,28 +209,28 @@ Test Failed: View "<RCTScrollView: 0x7f8d32296d70>" is not visible: view does no
 | :--------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------: |
 | <img alt="visible" src="https://user-images.githubusercontent.com/2270433/94178906-68872380-fea4-11ea-845c-c55c25b68c0e.png" height=480> | <img alt="internals" src="https://user-images.githubusercontent.com/2270433/94178919-6c1aaa80-fea4-11ea-8db6-64f1f4b21361.png" height=480> |
 
-The first is supposed to show what is seen on screen. The second shows the internal buffer that Detox tests for visibility; if the pixels aren't transparent enough and less than 75% of tested region is not transparent, the view is not considered visible.
+The first is supposed to show what is seen on screen. The second shows the internal buffer that Detox tests for visibility; if the pixels aren’t transparent enough and less than 75% of tested region is not transparent, the view is not considered visible.
 
 If you are developing a React Native app, then the following applies. If, for instance, you see that tapping fails due to a view with `pointerEvents="none"` obscuring your target — well, the only solutions are: either to make the obscurer a descendant of your target (instead of being a sibling), or to tap on the parent container.
 
-If you see that your issue cannot be solved via testID replacement or a simple hierarchy rearrangement, then there's a chance this is a bug in Detox. Make sure to provide your `ui.viewhierarchy` artifact, the pictures generated under `visibilityFailingRects` and `visibilityFailingScreenshots` folders and a comprehensive description of the issue backed up with sound arguments.
+If you see that your issue cannot be solved via testID replacement or a simple hierarchy rearrangement, then there’s a chance this is a bug in Detox. Make sure to provide your `ui.viewhierarchy` artifact, the pictures generated under `visibilityFailingRects` and `visibilityFailingScreenshots` folders and a comprehensive description of the issue backed up with sound arguments.
 
 #### Debug View Hierarchy
 
-**Issue:** I added the `testID` prop but I still can't find the view by id in my tests.
+**Issue:** I added the `testID` prop but I still can’t find the view by id in my tests.
 
-**Solution:** You can investigate the app's native view hierarchy, this might shed some light on how the app's view hierarchy is laid out.
+**Solution:** You can investigate the app’s native view hierarchy, this might shed some light on how the app’s view hierarchy is laid out.
 
 Do the following:
 
 1. Start a debuggable app (not a release build) in your simulator
 1. Open Xcode
-1. Attach Xcode to your app's process <img src="img/attach-to-process.jpg">
+1. Attach Xcode to your app’s process <img src="img/attach-to-process.jpg">
 1. Press the `Debug View Hierarchy` button <img src="img/debug-view-hierarchy.jpg">
-1. This will open the hierarchy viewer, and will show a breakdown of your app's native view hierarchy. Here you can browse through the views
+1. This will open the hierarchy viewer, and will show a breakdown of your app’s native view hierarchy. Here you can browse through the views
 1. React Native testIDs are manifested as _accessibility identifiers_ in the native view hierarchy
 
-Let's see an example. We will find the following view in the native hierarchy:
+Let’s see an example. We will find the following view in the native hierarchy:
 
 ```jsx
 <TouchableOpacity onPress={this.onButtonPress.bind(this, 'ID Working')}>
@@ -252,7 +252,7 @@ First, install, build and make sure the tests are indeed passing. If they are, t
 
 #### Take a Look at Past Issues
 
-Before opening a new issue, search the [list of issues](https://github.com/wix/detox/issues?utf8=%E2%9C%93\&q=is%3Aissue) on GitHub. There's a good chance somebody faced the same problem you are having.
+Before opening a new issue, search the [list of issues](https://github.com/wix/detox/issues?utf8=%E2%9C%93\&q=is%3Aissue) on GitHub. There’s a good chance somebody faced the same problem you are having.
 
 #### How to Open a New Issue
 

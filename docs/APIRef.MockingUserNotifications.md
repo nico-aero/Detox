@@ -2,7 +2,7 @@
 
 Detox supports mocking user notifications.
 
-> **Note:** The mocking mechanism will not mimic the UI of a user notification. Instead, it will only simulate a user interaction with the notification - namely, the "opening" of it (equivalent to a user's tap/swipe on it in the notification center).
+> **Note:** The mocking mechanism will not mimic the UI of a user notification. Instead, it will only simulate a user interaction with the notification - namely, the "opening" of it (equivalent to a user’s tap/swipe on it in the notification center).
 
 ### Mocking App Launch With a Notification
 
@@ -60,7 +60,7 @@ User notifications are passed as JSON objects to Detox. The JSON object needs to
 | `title`             | No                        | String     | iOS           | A short description of the reason for the alert.                                                                                                                                         |
 | `subtitle`          | No                        | String     | iOS           | A secondary description of the reason for the alert.                                                                                                                                     |
 | `body`              | No                        | String     | iOS           | The body of the notification.                                                                                                                                                            |
-| `badge`             | No                        | Integer    | iOS           | The number to display as the app's icon badge.                                                                                                                                           |
+| `badge`             | No                        | Integer    | iOS           | The number to display as the app’s icon badge.                                                                                                                                           |
 | `payload`           | iOS: No<br />Android: Yes | Object     | iOS & Android | An object of custom information associated with the notification.<br />Android: see [full description below](#Payload)                                                                   |
 | `category`          | No                        | String     | iOS           | The identifier of the app-defined category object.                                                                                                                                       |
 | `content-available` | No                        | Integer    | iOS           | Include this key with a value of 1 to configure a silent notification.                                                                                                                   |
@@ -123,7 +123,7 @@ const userNotification = {
 | Key             | Required | Value Type | Description                                                                                                                                                             |
 | --------------- | -------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `center`        | Yes      | Object     | The center point of the geographic area. See the [Coordinate section](https://github.com/wix/detox/wiki/User-Notifications-JSON-Format-Documentation#coordinate) below. |
-| `radius`        | Yes      | Number     | The radius (measured in meters) that defines the geographic area's outer boundary.                                                                                      |
+| `radius`        | Yes      | Number     | The radius (measured in meters) that defines the geographic area’s outer boundary.                                                                                      |
 | `notifyOnEntry` | No       | Boolean    | Indicates that notifications are generated upon entry into the region.                                                                                                  |
 | `notifyOnExit`  | No       | Boolean    | Indicates that notifications are generated upon exit from the region.                                                                                                   |
 
@@ -136,7 +136,7 @@ const userNotification = {
 
 #### Payload
 
-On Android, the content will be available via the activity's [`getIntent()`](https://developer.android.com/reference/android/app/Activity#getIntent\(\)) API, inside the intent's _extra_ bundle. Under some limitations, that includes data-cascading so as to provide comprehensive support for JavaScript's advanced object-hierarchy capabilities as much as possible. As an example, consider this payload:
+On Android, the content will be available via the activity’s [`getIntent()`](https://developer.android.com/reference/android/app/Activity#getIntent\(\)) API, inside the intent’s _extra_ bundle. Under some limitations, that includes data-cascading so as to provide comprehensive support for JavaScript’s advanced object-hierarchy capabilities as much as possible. As an example, consider this payload:
 
 ```javascript
 const userNotification = {
@@ -164,9 +164,9 @@ activity.getIntent().getBundleExtra("userDataObj").getString("cascadedKey") == "
 
 ##### Handling at Runtime
 
-Note that on Android, data delivered through an intent at runtime, is typically received in your activity's [`onNewIntent`](https://developer.android.com/reference/android/app/Activity#onNewIntent\(android.content.Intent\)) callback. Be sure to consider what should be done in order to handle this type of a use case in your app: Namely, that `setIntent()` should be called in order for the data to be later available in your app through `getIntent()`, as explained earlier.
+Note that on Android, data delivered through an intent at runtime, is typically received in your activity’s [`onNewIntent`](https://developer.android.com/reference/android/app/Activity#onNewIntent\(android.content.Intent\)) callback. Be sure to consider what should be done in order to handle this type of a use case in your app: Namely, that `setIntent()` should be called in order for the data to be later available in your app through `getIntent()`, as explained earlier.
 
-> **This isn't related to Detox in particular**, and is set here simply to help you consider all the use cases in your app so that tests coverage would be optimal.
+> **This isn’t related to Detox in particular**, and is set here simply to help you consider all the use cases in your app so that tests coverage would be optimal.
 
 #### Examples
 

@@ -29,9 +29,9 @@ Use [expectations](APIRef.Expect.md) to verify element states.
 
 #### `tap(point)`
 
-Simulates a tap on the element at the specified point, or at element's activation point if no point is specified.
+Simulates a tap on the element at the specified point, or at element’s activation point if no point is specified.
 
-`point`—a point in the element's coordinate space (optional, valid input: object with x and y numerical values, default is `null`)
+`point`—a point in the element’s coordinate space (optional, valid input: object with x and y numerical values, default is `null`)
 
 **Note:** Special care should be applied when specifying a point with this method. Elements may have different dimensions when displayed on different device screen sizes, different text sizes, etc.
 
@@ -101,7 +101,7 @@ await element(by.id('scrollView')).swipe('down', 'fast', NaN, NaN, 0.25); // set
 
 Simulates a pinch on the element with the provided options.
 
-`scale`—the scale of the pinch gesture; use a scale between 0 and 1 to zoom out, and a scale greater than 1 to zoom in; the system makes a best effort to accommodate the requested scale, taking into account the element's dimensions (valid input: (0.0, inf]) <br/>
+`scale`—the scale of the pinch gesture; use a scale between 0 and 1 to zoom out, and a scale greater than 1 to zoom in; the system makes a best effort to accommodate the requested scale, taking into account the element’s dimensions (valid input: (0.0, inf]) <br/>
 `speed`—the speed of the pinch (optional, valid input: `"fast"`/`"slow"` , default is `"slow"`) <br/>
 `angle`—the angle of the pinch, in radians (optional, default is 0.0)
 
@@ -126,7 +126,7 @@ await element(by.id('scrollView')).scrollToIndex(0);
 Simulates a scroll on the element with the provided options.
 
 `offset`—the offset to scroll, in points <br/>
-`direction`—the scroll's direction (valid input: `"left"`/`"right"`/`"up"`/`"down"`) <br/>
+`direction`—the scroll’s direction (valid input: `"left"`/`"right"`/`"up"`/`"down"`) <br/>
 `startPositionX`—the normalized x percentage of the element to use as scroll start point (optional, valid input: \[0.0, 1.0], `NaN`—choose an optimal value automatically, default is `NaN`) <br/>
 `startPositionY`—the normalized y percentage of the element to use as scroll start point (optional, valid input: \[0.0, 1.0], `NaN`—choose an optimal value automatically, default is `NaN`)
 
@@ -156,9 +156,9 @@ await element(by.id('scrollView')).scrollTo('top');
 
 #### `typeText(text)`
 
-Simulates typing of the specified text into the element, using the system's builtin keyboard and typing behavior.
+Simulates typing of the specified text into the element, using the system’s builtin keyboard and typing behavior.
 
-On iOS, any element can be typed into, as long as it can become first responder and conforms to the [`UITextInput`](https://developer.apple.com/documentation/uikit/uitextinput) protocol. Before typing the text, Detox attempts making the element the first responder, if it isn't already. If the element's window is not key window, Detox attempts making it the key window.
+On iOS, any element can be typed into, as long as it can become first responder and conforms to the [`UITextInput`](https://developer.apple.com/documentation/uikit/uitextinput) protocol. Before typing the text, Detox attempts making the element the first responder, if it isn’t already. If the element’s window is not key window, Detox attempts making it the key window.
 
 `text`—the text to type (valid input: string)
 
@@ -168,9 +168,9 @@ await element(by.id('textField')).typeText('passcode');
 
 #### `replaceText(text)`
 
-Replaces the element's text with the specified text, without using the system's builtin keyboard or typing behavior. **Note**, that using this method is faster than using [`.typeText()`](#typetexttext), but may not trigger all text input callbacks, causing an undefined state in your app.
+Replaces the element’s text with the specified text, without using the system’s builtin keyboard or typing behavior. **Note**, that using this method is faster than using [`.typeText()`](#typetexttext), but may not trigger all text input callbacks, causing an undefined state in your app.
 
-On iOS, any element's text can be replaced, as long as it can become first responder and conforms to the [`UITextInput`](https://developer.apple.com/documentation/uikit/uitextinput) protocol. Before replacing the text, Detox attempts making the element the first responder, if it isn't already. If the element's window is not key window, Detox attempts making it the key window.
+On iOS, any element’s text can be replaced, as long as it can become first responder and conforms to the [`UITextInput`](https://developer.apple.com/documentation/uikit/uitextinput) protocol. Before replacing the text, Detox attempts making the element the first responder, if it isn’t already. If the element’s window is not key window, Detox attempts making it the key window.
 
 `text`—the text to replace with (valid input: string)
 
@@ -180,9 +180,9 @@ await element(by.id('textField')).replaceText('passcode again');
 
 #### `clearText()`
 
-Simulates clearing the text of the element, using the system's builtin keyboard and typing behavior.
+Simulates clearing the text of the element, using the system’s builtin keyboard and typing behavior.
 
-On iOS, any element's text can be cleared, as long as it can become first responder and conforms to the [`UITextInput`](https://developer.apple.com/documentation/uikit/uitextinput) protocol. Before clearing the text, Detox attempts making the element the first responder, if it isn't already. If the element's window is not key window, Detox attempts making it the key window.
+On iOS, any element’s text can be cleared, as long as it can become first responder and conforms to the [`UITextInput`](https://developer.apple.com/documentation/uikit/uitextinput) protocol. Before clearing the text, Detox attempts making the element the first responder, if it isn’t already. If the element’s window is not key window, Detox attempts making it the key window.
 
 ```js
 await element(by.id('textField')).clearText();
@@ -190,9 +190,9 @@ await element(by.id('textField')).clearText();
 
 #### `tapReturnKey()`
 
-Simulates tapping on the return key into the element, using the system's builtin keyboard and typing behavior.
+Simulates tapping on the return key into the element, using the system’s builtin keyboard and typing behavior.
 
-On iOS, any element can be sent return key input, as long as it can become first responder and conforms to the [`UITextInput`](https://developer.apple.com/documentation/uikit/uitextinput) protocol. Before tapping on the return key, Detox attempts making the element the first responder, if it isn't already. If the element's window is not key window, Detox attempts making it the key window.
+On iOS, any element can be sent return key input, as long as it can become first responder and conforms to the [`UITextInput`](https://developer.apple.com/documentation/uikit/uitextinput) protocol. Before tapping on the return key, Detox attempts making the element the first responder, if it isn’t already. If the element’s window is not key window, Detox attempts making it the key window.
 
 ```js
 await element(by.id('textField')).tapReturnKey();
@@ -200,9 +200,9 @@ await element(by.id('textField')).tapReturnKey();
 
 #### `tapBackspaceKey()`
 
-Simulates tapping of the backspace key into the element, using the system's builtin keyboard and typing behavior.
+Simulates tapping of the backspace key into the element, using the system’s builtin keyboard and typing behavior.
 
-On iOS, any element can be sent backspace key input, as long as it can become first responder and conforms to the [`UITextInput`](https://developer.apple.com/documentation/uikit/uitextinput) protocol. Before tapping on the backspace key, Detox attempts making the element the first responder, if it isn't already. If the element's window is not key window, Detox attempts making it the key window.
+On iOS, any element can be sent backspace key input, as long as it can become first responder and conforms to the [`UITextInput`](https://developer.apple.com/documentation/uikit/uitextinput) protocol. Before tapping on the backspace key, Detox attempts making the element the first responder, if it isn’t already. If the element’s window is not key window, Detox attempts making it the key window.
 
 ```js
 await element(by.id('textField')).tapBackspaceKey();
@@ -210,13 +210,13 @@ await element(by.id('textField')).tapBackspaceKey();
 
 #### `setColumnToValue(column, value)`  iOS only
 
-Sets the element's specified column to the specified value, using the system's picker view APIs.
+Sets the element’s specified column to the specified value, using the system’s picker view APIs.
 
 Values accepted by this method are strings only, and the system will do its best to match complex picker view cells to the string.
 
 This function does not support date pickers. Use [`.setDatePickerDate()`](#setdatepickerdatedatestring-dateformat--ios-only) instead.
 
-`column`—the element's column to set (valid input: number, 0 and above) <br/>
+`column`—the element’s column to set (valid input: number, 0 and above) <br/>
 `value`—the string value to set (valid input: string)
 
 ```js
@@ -228,9 +228,9 @@ await element(by.id('pickerView')).setColumnToValue(2, "Hello World");
 
 #### `setDatePickerDate(dateString, dateFormat)`  iOS only
 
-Sets the element's date to the specified date string, parsed using the specified date format.
+Sets the element’s date to the specified date string, parsed using the specified date format.
 
-The specified date string is converted by the system to an [`NSDate`](https://developer.apple.com/documentation/foundation/nsdate) object, using [`NSDateFormatter`](https://developer.apple.com/documentation/foundation/dateformatter) with the specified date format, or [`NSISO8601DateFormatter`](https://developer.apple.com/documentation/foundation/iso8601dateformatter) in case of ISO 8601 date strings. If you use JavaScript's [Date.toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString) or otherwise provide a valid ISO 8601 date string, set the date format to `"ISO8601"`, which is supported as a special case.
+The specified date string is converted by the system to an [`NSDate`](https://developer.apple.com/documentation/foundation/nsdate) object, using [`NSDateFormatter`](https://developer.apple.com/documentation/foundation/dateformatter) with the specified date format, or [`NSISO8601DateFormatter`](https://developer.apple.com/documentation/foundation/iso8601dateformatter) in case of ISO 8601 date strings. If you use JavaScript’s [Date.toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString) or otherwise provide a valid ISO 8601 date string, set the date format to `"ISO8601"`, which is supported as a special case.
 
 `dateString`—the date to set (valid input: valid, parsable date string) <br/>
 `dateFormat`—the date format of `dateString` (valid input: `"ISO8601"` or a valid, parsable date format supported by [`NSDateFormatter`](https://developer.apple.com/documentation/foundation/dateformatter))
@@ -260,7 +260,7 @@ Retrieved attributes are:
 - `label`: The label of the element. Matches `accessibilityLabel` for iOS, and `contentDescription` for android.
 - `placeholder`: The placeholder text value of the element. Matches `hint` on android.
 - `enabled`: Whether or not the element is enabled for user interaction.
-- `identifier`: The identifier of the element. Matches `accessibilityIdentifier` on iOS, and the main view tag, on Android - both commonly **holding the component's test ID in React Native apps**.
+- `identifier`: The identifier of the element. Matches `accessibilityIdentifier` on iOS, and the main view tag, on Android - both commonly **holding the component’s test ID in React Native apps**.
 - `visible`: whether the element is visible. On iOS, visibility is calculated for the [activation point](https://developer.apple.com/documentation/objectivec/nsobject/1615179-accessibilityactivationpoint). On Android, the attribute directly holds the value returned by [View.getLocalVisibleRect()](https://developer.android.com/reference/kotlin/android/view/View#getglobalvisiblerect)).
 - `value`: the value of the element, where applicable. For example: the position of a slider, or whether a checkbox has been marked. Matches `accessibilityValue`, on iOS.
 
@@ -321,7 +321,7 @@ Takes a screenshot of the matched element. For full details on taking screenshot
 
 Simulates a tap at on the element at the specified point.
 
-`point`—a point in the element's coordinate space
+`point`—a point in the element’s coordinate space
 
 ```js
 await element(by.id('tappable')).tapAtPoint({x:5, y:10});

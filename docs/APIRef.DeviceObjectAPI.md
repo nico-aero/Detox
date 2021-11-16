@@ -114,7 +114,7 @@ Launch the app defined in the current [`configuration`](APIRef.Configuration.md#
 
 Terminate the app and launch it again.
 
-If set to `false`, the device will try to resume the app (e.g. bring from foreground to background). If the app isn't running, **it will launch a new instance** nonetheless. **Default is `false`.**
+If set to `false`, the device will try to resume the app (e.g. bring from foreground to background). If the app isn’t running, **it will launch a new instance** nonetheless. **Default is `false`.**
 
 ```js
 await device.launchApp({newInstance: true});
@@ -128,11 +128,11 @@ Grants or denies runtime permissions to your application. This will cause the ap
 await device.launchApp({permissions: {calendar: 'YES'}});
 ```
 
-Detox uses [AppleSimUtils](https://github.com/wix/AppleSimulatorUtils) to implement this functionality for iOS simulators. Read about the different types of permissions and how to set them in AppleSimUtils' documentation and by checking out Detox's [own test suite](../detox/test/e2e/13.permissions.test.js).
+Detox uses [AppleSimUtils](https://github.com/wix/AppleSimulatorUtils) to implement this functionality for iOS simulators. Read about the different types of permissions and how to set them in AppleSimUtils' documentation and by checking out Detox’s [own test suite](../detox/test/e2e/13.permissions.test.js).
 
 ##### 3. `url`—Launching with URL
 
-Launches the app with the specified URL to test your app's deep link handling mechanism.
+Launches the app with the specified URL to test your app’s deep link handling mechanism.
 
 ```js
 await device.launchApp({url});
@@ -283,7 +283,7 @@ await device.terminateApp('other.bundle.id');
 
 Send application to background by bringing `com.apple.springboard` to the foreground.
 Combining `sendToHome()` with `launchApp({newInstance: false})` will simulate app coming back from background.
-Check out Detox's [own test suite](../detox/test/e2e/06.device.test.js)
+Check out Detox’s [own test suite](../detox/test/e2e/06.device.test.js)
 
 ```js
 await device.sendToHome();
@@ -291,7 +291,7 @@ await device.launchApp({newInstance: false});
 // app returned from background, do stuff
 ```
 
-Check out Detox's [own test suite](../detox/test/e2e/06.device.test.js)
+Check out Detox’s [own test suite](../detox/test/e2e/06.device.test.js)
 
 #### `device.reloadReactNative()`
 
@@ -324,20 +324,20 @@ await device.uninstallApp('other.bundle.id');
 Mock opening the app from URL. `sourceApp` is an optional **iOS-only** parameter to specify source application bundle id.
 
 Read more in [Mocking Open with URL](APIRef.MockingOpenWithURL.md) section.
-Check out Detox's [own test suite](../detox/test/e2e/15.urls.test.js)
+Check out Detox’s [own test suite](../detox/test/e2e/15.urls.test.js)
 
 #### `device.sendUserNotification(params)`
 
 Mock handling of a user notification previously received in the system, while the app is already running.
 
 Read more in [Mocking User Notifications](APIRef.MockingUserNotifications.md) section.
-Check out Detox's [own test suite](../detox/test/e2e/11.user-notifications.test.js)
+Check out Detox’s [own test suite](../detox/test/e2e/11.user-notifications.test.js)
 
 #### `device.sendUserActivity(params)` **iOS Only**
 
 Mock handling of received user activity when app is in foreground.
 Read more in [Mocking User Activity](APIRef.MockingUserActivity.md) section.
-Check out Detox's [own test suite](../detox/test/e2e/18.user-activities.test.js)
+Check out Detox’s [own test suite](../detox/test/e2e/18.user-activities.test.js)
 
 #### `device.setOrientation(orientation)`
 
@@ -345,7 +345,7 @@ Takes `"portrait"` or `"landscape"` and rotates the device to the given orientat
 
 **Note:** Setting device orientation is only supported for iPhone devices, or for apps declared as requiring full screen on iPad. For all other cases, the current test will be failed.
 
-Check out Detox's [own test suite.](../detox/test/e2e/06.device-orientation.test.js)
+Check out Detox’s [own test suite.](../detox/test/e2e/06.device-orientation.test.js)
 
 #### `device.setLocation(lat, lon)`
 
@@ -364,7 +364,7 @@ await device.setLocation(32.0853, 34.7818);
 Temporarily disable synchronization (idle/busy monitoring) with the app - namely, stop waiting for the app to go idle before moving forward in the test execution.
 
 This API is useful for cases where test assertions must be made in an area of your application where it is okay for it to ever remain partly _busy_ (e.g. due to an endlessly repeating on-screen animation).
-However, using it inherently suggests that you are likely to resort to applying `sleep()`'s in your test code - testing that area, **which is not recommended and can never be 100% stable.** Therefore, as a rule of thumb, test code running "inside" a sync-disabled mode must be reduced to the bare minimum.
+However, using it inherently suggests that you are likely to resort to applying `sleep()`’s in your test code - testing that area, **which is not recommended and can never be 100% stable.** Therefore, as a rule of thumb, test code running "inside" a sync-disabled mode must be reduced to the bare minimum.
 
 Note: Synchronization is enabled by default, and it gets **re-enabled on every launch of a new instance of the app.**
 
@@ -384,7 +384,7 @@ await device.enableSynchronization();
 
 #### `device.setURLBlacklist([urls])`
 
-Exclude synchronization with respect to network activity (i.e. don't wait for network to go idle before moving forward in the test execution) according to **specific** endpoints, denoted as URL reg-exp's. To disable endpoints at initialization, pass in the black-list as an [app-launch argument](APIRef.LaunchArgs.md) named `detoxURLBlacklistRegex` (as explained [here](#11-detoxurlblacklistregexinitialize-the-url-blacklist-at-app-launch)).
+Exclude synchronization with respect to network activity (i.e. don’t wait for network to go idle before moving forward in the test execution) according to **specific** endpoints, denoted as URL reg-exp’s. To disable endpoints at initialization, pass in the black-list as an [app-launch argument](APIRef.LaunchArgs.md) named `detoxURLBlacklistRegex` (as explained [here](#11-detoxurlblacklistregexinitialize-the-url-blacklist-at-app-launch)).
 
 ```js
 await device.setURLBlacklist(['.*127.0.0.1.*', '.*my.ignored.endpoint.*']);
@@ -449,7 +449,7 @@ Clears the device keychain
 
 #### `device.setStatusBar()` **iOS Only**
 
-Override simulator's status bar. Available options:
+Override simulator’s status bar. Available options:
 
 ```js
 await device.setStatusBar({
@@ -475,7 +475,7 @@ await device.setStatusBar({
 
 #### `device.resetStatusBar()` **iOS Only**
 
-Resets any override in simulator's status bar.
+Resets any override in simulator’s status bar.
 
 #### `device.reverseTcpPort()` **Android Only**
 
@@ -495,7 +495,7 @@ await device.pressBack();
 
 #### `device.getUiDevice()` **Android Only**
 
-Exposes [`UiAutomator`'s `UiDevice` API](https://developer.android.com/reference/androidx/test/uiautomator/UiDevice).
+Exposes [`UiAutomator`’s `UiDevice` API](https://developer.android.com/reference/androidx/test/uiautomator/UiDevice).
 **This is not a part of the official Detox API**, it may break and change whenever an update to `UiDevice` or `UiAutomator` Gradle dependencies (`androidx.test.uiautomator:uiautomator`) is introduced.
 
-[`UiDevice`'s autogenerated code](../detox/src/android/espressoapi/UIDevice.js)
+[`UiDevice`’s autogenerated code](../detox/src/android/espressoapi/UIDevice.js)

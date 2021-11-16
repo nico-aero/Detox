@@ -12,7 +12,7 @@ If you are a maintainer of such a project and you wish to upgrade your Detox dep
 
 #### Migrating Custom Drivers
 
-The core of the change is that Detox' drivers framework is **no longer a single monolith**, responsible for everything platform-specific. Rather, it's been broken down to these subresponsibilies:
+The core of the change is that Detox' drivers framework is **no longer a single monolith**, responsible for everything platform-specific. Rather, it’s been broken down to these subresponsibilies:
 
 - Allocation: The process of launching / selecting a device over which the tests would run in the current execution.
 - Validation: Execution environment checkups.
@@ -25,7 +25,7 @@ In addition, the runtime driver is no longer state-less -- basically, allowing i
 
 ##### How to migrate
 
-Everything here will be based on the changes made in the [`detox-puppeteer` example](https://github.com/ouihealth/detox-puppeteer) - names included (please don't use them as-is in your own implementation!).
+Everything here will be based on the changes made in the [`detox-puppeteer` example](https://github.com/ouihealth/detox-puppeteer) - names included (please don’t use them as-is in your own implementation!).
 
 **Allocation:**
 
@@ -60,8 +60,8 @@ Add the new class to the `module.exports` list, under the name: `ArtifactPlugins
 **Runtime:**
 
 - Optionally rename your class from `PuppeteerDriver` to `PuppeteerRuntimeDriver`.
-- In the methods remaining in the class accepting the `deviceId` arg: **remove the `deviceId` arg entirely**. This might break your implementation - don't worry, continue reading.
-- If applicable, change the signature of the class' c'tor to accept the cookie as it's 2nd argument (instance previously allocated in `PuppeteerAllocationDriver.allocate()`). Save data from the cookie as part of the driver's state, in order to unbreak your implementation, following the previous step.
+- In the methods remaining in the class accepting the `deviceId` arg: **remove the `deviceId` arg entirely**. This might break your implementation - don’t worry, continue reading.
+- If applicable, change the signature of the class' c'tor to accept the cookie as it’s 2nd argument (instance previously allocated in `PuppeteerAllocationDriver.allocate()`). Save data from the cookie as part of the driver’s state, in order to unbreak your implementation, following the previous step.
 - Add two methods: `getExternalId()` and `getDeviceName()`. Implement them such that they would comply with the `device.id` and `device.name` [API contracts](APIRef.DeviceObjectAPI.md), respectively.
 
 Export the runtime driver class in the `module.exports` list as `RuntimeDriverClass`, **instead of `DriverClass`.**
@@ -126,13 +126,13 @@ This release was not meant to be breaking in any sense, but unfortunately there 
 
 #### `jest-cli`
 
-From now on, Detox explicitly depends on `jest-cli` package (marked as a peer dependency), that's why if you see an error like the one below:
+From now on, Detox explicitly depends on `jest-cli` package (marked as a peer dependency), that’s why if you see an error like the one below:
 
 ```plain text
 Cannot find module 'jest-cli/build/cli/args'
 ```
 
-\~You should add `jest-cli` to your `package.json`'s `devDependencies` and rerun `npm install`, e.g.:\~
+\~You should add `jest-cli` to your `package.json`’s `devDependencies` and rerun `npm install`, e.g.:\~
 
 **UPD**: since `detox@17.5.2` you can ignore this advice. The problem should go away **without** these edits:
 
@@ -199,7 +199,7 @@ While the new system has been designed to be as compatible as possible with the 
 
 The following APIs have changed and require attention
 
-- `by.text()`—matching elements by text actually uses the element's text value instead of using the accessibility label (iOS)
+- `by.text()`—matching elements by text actually uses the element’s text value instead of using the accessibility label (iOS)
 - `by.traits()`—the supported trait values have changed (iOS)
 - `atIndex()`—matched elements are now sorted by x and y axes to allow for stability between tests; indices will most likely change after upgrading to this version of Detox (iOS)
 - `tap()`—this method now accepts an optional point to tap (iOS, Android)
@@ -283,7 +283,7 @@ After:
 
 ### 14.0.0
 
-Detox 14.0.0 drops support for iOS 9.x simulators, and thus it also drops support for any API that is deprecated in iOS 10 and above. This includes legacy [remote](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623013-application?language=objc) and [local](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622930-application?language=objc) notifications handling API. These APIs have been deprecated since iOS 10, and we believe we've given app developers enough time to use the modern APIs. Make sure you transition to the [`UserNotifications` framework](https://developer.apple.com/documentation/usernotifications?language=objc) as soon as possible.
+Detox 14.0.0 drops support for iOS 9.x simulators, and thus it also drops support for any API that is deprecated in iOS 10 and above. This includes legacy [remote](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623013-application?language=objc) and [local](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622930-application?language=objc) notifications handling API. These APIs have been deprecated since iOS 10, and we believe we’ve given app developers enough time to use the modern APIs. Make sure you transition to the [`UserNotifications` framework](https://developer.apple.com/documentation/usernotifications?language=objc) as soon as possible.
 
 **Please note that for React Native apps, [`PushNotificationIOS` (`RCTPushNotificationManager`)](https://facebook.github.io/react-native/docs/pushnotificationios) is severely outdated and does not support these modern APIs.** It is recommended to transition to a more modern solution. While it is sad that such an important app feature is let to stagnate so much by Facebook, it cannot be the concern of Detox. It is up to RN users to keep their apps up to date with the latest Apple APIs.
 
@@ -295,19 +295,19 @@ See [#1514](https://github.com/wix/Detox/issues/1514).
 
 **This is only relevant to those running Detox using [`Jest` as the test runner](Guide.Jest.md)**!
 
-In `12.7.0` we've greatly improved our support in Jest - trying to tackle these two caveats which hold developers back from embracing it:
+In `12.7.0` we’ve greatly improved our support in Jest - trying to tackle these two caveats which hold developers back from embracing it:
 
 1. Jest file-level summary logs take precedence over 'plain' output, which makes them and all other logs (e.g. user in-test logging) seem cluttered.
 1. Plain logs output is batched, and thus often does not show in real-time as the test is run. This is particularly annoying when running tests on the local computer.
-1. Jest offers no spec-level logging => no way to tell what's running "right now" and which test created what log-outputs.
+1. Jest offers no spec-level logging => no way to tell what’s running "right now" and which test created what log-outputs.
 
-_Put in simple words, Jest is optimized for running tests concurrently using multiple workers. This isn't the case when writing/debugging tests on a local machine._
+_Put in simple words, Jest is optimized for running tests concurrently using multiple workers. This isn’t the case when writing/debugging tests on a local machine._
 
-In `12.7.0` we've worked out a configuration scheme that aims at solving these by streamlining all test-related outputs. **Please follow the updated [Jest installation guide](Guide.Jest.md), to set it up.**
+In `12.7.0` we’ve worked out a configuration scheme that aims at solving these by streamlining all test-related outputs. **Please follow the updated [Jest installation guide](Guide.Jest.md), to set it up.**
 
 ### Migrating from Detox 12.4.x to 12.5.0 (nonbreaking)
 
-Starting Detox `12.5.0`, we ship Android with precompiled sources under a  `.aar` file. The complete configuration process is thoroughly described in the [Android setup guide](Introduction.Android.md) - but it mostly fits **new** projects. For existing projects, migrating is strongly recommended; here's the diff:
+Starting Detox `12.5.0`, we ship Android with precompiled sources under a  `.aar` file. The complete configuration process is thoroughly described in the [Android setup guide](Introduction.Android.md) - but it mostly fits **new** projects. For existing projects, migrating is strongly recommended; here’s the diff:
 
 Root `settings.gradle` file:
 
@@ -359,7 +359,7 @@ If you have Detox ProGuard rules integrated into the `app/build.gradle`, be sure
 The deprecation of `"specs"` (in `package.json`) introduced in 12.1.0 is **no longer relevant**.
 It is valid now, like it was before, but from now on the semantics has been slightly changed -
 it acts as a fallback for the default root for your Detox E2E specs, in cases when
-you don't specify it explicitly, e.g.:
+you don’t specify it explicitly, e.g.:
 
 ```sh
 detox test   # translates to: mocha <...args> e2e
@@ -375,7 +375,7 @@ detox test e2e/01.sanity.test.js  # translates to: mocha <...args> e2e e2e/01.sa
 
 ### Migrating from Detox 12.0.x to 12.1.x
 
-This is not a breaking change yet, but starting from `detox@12.1.0` you'll start seeing warnings like:
+This is not a breaking change yet, but starting from `detox@12.1.0` you’ll start seeing warnings like:
 
 ```plain text
 detox[21201] WARN:  [deprecation.js] Beware: -f, --file will be removed in the next version of Detox.
@@ -406,7 +406,7 @@ is not relevant to a large extent. Please ignore the guide below.
 
 \~To get rid of this warning:\~
 
-- \~find `"specs"` or `"file"` entry in your project's `package.json` and empty it (e.g. `"e2e"` ⟶ `""`);\~
+- \~find `"specs"` or `"file"` entry in your project’s `package.json` and empty it (e.g. `"e2e"` ⟶ `""`);\~
 - \~update your `detox test` scripts — make sure they have an explicit path to your Detox tests folder, e.g. `detox test e2e`.\~
 
 \~For example, if it were a `package.json` before:\~
@@ -515,7 +515,7 @@ _Note: most guides advise of defining a global `kotlinVersion` constant - as in 
 
 ```groovy
 buildscript {
-    ext.kotlinVersion = '1.3.0' // Your app's version
+    ext.kotlinVersion = '1.3.0' // Your app’s version
     ext.detoxKotlinVersion = ext.kotlinVersion // Detox' version: should be 1.1.0 or higher!
 }
 ```
@@ -527,7 +527,7 @@ _**Note that Detox has been tested for version 1.1.0 of Kotlin, and higher!**_
 Detox 9.0.0 brings latest Espresso (3.0.2), and React Native 56 support on Android.
 Espresso 3.0.2 has a few mandatory dependency changes, which break the current setup for Detox users on Android.
 
-Use this to diff to upgrade your dependencies, and follow Android Studio's in-editor guidance/lint support.
+Use this to diff to upgrade your dependencies, and follow Android Studio’s in-editor guidance/lint support.
 
 `android/app/build.gradle`
 
@@ -594,13 +594,13 @@ after(async () => {
 ```
 
 > _NOTICE:_
-> Make sure you use ES5 functions in `beforeEach` and `afterEach`. `this` refers to mocha's test object, using arrow functions will result with failure to acquire a correct **`this`** inside the adapter.
+> Make sure you use ES5 functions in `beforeEach` and `afterEach`. `this` refers to mocha’s test object, using arrow functions will result with failure to acquire a correct **`this`** inside the adapter.
 
 ```js
 // ✗ INCORRECT
 
-beforeEach(() => { /* ... your content ... */ }); // won't work
-afterEach(() => { /* ... your content ... */ }); // won't work
+beforeEach(() => { /* ... your content ... */ }); // won’t work
+afterEach(() => { /* ... your content ... */ }); // won’t work
 
 // CORRECT
 
@@ -615,7 +615,7 @@ const detox = require('detox');
 const adapter = require('detox/runners/jest/adapter');
 
 jest.setTimeout(120000);
-jasmine.getEnv().addReporter(adapter); // don't forget this line
+jasmine.getEnv().addReporter(adapter); // don’t forget this line
 
 beforeAll(async () => {
   await detox.init();
@@ -649,7 +649,7 @@ afterAll(async () => {
 
 ##### Note regarding `detox.beforeEach` and `detox.afterEach`
 
-API of these methods is subject to change in future versions due to complexity behind composing test summary objects (as in the case with Jest test runner). If you have reasons to make direct calls to `detox.beforeEach` and `detox.afterEach` (e.g. you're adding support for another test runner), please refer to [detox object documentation](APIRef.DetoxObjectAPI.md).
+API of these methods is subject to change in future versions due to complexity behind composing test summary objects (as in the case with Jest test runner). If you have reasons to make direct calls to `detox.beforeEach` and `detox.afterEach` (e.g. you’re adding support for another test runner), please refer to [detox object documentation](APIRef.DetoxObjectAPI.md).
 
 ##### Changes to `detox test` CLI
 
@@ -667,16 +667,16 @@ For more information see [CLI documentation](APIRef.DetoxCLI.md).
 
 ### Migrating from Detox 4.x.x to 5.x.x
 
-The clearest example for the 4->5 API changes is the change log of detox's own test suite.
+The clearest example for the 4->5 API changes is the change log of detox’s own test suite.
 Check [detox test change log](https://github.com/wix/Detox/commit/c636e2281d83d07fe0b479681c1a8a6b809823ff#diff-bf5e338e4f0bb49210688c7691dc8589) for a real life example.
 
-#### Version 5.x.x breaks detox's API in 4 different places
+#### Version 5.x.x breaks detox’s API in 4 different places
 
 ##### 1. Promise based flow
 
 All of the API calls are now promise based, and must use either promise chains or `async`-`await`.
 
-Here's an example of an async call to tap an element:
+Here’s an example of an async call to tap an element:
 
 ```js
 // <=4.x.x
@@ -815,6 +815,6 @@ If you have integrated with Detox in version 3.x.x, you will need to clean your 
   ruby node_modules/detox/scripts/cleanup_4.0.rb
   ```
 
-- The script will delete previously configured project targets `*_Detox`. The targets are not used by detox anymore since the framework is now injected at runtime and doesn't need to be linked in a different target.
+- The script will delete previously configured project targets `*_Detox`. The targets are not used by detox anymore since the framework is now injected at runtime and doesn’t need to be linked in a different target.
 
 - Make sure to add changes performed by running this script to version control.

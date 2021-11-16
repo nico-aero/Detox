@@ -496,7 +496,7 @@ Examine your Detox config at path:
 `;
 
 exports[`DetoxConfigErrorComposer (from composeAppsConfig) .oldSchemaHasAppAndApps should create an error for ambigous old/new configuration if it has .apps 1`] = `
-[DetoxConfigError: Your configuration "plain" appears to be in a legacy format, which can't contain "app" or "apps".
+[DetoxConfigError: Your configuration "plain" appears to be in a legacy format, which can’t contain "app" or "apps".
 
 HINT: Remove "type" property from configuration and use "device" property instead:
 a) "device": { "type": "android.emulator", ... }

@@ -15,7 +15,7 @@ For example, the following configuration uses the "ios.simulator" driver.
 
 While Detox technically supports Android devices and iOS simulators out of the box, devices running other platforms such as [Web](https://github.com/necolas/react-native-web) or [Windows](https://github.com/microsoft/react-native-windows) can be targeted.
 
-If your app targets a third-party platform, you may switch to use a [third-party driver](#how-to-use-a-third-party-driver) to run your tests on said platform. If one doesn't already exist, you can [write your own](#Writing-a-new-third-party-driver).
+If your app targets a third-party platform, you may switch to use a [third-party driver](#how-to-use-a-third-party-driver) to run your tests on said platform. If one doesn’t already exist, you can [write your own](#Writing-a-new-third-party-driver).
 
 ### How to Use a Third-party Driver
 
@@ -25,7 +25,7 @@ Overall the setup for any third party driver is fairly simple.
 
 1. Add the driver to your `package.json` with `npm install --save-dev detox-driver-package` or `yarn add --dev detox-driver-package`.
 
-1. Add a new Detox configuration to your existing configurations with the `type` set to driver's package name.
+1. Add a new Detox configuration to your existing configurations with the `type` set to driver’s package name.
 
    ```diff
    +  "thirdparty.driver.config": {

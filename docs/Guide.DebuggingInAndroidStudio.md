@@ -2,7 +2,7 @@
 
 > This flow is not standard and serves mostly for investigating weird crashes or
 > when contributing to Detox itself.\
-> **Don't use it unless you have a good reason.**
+> **Don’t use it unless you have a good reason.**
 
 ### Setting Detox up as a compiling dependency
 
@@ -114,7 +114,7 @@ Now it is time to switch back to Android Studio. However, if for some reason you
 
 Before you launch the app from Android Studio, make sure to put breakpoints at the points of interest.
 
-You'll need to run your instrumentation runner with the said arguments, this is why you
+You’ll need to run your instrumentation runner with the said arguments, this is why you
 should create a debug configuration of `Android Instrumented Tests` type similar to the
 one below:
 
@@ -142,7 +142,7 @@ If you feel like you see too often this timeout error while debugging:
 
 ```plain text
 Waited for the new RN-context for too long! (60 seconds)
-If you think that's not long enough, consider applying a custom Detox runtime-config in DetoxTest.runTests().
+If you think that’s not long enough, consider applying a custom Detox runtime-config in DetoxTest.runTests().
 ```
 
 you can temporarily hack the timeout here:
