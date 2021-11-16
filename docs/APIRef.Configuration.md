@@ -46,19 +46,20 @@ to the Detox config file which contains that specific `extends` property, e.g.:
 #### Individual Configurations
 
 > NOTE: The configuration format has been significantly updated since [18.3.1](https://github.com/wix/Detox/blob/18.3.1/docs/APIRef.Configuration.md) in a backward-compatible way.
+
 Click [here](https://github.com/wix/Detox/blob/18.3.1/docs/APIRef.Configuration.md) to the reference on the former configuration format.
 
 `configurations` holds all the device/app-oriented configurations. To select a specific configuration when running Detox in command-line (i.e. `detox build`, `detox test`), use the `--configuration` argument.
 Note: If there is only one configuration in `configurations`, Detox will default to it.
 
-|Configuration Params|Details|
-|---|---|
-|`device`| Device config (object) or an alias pointing to an already defined device in `"devices"` dictionary (see below). |
-|`app`| App config (object) or an alias pointing to an already defined application in `"apps"` dictionary (see below). |
-|`apps`| Same as the `app`, but that is an array form used for multi-app testing. Mutually exclusive with the `app` property. |
-|`artifacts`| Overrides to the artifacts config. See [Artifacts guide](#artifacts-configuration). |
-|`behavior`| Overrides to the behavior config. See [Behavior guide](#behavior-configuration). |
-|`session`| Overrides to the session config. See [Session guide](#server-configuration). |
+| Configuration Params | Details                                                                                                              |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `device`             | Device config (object) or an alias pointing to an already defined device in `"devices"` dictionary (see below).      |
+| `app`                | App config (object) or an alias pointing to an already defined application in `"apps"` dictionary (see below).       |
+| `apps`               | Same as the `app`, but that is an array form used for multi-app testing. Mutually exclusive with the `app` property. |
+| `artifacts`          | Overrides to the artifacts config. See [Artifacts guide](#artifacts-configuration).                                  |
+| `behavior`           | Overrides to the behavior config. See [Behavior guide](#behavior-configuration).                                     |
+| `session`            | Overrides to the session config. See [Session guide](#server-configuration).                                         |
 
 **Example:**
 
@@ -149,16 +150,16 @@ The format of Detox config allows you to define inside it multiple device config
 
 A device config can have the following params:
 
-|Configuration Params|Details|
-|---|---|
-|`type`| _**Required.** String Literal_. Mandatory property to discern device types: `ios.simulator`, `android.emulator`, `android.attached`, `android.genycloud`, `ios.none`, etc. |
-|`device`| _**Required.** Object._ Device query, e.g. `{ "byType": "iPhone 11 Pro" }` for iOS simulator, `{ "avdName": "Pixel_2_API_29" }` for Android emulator or `{ "adbName": "<pattern>" }` for attached Android device with name matching the regex. |
-|`bootArgs`| _Optional. String. Supported by `ios.simulator` and `android.emulator` only._ <br> Supply an extra **string** of arguments to `xcrun simctl boot ...` or `emulator -verbose ... @AVD_Name`.  |
-|`forceAdbInstall`| _Optional. Boolean. Supported for Android devices only._ <br> A **boolean** value, **false** by default. When set **true**, it tells `device.installApp()` to use `adb install`. Otherwise, it would use the combination of `adb push <app.apk>` and `adb shell pm install`.  |
-|`utilBinaryPaths`| _Optional. Array of strings. Supported for Android devices only._ <br> An array of relative paths of _utility_ app (apk) binary-files to preinstall on the tested devices - once before the test execution begins.<br>**Note**: these are not affected by various install-lifecycle events, such as launching an app with `device.launchApp({delete: true})`, which reinstalls the app. A good example of why this might come in handy is [Test Butler](https://github.com/linkedin/test-butler). |
-|`gpuMode`|  _Optional. String Literal (<code>auto &#124; host &#124; swiftshader_indirect &#124; angle_indirect &#124; guest</code>). Supported by `android.emulator` only._ <br> A fixed **string** , which tells [in which GPU mode](https://developer.android.com/studio/run/emulator-acceleration#command-gpu) the emulator should be booted. |
-|`headless`| _Optional. Boolean. Supported by `android.emulator` only._ <br>  _False_ by default. When set to _true_, it tells Detox to boot an Android emulator with `-no-window` option.  |
-|`readonly`| _Optional. Boolean. Supported by `android.emulator` only._ <br>  _False_ by default. When set to _true_, it forces Detox to boot even a single emulator with `-read-only` option.<br>**Note**: when used with multiple workers, this setting has no effect — emulators will be booted always with `-read-only`. |
+| Configuration Params | Details                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`               | _**Required.** String Literal_. Mandatory property to discern device types: `ios.simulator`, `android.emulator`, `android.attached`, `android.genycloud`, `ios.none`, etc.                                                                                                                                                                                                                                                                                                                        |
+| `device`             | _**Required.** Object._ Device query, e.g. `{ "byType": "iPhone 11 Pro" }` for iOS simulator, `{ "avdName": "Pixel_2_API_29" }` for Android emulator or `{ "adbName": "<pattern>" }` for attached Android device with name matching the regex.                                                                                                                                                                                                                                                    |
+| `bootArgs`           | _Optional. String. Supported by `ios.simulator` and `android.emulator` only._ <br> Supply an extra **string** of arguments to `xcrun simctl boot ...` or `emulator -verbose ... @AVD_Name`.                                                                                                                                                                                                                                                                                                       |
+| `forceAdbInstall`    | _Optional. Boolean. Supported for Android devices only._ <br> A **boolean** value, **false** by default. When set **true**, it tells `device.installApp()` to use `adb install`. Otherwise, it would use the combination of `adb push <app.apk>` and `adb shell pm install`.                                                                                                                                                                                                                      |
+| `utilBinaryPaths`    | _Optional. Array of strings. Supported for Android devices only._ <br> An array of relative paths of _utility_ app (apk) binary-files to preinstall on the tested devices - once before the test execution begins.<br>**Note**: these are not affected by various install-lifecycle events, such as launching an app with `device.launchApp({delete: true})`, which reinstalls the app. A good example of why this might come in handy is [Test Butler](https://github.com/linkedin/test-butler). |
+| `gpuMode`            | _Optional. String Literal (<code>auto \| host \| swiftshader_indirect \| angle_indirect \| guest</code>). Supported by `android.emulator` only._ <br> A fixed **string** , which tells [in which GPU mode](https://developer.android.com/studio/run/emulator-acceleration#command-gpu) the emulator should be booted.                                                                                                                                                                             |
+| `headless`           | _Optional. Boolean. Supported by `android.emulator` only._ <br>  _False_ by default. When set to _true_, it tells Detox to boot an Android emulator with `-no-window` option.                                                                                                                                                                                                                                                                                                                     |
+| `readonly`           | _Optional. Boolean. Supported by `android.emulator` only._ <br>  _False_ by default. When set to _true_, it forces Detox to boot even a single emulator with `-read-only` option.<br>**Note**: when used with multiple workers, this setting has no effect — emulators will be booted always with `-read-only`.                                                                                                                                                                                   |
 
 Also, in the Detox `configurations` you can use the device configs as-is, without aliasing:
 
@@ -208,14 +209,14 @@ The format of Detox config allows you to define inside it multiple app configs i
 
 An app config can have the following params:
 
-|Configuration Params|Details|
-|---|---|
-|`type`| Mandatory property to discern app types: `ios.app`, `android.apk`. |
-|`name`| Use only when working with multiple apps within the same configuration. See an example below. |
-|`binaryPath`| Relative path to the ipa/app/apk due to be tested (make sure you build the app in a project relative path) |
-|`build`| **[optional]** Build command (normally an `xcodebuild` command you use to build your app), which can be called later using Detox CLI tool as a convenience. |
-|`testBinaryPath`| (optional, Android only): relative path to the test app (apk) |
-|`launchArgs`| **[optional]** An object specifying arguments (key-values pairs) to pass through into the app, upon launching on the device. For more info, refer to the dedicated [launch-arguments guide](APIRef.LaunchArgs.md). |
+| Configuration Params | Details                                                                                                                                                                                                            |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `type`               | Mandatory property to discern app types: `ios.app`, `android.apk`.                                                                                                                                                 |
+| `name`               | Use only when working with multiple apps within the same configuration. See an example below.                                                                                                                      |
+| `binaryPath`         | Relative path to the ipa/app/apk due to be tested (make sure you build the app in a project relative path)                                                                                                         |
+| `build`              | **[optional]** Build command (normally an `xcodebuild` command you use to build your app), which can be called later using Detox CLI tool as a convenience.                                                        |
+| `testBinaryPath`     | (optional, Android only): relative path to the test app (apk)                                                                                                                                                      |
+| `launchArgs`         | **[optional]** An object specifying arguments (key-values pairs) to pass through into the app, upon launching on the device. For more info, refer to the dedicated [launch-arguments guide](APIRef.LaunchArgs.md). |
 
 To work with multiple apps within the same configuration you should be giving each app its name, e.g.:
 
@@ -326,11 +327,11 @@ CLI arguments (e.g., `--artifacts-location`, `--record-logs`) still have the hig
 Also, that example demonstrates that you can use strings (identical to the ones from CLI) in parallel to the object configurations for plugins.
 Below you can see mappings between the string presets and the corresponding objects:
 
-| preset  |  object                                                      |
-|---------|--------------------------------------------------------------|
-| none    | `{ "enabled": false }` |
-| all     | `{ "enabled": true }` |
-| failing | `{ "enabled": true, "keepOnlyFailedTestsArtifacts": true }` |
+| preset  | object                                                       |
+| ------- | ------------------------------------------------------------ |
+| none    | `{ "enabled": false }`                                       |
+| all     | `{ "enabled": true }`                                        |
+| failing | `{ "enabled": true, "keepOnlyFailedTestsArtifacts": true }`  |
 | manual  | `{ "enabled": true, "shouldTakeAutomaticSnapshots": false }` |
 
 There is also a shortcut to disable artifacts for a specific configuration:
@@ -450,7 +451,7 @@ session config:
 Also, you can specify an optional numeric `debugSynchronization` parameter
 (see also `--debug-synchronization` in [APIRef.DetoxCLI.md#test](APIRef.DetoxCLI.md#test)).
 When an action/expectation takes a significant amount time, use this option to print device synchronization status.
-The status will be printed if the action takes more than _[N]_ ms to complete.
+The status will be printed if the action takes more than _\[N]_ ms to complete.
 
 ```json
 {

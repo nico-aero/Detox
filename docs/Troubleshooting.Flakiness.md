@@ -23,8 +23,8 @@ It’s important to identify the various sources of flakiness in Detox tests.
 In order to identify the source of flakiness you’re suffering from you need more data. If you catch a failing test that should be passing, you need to record as much information as possible in order to investigate.
 
 - Enable `trace` mode in Detox. This will output a lot of information about what happening during the test:
-    1. `exec` commands
-    1. All communication going over the websocket, both from tester and app
+  1. `exec` commands
+  1. All communication going over the websocket, both from tester and app
 
 To enable `trace` mode run your tests in trace log mode:
 

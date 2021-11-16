@@ -1,4 +1,5 @@
 <!-- markdownlint-configure-file { "first-line-heading": 0 } -->
+
 <p align="center">
   <img alt="Detox" width=380 src="https://raw.githubusercontent.com/wix/Detox/master/docs/img/DetoxLogo.png"/>
 </p>
@@ -13,7 +14,7 @@
 </p>
 <h1></h1>
 
-<img src="https://user-images.githubusercontent.com/1962469/89655670-1c235c80-d8d3-11ea-9320-0f865767ef5d.png" alt="" height=24 width=1> [![NPM Version](https://img.shields.io/npm/v/detox.svg?style=flat)](https://www.npmjs.com/package/detox) [![NPM Downloads](https://img.shields.io/npm/dm/detox.svg?style=flat)](https://www.npmjs.com/package/detox) [![Build Status](https://img.shields.io/jenkins/s/http/jenkins-oss.wixpress.com:8080/job/multi-detox-master.svg)](https://jenkins-oss.wixpress.com/job/multi-detox-master/) [![Coverage Status](https://coveralls.io/repos/github/wix/Detox/badge.svg?branch=master)](https://coveralls.io/github/wix/Detox?branch=master) [![Detox is released under the MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![PRs welcome!](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](docs/Guide.Contributing.md) [![Twitter Follow](https://img.shields.io/twitter/follow/detoxe2e?label=Follow&style=social)](https://twitter.com/detoxe2e)
+<img src="https://user-images.githubusercontent.com/1962469/89655670-1c235c80-d8d3-11ea-9320-0f865767ef5d.png" alt="" height=24 width=1> [![NPM Version](https://img.shields.io/npm/v/detox.svg?style=flat)](https://www.npmjs.com/package/detox) [![NPM Downloads](https://img.shields.io/npm/dm/detox.svg?style=flat)](https://www.npmjs.com/package/detox) [![Build Status](https://img.shields.io/jenkins/s/http/jenkins-oss.wixpress.com:8080/job/multi-detox-master.svg)](https://jenkins-oss.wixpress.com/job/multi-detox-master/) [![Coverage Status](https://coveralls.io/repos/github/wix/Detox/badge.svg?branch=master)](https://coveralls.io/github/wix/Detox?branch=master) [![Detox is released under the MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![PRs welcome!](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](docs/Guide.Contributing.md) [![Twitter Follow](https://img.shields.io/twitter/follow/detoxe2e?label=Follow\&style=social)](https://twitter.com/detoxe2e)
 
 ## What Does a Detox Test Look Like?
 
@@ -36,7 +37,7 @@ describe('Login flow', () => {
 });
 ```
 
- [Get started with Detox now!](docs/Introduction.GettingStarted.md)
+[Get started with Detox now!](docs/Introduction.GettingStarted.md)
 
 ## About
 
@@ -65,8 +66,8 @@ Detox is built from the ground up to support React Native projects as well as pu
 
 The following React Native versions have been tested:
 
-| iOS     | Android                                                      |
-| ------- | ------------------------------------------------------------ |
+| iOS     | Android                                                                                                          |
+| ------- | ---------------------------------------------------------------------------------------------------------------- |
 | ≤0.64.x | ≥0.59, ≤0.64 - Visibility edge-case: see this [RN issue](https://github.com/facebook/react-native/issues/23870)* |
 
 Future versions are most likely supported, but have not been tested yet. Please open issues if you find specific issues with newer React Native versions.

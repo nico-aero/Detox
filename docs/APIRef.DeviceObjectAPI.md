@@ -363,7 +363,7 @@ await device.setLocation(32.0853, 34.7818);
 
 Temporarily disable synchronization (idle/busy monitoring) with the app - namely, stop waiting for the app to go idle before moving forward in the test execution.
 
-This API is useful for cases where test assertions must be made in an area of your application where it is okay for it to ever remain partly *busy* (e.g. due to an endlessly repeating on-screen animation).
+This API is useful for cases where test assertions must be made in an area of your application where it is okay for it to ever remain partly _busy_ (e.g. due to an endlessly repeating on-screen animation).
 However, using it inherently suggests that you are likely to resort to applying `sleep()`’s in your test code - testing that area, **which is not recommended and can never be 100% stable.** Therefore, as a rule of thumb, test code running "inside" a sync-disabled mode must be reduced to the bare minimum.
 
 Note: Synchronization is enabled by default, and it gets **re-enabled on every launch of a new instance of the app.**

@@ -1,4 +1,5 @@
 <!-- markdownlint-configure-file { "no-trailing-punctuation": 0 } -->
+
 ## Detox for Android
 
 ### Breaking Changes :warning:
@@ -64,7 +65,7 @@ Whether you’ve selected to apply the configuration in a  `.detoxrc.json` or bu
 }
 ```
 
->For a comprehensive explanation of Detox configuration, refer to the [dedicated API-reference guide](APIRef.Configuration.md).
+> For a comprehensive explanation of Detox configuration, refer to the [dedicated API-reference guide](APIRef.Configuration.md).
 
 Pay attention to `-DtestBuildType`, set either to `debug` or `release` according to the main APK type.
 
@@ -122,7 +123,7 @@ If you are using custom [`productFlavors`](https://developer.android.com/studio/
 > **Starting Detox 12.5.0, Detox is shipped as a precompiled `.aar`.**
 > To configure Detox as a _compiling dependency_, nevertheless -- refer to the _Setting Detox up as a compiling dependency_ section at the bottom.
 
-In your *root* `buildscript` (i.e. `android/build.gradle`), register both `google()` _and_ detox as repository lookup points in all projects:
+In your _root_ `buildscript` (i.e. `android/build.gradle`), register both `google()` _and_ detox as repository lookup points in all projects:
 
 ```groovy
 // Note: add the 'allproject' section if it doesn’t exist
@@ -180,7 +181,7 @@ buildscript {
 
 _Note: most guides advise of defining a global `kotlinVersion` constant - as in this example, but that is not mandatory._
 
-***Note that Detox has been tested for version 1.1.0 of Kotlin, and higher!***
+_**Note that Detox has been tested for version 1.1.0 of Kotlin, and higher!**_
 
 #### 5. Create a Detox-Test Class
 
@@ -193,9 +194,9 @@ Detox requires a dummy implementation of a single Android-native test.
 
 Starting from Android SDK API level 28, Google have disabled all clear-text network traffic by default. Namely, unless explicitly configured, all of your application’s outgoing unencrypted traffic (i.e. non-TLS using HTTP rather than HTTPS) is blocked by the device.
 
-For Detox to work, Detox test code running on the device must connect to the test-running host through it’s virtual localhost interface<sup>(*)</sup> using simple HTTP traffic. Therefore, the following network-security exemption configuration must be applied --
+For Detox to work, Detox test code running on the device must connect to the test-running host through it’s virtual localhost interface<sup>(\*)</sup> using simple HTTP traffic. Therefore, the following network-security exemption configuration must be applied --
 
-*In an XML resource file, e.g. `android/app/src/main/res/xml/network_security_config.xml`:*
+_In an XML resource file, e.g. `android/app/src/main/res/xml/network_security_config.xml`:_
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -207,7 +208,7 @@ For Detox to work, Detox test code running on the device must connect to the tes
 </network-security-config>
 ```
 
-*In the app’s `AndroidManifest.xml`*
+_In the app’s `AndroidManifest.xml`_
 
 ```xml
 <manifest>
@@ -218,13 +219,13 @@ For Detox to work, Detox test code running on the device must connect to the tes
 </manifest>
 ```
 
-> *Refer to the [Detox example app](https://github.com/wix/Detox/tree/master/examples/demo-react-native/android/app/src/main) for an example on how this is effectively implemented.*
+> _Refer to the [Detox example app](https://github.com/wix/Detox/tree/master/examples/demo-react-native/android/app/src/main) for an example on how this is effectively implemented._
 
 **Note: if properly configured, this in no way compromises the security settings of your app.**
 
 For full details, refer to [Android’s security-config guide](https://developer.android.com/training/articles/security-config), and the dedicated article in the [Android developers blog](https://android-developers.googleblog.com/2016/04/protecting-against-unintentional.html).
 
-> *(\*) 10.0.2.2 for Google emulators, 10.0.3.2 for Genymotion emulators.*
+> _(\*) 10.0.2.2 for Google emulators, 10.0.3.2 for Genymotion emulators._
 
 #### 7. ProGuard (Minification, Obfuscation)
 
@@ -266,7 +267,7 @@ In apps running [minification using ProGuard](https://developer.android.com/stud
 
 Here we utilize Gradle’s `initWith` to easily define `releaseE2E` in a way that is identical to the `release` build-type, with the exception of considering Detox' `proguard-rules-app.pro` in the minification process.
 
-Following the example, you would then have to build your app using `gradlew assembleReleaseE2E` rather than `gradlew assembleRelease` before running Detox, and instruct Detox (i.e. via `binaryPath` in the Detox configuration file) to use the APK resulted specifically by *that* Gradle target (e.g. in `app/build/apk/releaseE2E/app-releaseE2E.apk` instead of the equivalent `app/build/apk/release/app-release.apk`).
+Following the example, you would then have to build your app using `gradlew assembleReleaseE2E` rather than `gradlew assembleRelease` before running Detox, and instruct Detox (i.e. via `binaryPath` in the Detox configuration file) to use the APK resulted specifically by _that_ Gradle target (e.g. in `app/build/apk/releaseE2E/app-releaseE2E.apk` instead of the equivalent `app/build/apk/release/app-release.apk`).
 
 > Note: if you app contains flavors -- that makes things a bit trickier, but the approach can generally be adjusted to support that as well.
 
@@ -316,7 +317,7 @@ a. In a custom script, have it predownloaded from Maven directly, as suggested i
 curl -f -o ./temp/test-butler-app.apk https://repo1.maven.org/maven2/com/linkedin/testbutler/test-butler-app/2.2.1/test-butler-app-2.2.1.apk
 ```
 
-*Jests' [global-setup](https://jestjs.io/docs/en/configuration#globalsetup-string) is a recommend place for those kind of things.*
+_Jests' [global-setup](https://jestjs.io/docs/en/configuration#globalsetup-string) is a recommend place for those kind of things._
 
 > Should you decide to go this path, we recommend you add `./temp/test-butler-app.apk` to the relevant `.gitignore`.
 
@@ -333,7 +334,7 @@ include ':detox'
 project(':detox').projectDir = new File(rootProject.projectDir, '../node_modules/detox/android/detox')
 ```
 
-In your *root* `buildscript` (i.e. `android/build.gradle`), register `google()` as a repository lookup point in all projects:
+In your _root_ `buildscript` (i.e. `android/build.gradle`), register `google()` as a repository lookup point in all projects:
 
 ```groovy
 // Note: add the 'allproject' section if it doesn’t exist

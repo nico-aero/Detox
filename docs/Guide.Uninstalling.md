@@ -25,10 +25,10 @@ detox clean-framework-cache
 On every test run, Detox rewrites a few temporary files in `DETOX_LIBRARY_ROOT_PATH`, i.e.:
 
 1. The respective iOS and Android lockfiles to tell apart the busy and the available devices for use with multiple workers:
-    - `device.registry.state.lock`
-    - `android-device.registry.state.lock`.
+   - `device.registry.state.lock`
+   - `android-device.registry.state.lock`.
 1. A plain text file with the line-separated list of last failed test files to rerun via `-R <retries-count>` CLI feature:
-    - `last-failed.txt`.
+   - `last-failed.txt`.
 
 The location of `DETOX_LIBRARY_ROOT_PATH` may vary depending on the operating system:
 

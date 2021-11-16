@@ -12,7 +12,7 @@ Use [expectations](APIRef.Expect.md) to verify element states.
 - [`.longPressAndDrag()`](#longpressanddragduration-normalizedpositionx-normalizedpositiony-targetelement-normalizedtargetpositionx-normalizedtargetpositiony-speed-holdduration--ios-only) **iOS only**
 - [`.swipe()`](#swipedirection-speed-normalizedoffset-normalizedstartingpointx-normalizedstartingpointy)
 - [`.pinch()`](#pinchscale-speed-angle--ios-only) **iOS only**
-- [`.scrollToIndex()`](#scrolltoindexindex--android-only) **Android only**  
+- [`.scrollToIndex()`](#scrolltoindexindex--android-only) **Android only**
 - [`.scroll()`](#scrolloffset-direction-startpositionx-startpositiony)
   - [`whileElement()`](#whileelementelement)
 - [`.scrollTo()`](#scrolltoedge)
@@ -127,8 +127,8 @@ Simulates a scroll on the element with the provided options.
 
 `offset`—the offset to scroll, in points <br/>
 `direction`—the scroll’s direction (valid input: `"left"`/`"right"`/`"up"`/`"down"`) <br/>
-`startPositionX`—the normalized x percentage of the element to use as scroll start point (optional, valid input: [0.0, 1.0], `NaN`—choose an optimal value automatically, default is `NaN`) <br/>
-`startPositionY`—the normalized y percentage of the element to use as scroll start point (optional, valid input: [0.0, 1.0], `NaN`—choose an optimal value automatically, default is `NaN`)
+`startPositionX`—the normalized x percentage of the element to use as scroll start point (optional, valid input: \[0.0, 1.0], `NaN`—choose an optimal value automatically, default is `NaN`) <br/>
+`startPositionY`—the normalized y percentage of the element to use as scroll start point (optional, valid input: \[0.0, 1.0], `NaN`—choose an optimal value automatically, default is `NaN`)
 
 ```js
 await element(by.id('scrollView')).scroll(100, 'up');
@@ -244,7 +244,7 @@ await element(by.id('datePicker')).setDatePickerDate('2019/02/06', "yyyy/MM/dd")
 
 Manipulates the UI to change the displayed value of the slider element to a new value, based on a normalized position.
 
-`normalizedPosition`—The normalized position to adjust the slider element. (valid input: [0, 1], 0 corresponds to the minimum value of the slider, and 1 corresponds to the maximum value)
+`normalizedPosition`—The normalized position to adjust the slider element. (valid input: \[0, 1], 0 corresponds to the minimum value of the slider, and 1 corresponds to the maximum value)
 
 ```js
 await element(by.id('slider')).adjustSliderToPosition(0.75);
@@ -267,7 +267,7 @@ Retrieved attributes are:
 ##### iOS-Only
 
 - `activationPoint`: The [activation point](https://developer.apple.com/documentation/objectivec/nsobject/1615179-accessibilityactivationpoint) of the element, in element coordinate space.
-- `normalizedActivationPoint`: The activation point of the element, in normalized percentage ([0.0, 1.0]).
+- `normalizedActivationPoint`: The activation point of the element, in normalized percentage (\[0.0, 1.0]).
 - `hittable`: Whether the element is hittable at the activation point.
 - `frame`: The frame of the element, in screen coordinate space.
 - `elementFrame`: The frame of the element, in container coordinate space.

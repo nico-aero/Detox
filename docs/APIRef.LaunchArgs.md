@@ -15,18 +15,18 @@ Typically, the process of setting up such servers - especially in a parallel tes
 1. Launching the app with a predefined argument that holds the port, for example `mockServerPort=1234`.
    (It is assumed here that there’s designated mocked code inside the app that can read `mockServerPort` and rewire all connections to `localhost:1234` instead of to the real production server).
 
-In this context, launch argument are useful for implementing step #3.
+In this context, launch argument are useful for implementing step [#3](https://github.com/wix/Detox/issues/3).
 
 ### Arguments Setup
 
 User-defined launch arguments specification is very flexible, and can be defined on 4 levels:
 
-| Level                                     | Description                                                  |
-| ----------------------------------------- | ------------------------------------------------------------ |
-| 1. Static Configuration                   | As a part of a static [Detox configuration](APIRef.Configuration.md), using the `launchArgs` property.<br />This is can sufficient, for example, if you only require one mock server instance, and can use the same static port throughout the entire testing execution session. |
-| 2. Static via CLI                         | As arguments specified explicitly in the [command-line](APIRef.DetoxCLI.md) execution of `detox test`, using `--app-launch-args`. |
+| Level                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1. Static Configuration                   | As a part of a static [Detox configuration](APIRef.Configuration.md), using the `launchArgs` property.<br />This is can sufficient, for example, if you only require one mock server instance, and can use the same static port throughout the entire testing execution session.                                                                                                                                      |
+| 2. Static via CLI                         | As arguments specified explicitly in the [command-line](APIRef.DetoxCLI.md) execution of `detox test`, using `--app-launch-args`.                                                                                                                                                                                                                                                                                     |
 | 3.`device.appLaunchArgs`                  | Dynamically, using the [`device.appLaunchArgs`](APIRef.DeviceObjectAPI.md#deviceapplaunchargs) API, which initially holds the static configuration, and then allows for the modification of it before applied through `device.launchApp()`.<br/>Mostly required in complex test environments, where the servers and ports are dynamic, and are determined via distinct software components (e.g. separate test kits). |
-| 4. `device.launchApp()` with `launchArgs` | Dynamically and explicitly, using on-site arguments specified in calls to [`device.launchApp()`](APIRef.DeviceObjectAPI.md#devicelaunchappparams) through the `launchArgs` parameter.<br />Ideal for fairly simple test environments, where the ports are dynamic but are in complete control of the user. |
+| 4. `device.launchApp()` with `launchArgs` | Dynamically and explicitly, using on-site arguments specified in calls to [`device.launchApp()`](APIRef.DeviceObjectAPI.md#devicelaunchappparams) through the `launchArgs` parameter.<br />Ideal for fairly simple test environments, where the ports are dynamic but are in complete control of the user.                                                                                                            |
 
 **Important: Arguments specified in each level take precedence over equivalent underlying levels**.
 
