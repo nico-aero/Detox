@@ -1,5 +1,4 @@
 <!-- markdownlint-configure-file { "first-line-heading": 0 } -->
-
 <p align="center">
   <img alt="Detox" width=380 src="https://raw.githubusercontent.com/wix/Detox/master/docs/img/DetoxLogo.png"/>
 </p>
@@ -14,7 +13,7 @@
 </p>
 <h1></h1>
 
-<img src="https://user-images.githubusercontent.com/1962469/89655670-1c235c80-d8d3-11ea-9320-0f865767ef5d.png" alt="" height=24 width=1> [![NPM Version](https://img.shields.io/npm/v/detox.svg?style=flat)](https://www.npmjs.com/package/detox) [![NPM Downloads](https://img.shields.io/npm/dm/detox.svg?style=flat)](https://www.npmjs.com/package/detox) [![Build Status](https://img.shields.io/jenkins/s/http/jenkins-oss.wixpress.com:8080/job/multi-detox-master.svg)](https://jenkins-oss.wixpress.com/job/multi-detox-master/) [![Coverage Status](https://coveralls.io/repos/github/wix/Detox/badge.svg?branch=master)](https://coveralls.io/github/wix/Detox?branch=master) [![Detox is released under the MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![PRs welcome!](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](docs/Guide.Contributing.md) [![Twitter Follow](https://img.shields.io/twitter/follow/detoxe2e?label=Follow\&style=social)](https://twitter.com/detoxe2e)
+<img src="https://user-images.githubusercontent.com/1962469/89655670-1c235c80-d8d3-11ea-9320-0f865767ef5d.png" alt="" height=24 width=1> [![NPM Version](https://img.shields.io/npm/v/detox.svg?style=flat)](https://www.npmjs.com/package/detox) [![NPM Downloads](https://img.shields.io/npm/dm/detox.svg?style=flat)](https://www.npmjs.com/package/detox) [![Build Status](https://img.shields.io/jenkins/s/http/jenkins-oss.wixpress.com:8080/job/multi-detox-master.svg)](https://jenkins-oss.wixpress.com/job/multi-detox-master/) [![Coverage Status](https://coveralls.io/repos/github/wix/Detox/badge.svg?branch=master)](https://coveralls.io/github/wix/Detox?branch=master) [![Detox is released under the MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![PRs welcome!](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](docs/Guide.Contributing.md) [![Twitter Follow](https://img.shields.io/twitter/follow/detoxe2e?label=Follow&style=social)](https://twitter.com/detoxe2e)
 
 ## What Does a Detox Test Look Like?
 
@@ -37,7 +36,7 @@ describe('Login flow', () => {
 });
 ```
 
-[Get started with Detox now!](docs/Introduction.GettingStarted.md)
+ [Get started with Detox now!](docs/Introduction.GettingStarted.md)
 
 ## About
 
@@ -45,20 +44,20 @@ High velocity native mobile development requires us to adopt continuous integrat
 
 The most difficult part of automated testing on mobile is the tip of the testing pyramid - E2E. The core problem with E2E tests is flakiness - tests are usually not deterministic. We believe the only way to tackle flakiness head on is by moving from black box testing to gray box testing. That’s where Detox comes into play.
 
-- **Cross Platform:** Write cross-platform tests in JavaScript. Currently supports iOS and Android.
-- **Runs on Devices** (not yet supported on iOS): Gain confidence to ship by testing your app on a device/simulator just like a real user.
-- **Automatically Synchronized:** Stops flakiness at the core by monitoring asynchronous operations in your app.
-- **Made For CI:** Execute your E2E tests on CI platforms like Travis without grief.
-- **Test Runner Independent:** Use Jest, Mocha, AVA, or any other JavaScript test runner you like (spoiler: we have our favorite).
-- **Debuggable:** Modern `async`-`await` API allows breakpoints in asynchronous tests to work as expected.
+* **Cross Platform:** Write cross-platform tests in JavaScript. Currently supports iOS and Android.
+* **Runs on Devices** (not yet supported on iOS): Gain confidence to ship by testing your app on a device/simulator just like a real user.
+* **Automatically Synchronized:** Stops flakiness at the core by monitoring asynchronous operations in your app.
+* **Made For CI:** Execute your E2E tests on CI platforms like Travis without grief.
+* **Test Runner Independent:** Use Jest, Mocha, AVA, or any other JavaScript test runner you like (spoiler: we have our favorite).
+* **Debuggable:** Modern `async`-`await` API allows breakpoints in asynchronous tests to work as expected.
 
 ## Supported Versions
 
 ### Environment
 
-- **OS**: macOS 10.15 (Catalina) or higher
-- **Xcode**: 11.0 or higher
-  - **iOS Simulator Runtime**: iOS 13.0 or higher
+* **OS**: macOS 10.15 (Catalina) or higher
+* **Xcode**: 11.0 or higher
+  * **iOS Simulator Runtime**: iOS 13.0 or higher
 
 ### React Native
 
@@ -66,8 +65,8 @@ Detox is built from the ground up to support React Native projects as well as pu
 
 The following React Native versions have been tested:
 
-| iOS     | Android                                                                                                          |
-| ------- | ---------------------------------------------------------------------------------------------------------------- |
+| iOS     | Android                                                      |
+| ------- | ------------------------------------------------------------ |
 | ≤0.64.x | ≥0.59, ≤0.64 - Visibility edge-case: see this [RN issue](https://github.com/facebook/react-native/issues/23870)* |
 
 Future versions are most likely supported, but have not been tested yet. Please open issues if you find specific issues with newer React Native versions.
@@ -92,8 +91,8 @@ Dive into Detox core by reading the [Detox Contribution Guide](docs/Guide.Contri
 
 ## License
 
-- Detox is licensed under the [MIT License](LICENSE)
+* Detox is licensed under the [MIT License](LICENSE)
 
 ## Non-English Resources (Community)
 
-- [Getting Started (Brazilian Portuguese)](https://medium.com/quia-digital/iniciando-com-detox-framework-1-4-ce31ad7ae812)
+* [Getting Started (Brazilian Portuguese)](https://medium.com/quia-digital/iniciando-com-detox-framework-1-4-ce31ad7ae812)

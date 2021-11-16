@@ -27,7 +27,6 @@ brew install node
 #### Install `npm`
 
 Either install `npm` or check that you have it installed, using their [official guide](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
-
 > **NOTE: For Detox, please use the latest `npm` version `6.x.x` (i.e not version 7.0.0 or newer).**
 
 #### Install the monorepo management tool, `lerna`
@@ -133,25 +132,25 @@ To run the tests, you must first build the native code and then run based on you
 
 - **iOS:**
 
-  ```sh
-  cd detox/test
-  npm run build:ios
-  npm run e2e:ios
-  ```
+    ```sh
+    cd detox/test
+    npm run build:ios
+    npm run e2e:ios
+    ```
 
 - **Android:**
 
-  ```sh
-  cd detox/test
-  npm run build:android
-  npm run e2e:android
-  ```
+    ```sh
+    cd detox/test
+    npm run build:android
+    npm run e2e:android
+    ```
 
 FYI Android test project includes two flavors:
 
 - `fromBin` - (**standard use case**) utilizes the precompiled `.aar` from `node_modules` just like a standard RN project.
 - `fromSource` - compiles the project with RN sources from `node_modules`, this is useful when developing and debugging Espresso idle resource.
-  [Here](https://github.com/facebook/react-native/wiki/Building-from-source#android) are the prerequisites to compiling React Native from source.
+[Here](https://github.com/facebook/react-native/wiki/Building-from-source#android) are the prerequisites to compiling React Native from source.
 
 Each build can be triggered separately by running its Gradle assembling task (under `detox/test/android/`):
 
@@ -183,7 +182,7 @@ This is in fact a monorepo that also sports some example projects (for usage ref
 - `examples/demo-react-native` and `examples/demo-react-native-jest`: Demonstrate usage of Detox in React-Native app projects, with `mocha.js` and `Jest` as the hosting test-runner frameworks, respectively.
 - `examples/demo-native-ios`: Demonstrates usage of Detox in a pure-native iOS app.
 - `examples/demo-native-android` (broken): Demonstrates usage of Detox in a pure-native Android app.
-- `examples/demo-pure-native-android`: Demonstrates usage of the _pure_ [Detox-Native](../detox/detox-native/README.md) project
+- `examples/demo-pure-native-android`: Demonstrates usage of the *pure* [Detox-Native](../detox/detox-native/README.md) project
 - more...
 
 **In order to run E2E tests associated with any of these projects, refer to the [project-specific](../examples) READMEs.**

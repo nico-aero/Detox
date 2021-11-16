@@ -24,21 +24,20 @@ Check to see if a [third-party driver](#Existing-Third-party-drivers) already ex
 Overall the setup for any third party driver is fairly simple.
 
 1. Add the driver to your `package.json` with `npm install --save-dev detox-driver-package` or `yarn add --dev detox-driver-package`.
-
 1. Add a new Detox configuration to your existing configurations with the `type` set to driver’s package name.
 
-   ```diff
-   +  "thirdparty.driver.config": {
-   +    "type": "detox-driver-package",
-   +    "binaryPath": "bin/YourApp.app",
-   +  }
-   ```
+    ```diff
+    +  "thirdparty.driver.config": {
+    +    "type": "detox-driver-package",
+    +    "binaryPath": "bin/YourApp.app",
+    +  }
+    ```
 
 1. Run Detox while specifying the name of your new configuration:
 
-   ```sh
-   detox test --configuration thirdparty.driver.config
-   ```
+    ```sh
+    detox test --configuration thirdparty.driver.config
+    ```
 
 ### Writing a New Third-party Driver
 
@@ -46,29 +45,29 @@ Overall the setup for any third party driver is fairly simple.
 
 The architecture of a driver is split into a few different pieces; Understanding the [overall architecture of Detox](Introduction.HowDetoxWorks.md#Architecture) will help with this section.
 
-_Components running in the context of the test logic execution on the Node.js process on the host computer:_
+*Components running in the context of the test logic execution on the Node.js process on the host computer:*
 
 1. **The Device Drivers layer:** The layer contains a collection of drivers, implementing - mostly, though not exclusively, the platform-specific details for the Detox [`device` object](https://github.com/wix/Detox/blob/master/docs/APIRef.DeviceObjectAPI.md) that is exposed in the Detox tests.
-   The implementation is responsible for managing devices your tests will run on, in terms of device allocation, app installation user interactions (e.g. taps) execution and so on.
+The implementation is responsible for managing devices your tests will run on, in terms of device allocation, app installation user interactions (e.g. taps) execution and so on.
 1. **Matchers:** code powering the `expect`, `element`, `waitFor` and `by` globals in your tests.
-   In essence, it translates and sends test-logic commands (such as taps and assertions) over the network to the device on which your tests are running. In turn, the device natively performs these commands.
+In essence, it translates and sends test-logic commands (such as taps and assertions) over the network to the device on which your tests are running. In turn, the device natively performs these commands.
 
-_The component running on the device being tested, injected into the test app:_
+*The component running on the device being tested, injected into the test app:*
 
 1. **Native Client:** The driver client communicates with the server over
-   websocket where it receives information from the serialized matchers, and expectations, and also sends responses
-   back of whether each step of your test succeeds or fails. Typically a device client will use an underlying library specific
-   to the platform at hand to implement the expectations.
+websocket where it receives information from the serialized matchers, and expectations, and also sends responses
+back of whether each step of your test succeeds or fails. Typically a device client will use an underlying library specific
+to the platform at hand to implement the expectations.
 
 #### Implementation Details
 
 In order to introduce a third-party Driver, there is a set of core classes you must implement - each responsible for a different Detox concern:
 
-- Allocation: The process of launching / selecting a device over which the tests would run.
-- Pre-validation: The checkup of the execution-environment (e.g. verifying the Android SDK is installed).
-- Artifact handlers registration: The process where platform-based artifacts generation handlers are registered (e.g. handlers for taking screenshots, which are different between the Android and iOS platforms).
-- Runtime: The _de facto_ execution of test logic.
-- Matchers: The matching of visible elements and visibility assertion.
+* Allocation: The process of launching / selecting a device over which the tests would run.
+* Pre-validation: The checkup of the execution-environment (e.g. verifying the Android SDK is installed).
+* Artifact handlers registration: The process where platform-based artifacts generation handlers are registered (e.g. handlers for taking screenshots, which are different between the Android and iOS platforms).
+* Runtime: The _de facto_ execution of test logic.
+* Matchers: The matching of visible elements and visibility assertion.
 
 To understand the exact contract of these classes, refer to [`examples/demo-plugin/driver.js`](https://github.com/wix/Detox/blob/master/examples/demo-plugin/driver.js) for a dummy implementation, or to [detox-puppeteer](https://github.com/ouihealth/detox-puppeteer) for an actual implementation of such as driver.
 
@@ -128,4 +127,4 @@ module.exports = MyNewDriver;
 
 ### Existing Third-party Drivers
 
-- [detox-puppeteer](https://github.com/ouihealth/detox-puppeteer)
+* [detox-puppeteer](https://github.com/ouihealth/detox-puppeteer)

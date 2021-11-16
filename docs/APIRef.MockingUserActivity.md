@@ -85,8 +85,8 @@ const userActivityBrowsingWeb = {
 
 Currently supported system-generated activity types:
 
-- DetoxConstants.userActivityTypes.browsingWeb - Used for associated domains (deep links)
-- DetoxConstants.userActivityTypes.searchableItem - Used for Spotlight search results
+* DetoxConstants.userActivityTypes.browsingWeb - Used for associated domains (deep links)
+* DetoxConstants.userActivityTypes.searchableItem - Used for Spotlight search results
 
 #### Spotlight Search Results
 

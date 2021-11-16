@@ -4,9 +4,9 @@
 
 Mocking is an important part of testing. You may want to alter some behavior of your app during test and replace it with a mock. Here are some example reasons why this could be useful:
 
-- Change server endpoints to point to a mock/staging server instead of the regular production server
-- Stub a feature the simulator doesn’t support
-- Prepare mock environment data like GPS position, Contacts/Photos found on the device, etc
+* Change server endpoints to point to a mock/staging server instead of the regular production server
+* Stub a feature the simulator doesn’t support
+* Prepare mock environment data like GPS position, Contacts/Photos found on the device, etc
 
 Note that mocking in end-to-end tests like in Detox is very different from mocking in unit tests like in Jest. With unit tests, the mocks can change between test case to test case. With Detox, remember that we’re building the app once before all tests start. This means that mocks cannot be replaced between test cases. We’ll have to assume our mock remains static during all test cases.
 
@@ -22,37 +22,35 @@ This replacement mechanism provides a lot of flexibility to change implementatio
 
 #### Configuration
 
-1. For RN < 0.55, setup `react-native-repackager` in your library.
-
+0. For RN < 0.55, setup `react-native-repackager` in your library.
 1. Configure the Metro bundler to use the extensions defined by `RN_SRC_EXT`:
-
-   - If you use 0.55 <= RN < 0.59, create a file called `rn-cli.config.js` in the root folder.
-   - If you use RN >= 0.59 (which in turn uses Metro with breaking changes introduced in [0.43](https://github.com/facebook/metro/releases/tag/v0.43.0)) the file should be named `metro.config.js` or `metro.config.json` (or define metro field in `package.json`) to the root directory.
+   * If you use 0.55 <= RN < 0.59, create a file called `rn-cli.config.js` in the root folder.
+   * If you use RN >= 0.59 (which in turn uses Metro with breaking changes introduced in [0.43](https://github.com/facebook/metro/releases/tag/v0.43.0)) the file should be named `metro.config.js` or `metro.config.json` (or define metro field in `package.json`) to the root directory.
 
    Then set up `resolver.sourceExts` to prioritize any given source extension over the default one:
 
-   ```js
-   const defaultSourceExts = require('metro-config/src/defaults/defaults').sourceExts
-   module.exports = {
-     resolver: { 
-       sourceExts: process.env.RN_SRC_EXT
-                   ? process.env.RN_SRC_EXT.split(',').concat(defaultSourceExts)
-                   : defaultSourceExts
-     }
-   };
-   ```
+    ```js
+    const defaultSourceExts = require('metro-config/src/defaults/defaults').sourceExts
+    module.exports = {
+      resolver: { 
+        sourceExts: process.env.RN_SRC_EXT
+                    ? process.env.RN_SRC_EXT.split(',').concat(defaultSourceExts)
+                    : defaultSourceExts
+      }
+    };
+    ```
 
-   or if you have RN < 0.57 or Metro < 0.43 use the old Metro configuration format:
+    or if you have RN < 0.57 or Metro < 0.43 use the old Metro configuration format:
 
-   ```js
-   module.exports = {
-    getSourceExts: () => process.env.RN_SRC_EXT ? 
-                         process.env.RN_SRC_EXT.split(',') : []
-   };
+     ```js
+    module.exports = {
+      getSourceExts: () => process.env.RN_SRC_EXT ? 
+                           process.env.RN_SRC_EXT.split(',') : []
+    };
 
-   ```
+     ```
 
-1. Create `anyfile.e2e.js` alongside `anyfile.js`
+2. Create `anyfile.e2e.js` alongside `anyfile.js`
 
 #### Triggering
 
@@ -69,27 +67,25 @@ Whenever Metro runs with `RN_SRC_EXT` environment variable set, it will override
 If you want to mock a module, here is an example of how to do it:
 
 1. Follow the steps above in the [Configuration](#Configuration) section
-
 1. Create a file that just imports the module, `YourNativeModuleProvider.js`, containing:
 
-   ```js
-   import { NativeModules } from 'react-native';
+     ```js
+     import { NativeModules } from 'react-native';
 
-   export const { YourNativeModule } = NativeModules;
-   ```
+     export const { YourNativeModule } = NativeModules;
+     ```
 
 1. Create a file on the same directory - `YourNativeModuleProvider.e2e.js`, containing:
 
-   ```js
-   // You can add a console.log here so it shows on your react-native console:
-   console.log('We are now using our mocked NativeModule')
+     ```js
+     // You can add a console.log here so it shows on your react-native console:
+     console.log('We are now using our mocked NativeModule')
 
-   const YourNativeModule = {
-     mockedFunctionCall: () => 'Do something'
-   }
-   export { YourNativeModule };
-   ```
+     const YourNativeModule = {
+       mockedFunctionCall: () => 'Do something'
+     }
+     export { YourNativeModule };
+     ```
 
 1. Run Metro using the information in [Triggering](#Triggering)
-
 1. On your simulator, enable debug mode and you should see "We are now using our mocked `NativeModule`"

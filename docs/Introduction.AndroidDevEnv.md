@@ -8,7 +8,7 @@ Note that running automated UI tests is _not the same_ as developing Android app
 
 This is the most basic step in the process, as without a proper Java SDK installed, nothing Android-ish works -- at least not from command-line, which is mandatory for executing `Detox`.
 
-_The bottom line is that **Android needs Java 1.8 installed**._
+*The bottom line is that **Android needs Java 1.8 installed**.*
 
 To check for your real java-executable’s version, in a command-line console, run:
 
@@ -29,28 +29,28 @@ Namely, that the version is `1.8.x_abc`.
 
 On MacOS, in particular, java comes from both the OS _and_ possibly other installers such as `homebrew`, so you are more likely to go into a mess: see [this Stack Overflow post](https://stackoverflow.com/questions/24342886/how-to-install-java-8-on-mac).
 
-***
+---
 
 If `java` isn’t in your path or not even installed (i.e. the command failed altogether), try [this guide](https://www.java.com/en/download/help/path.xml).
 
 If otherwise the version is simply wrong, try these refs for Macs; consider employing the `JAVA_HOME` variable to get things to work right:
 
-- <https://java.com/en/download/faq/java_mac.xml#version>
-- <https://www.java.com/en/download/help/version_manual.xml>
-- <https://medium.com/notes-for-geeks/java-home-and-java-home-on-macos-f246cab643bd>
+* <https://java.com/en/download/faq/java_mac.xml#version>
+* <https://www.java.com/en/download/help/version_manual.xml>
+* <https://medium.com/notes-for-geeks/java-home-and-java-home-on-macos-f246cab643bd>
 
 ## Android SDK
 
-If you have Android Studio installed - as most of us do, then the SDK should be available for you somewhere on your machine<sup>\*</sup>. However, for CI agents -- possibly running with no GUI, or if you simply don’t want the somewhat bloated piece of software on your computer, it is possible to simply download the SDK and tool-set, purely. Both cases are covered in Google’s [Android guide about Android Studio](https://developer.android.com/studio/). For the pure-tools option, refer to the `Command line tools only` section at the bottom.
+If you have Android Studio installed - as most of us do, then the SDK should be available for you somewhere on your machine<sup>*</sup>. However, for CI agents -- possibly running with no GUI, or if you simply don’t want the somewhat bloated piece of software on your computer, it is possible to simply download the SDK and tool-set, purely. Both cases are covered in Google’s [Android guide about Android Studio](https://developer.android.com/studio/). For the pure-tools option, refer to the `Command line tools only` section at the bottom.
 
 For more help on setting the SDK up, [this guide might be helpful](https://www.androidcentral.com/installing-android-sdk-windows-mac-and-linux-tutorial).
 
 Whatever option you choose, and whichever platform you’re running on (Mac, Linux, Windows), we strongly recommend that eventually you would have 2 additional things set up:
 
-- The path to the SDK’s root directory is set into the `ANDROID_SDK_ROOT` [environment variable](https://developer.android.com/studio/command-line/variables).
-- The path to the SDK’s root directory is bundled into the global [`PATH`](https://superuser.com/questions/284342/what-are-path-and-other-environment-variables-and-how-can-i-set-or-use-them) on your computer.
+* The path to the SDK’s root directory is set into the `ANDROID_SDK_ROOT` [environment variable](https://developer.android.com/studio/command-line/variables).
+* The path to the SDK’s root directory is bundled into the global [`PATH`](https://superuser.com/questions/284342/what-are-path-and-other-environment-variables-and-how-can-i-set-or-use-them) on your computer.
 
-_<sup>\* Inspect the content of your `ANDROID_SDK_ROOT` and `ANDROID_HOME` environment variables.</sup>_
+_<sup>* Inspect the content of your `ANDROID_SDK_ROOT` and `ANDROID_HOME` environment variables.</sup>_
 
 ## Android (AOSP) Emulators
 
@@ -60,7 +60,7 @@ We’ve long proven that for automation - which requires a stable and determinis
 
 Fortunately, the Android team at Google offers a pretty decent alternative: **AOSP emulators** (Android Open-Source Project). While possibly lacking some of the extended Google services, and a bit less fancy overall, **we strongly recommend** to strictly use this flavor of emulators for running automation/Detox tests. They can be installed alongside regular emulators.
 
-_Here’s a visual comparison between the two - an SDK 28 (Android 9) AOSP emulator (left) vs. an emulator with Google APIs installed (right):_
+*Here’s a visual comparison between the two - an SDK 28 (Android 9) AOSP emulator (left) vs. an emulator with Google APIs installed (right):*
 
 <img src="img/android/aosp-vs-googleapi.png" alt="AOSP vs Google-API" style="zoom:75%;" />
 
@@ -69,35 +69,34 @@ _Here’s a visual comparison between the two - an SDK 28 (Android 9) AOSP emula
 While it’s possible to do this using Android Studio, we’ll focus on the command line, as it also good for _headless_ CI machines.
 
 1. Locate your 'Android home' folder - typically set in the `ANDROID_HOME` environment variable, or in it’s successor - `ANDROID_SDK_ROOT`. If `ANDROID_HOME` isn’t set, either set it yourself or run the following commands after `cd`-ing into the home folder.
-
 1. Preliminary: Upgrade your `emulator` executable to the latest version.
    _Note: It is OK if the emulator’s version is not aligned with the SDK or platform-tools' version you currently have installed (e.g. 30.x.x vs. SDK 29)_
 
-   ```sh
-   $ANDROID_HOME/tools/bin/sdkmanager --install emulator
-   ```
+    ```sh
+    $ANDROID_HOME/tools/bin/sdkmanager --install emulator
+    ```
 
 1. Install an emulator image without Google APIs:
 
-   ```shell
-   $ANDROID_HOME/tools/bin/sdkmanager "system-images;android-28;default;x86_64"
-   $ANDROID_HOME/tools/bin/sdkmanager --licenses
-   ```
+    ```shell
+    $ANDROID_HOME/tools/bin/sdkmanager "system-images;android-28;default;x86_64"
+    $ANDROID_HOME/tools/bin/sdkmanager --licenses
+    ```
 
-   > - With `;android-28;`, we assumed SDK 28 here, but other APIs are supported just the same.
-   > - The `;default;` part replaces `;google_apis;`, which is the default, and is what matters here.
+    > * With `;android-28;`, we assumed SDK 28 here, but other APIs are supported just the same.
+    > * The `;default;` part replaces `;google_apis;`, which is the default, and is what matters here.
 
 1. Create an emulator (i.e. AVD - Android Virtual Device):
 
-   ```shell
-   $ANDROID_HOME/tools/bin/avdmanager create avd -n Pixel_API_28_AOSP -d pixel --package "system-images;android-28;default;x86_64"
-   ```
+    ```shell
+    $ANDROID_HOME/tools/bin/avdmanager create avd -n Pixel_API_28_AOSP -d pixel --package "system-images;android-28;default;x86_64"
+    ```
 
-   > - `Pixel_API_28_AOSP` is just a suggestion for a name. Any name can work here, even `Pixel_API_28` - but you might have to delete an existing non-AOSP emulator, first. In any case, the name used in Detox configuration (typically in `package.json`) should be identical to this one.
-   > - `-d pixel` will install an emulator with the specs of a Pixel-1 device. Other specs can be used.
-   > - `--package` is the most important argument: be sure to use the same value as you did in part 2, above, with `;default;`.
-   >
-   > Run `avdmanager create --help` for the full list of options.
+    > * `Pixel_API_28_AOSP` is just a suggestion for a name. Any name can work here, even `Pixel_API_28` - but you might have to delete an existing non-AOSP emulator, first. In any case, the name used in Detox configuration (typically in `package.json`) should be identical to this one.
+    > * `-d pixel` will install an emulator with the specs of a Pixel-1 device. Other specs can be used.
+    > * `--package` is the most important argument: be sure to use the same value as you did in part 2, above, with `;default;`.
+    >
+    > Run `avdmanager create --help` for the full list of options.
 
 1. Launch the emulator:
 
@@ -119,7 +118,7 @@ Also, be sure to upgrade your emulator executable to the latest version: If it i
 
 ![Upgrade emulator in AS](img/android/upgrade-emulator-as.png)
 
-**Note:** _It is OK if the emulator’s version is not aligned with the SDK or platform-tools' version you currently have installed (e.g. 30.x.x vs. SDK 29)_
+**Note:** *It is OK if the emulator’s version is not aligned with the SDK or platform-tools' version you currently have installed (e.g. 30.x.x vs. SDK 29)*
 
 ## Emulator Quick-Boot
 
@@ -132,8 +131,8 @@ This is something that we actually recommend applying in the emulator itself rat
 In any case, the general principle we’re going to instruct is as follows:
 
 1. Enable auto-save for an installed / running emulator.
-1. Launch it, and, when stable, terminate -- a snapshot is saved as a result.
-1. Disable auto-save, so that future, test-tainted snapshots won’t be saved.
+2. Launch it, and, when stable, terminate -- a snapshot is saved as a result.
+3. Disable auto-save, so that future, test-tainted snapshots won’t be saved.
 
 ### Setting up a quick-boot snapshot from the Emulator
 
@@ -147,8 +146,8 @@ Do this again after the emulator is back up, but set `No` in the `auto-save` opt
 
 You can also try these as alternative sources for this:
 
-- [Snapshots in Google Developers page](https://developer.android.com/studio/run/emulator#snapshots) for full details on snapshots.
-- [Highly detailed blog post](https://devblogs.microsoft.com/xamarin/android-emulator-quick-boot/)
+* [Snapshots in Google Developers page](https://developer.android.com/studio/run/emulator#snapshots) for full details on snapshots.
+* [Highly detailed blog post](https://devblogs.microsoft.com/xamarin/android-emulator-quick-boot/)
 
 ### Setting up a quick-boot snapshot from command-line
 
@@ -157,28 +156,27 @@ This is a bit more difficult, but is also applicable even for UI-less machines.
 1. [Locate the AVD’s `config.ini`](#locating-the-avds-home-directory)
 1. Using your favorite text editor, either change or add these key-value sets:
 
-   ```ini
-   fastboot.chosenSnapshotFile=
-   fastboot.forceChosenSnapshotBoot=no
-   fastboot.forceColdBoot=no
-   fastboot.forceFastBoot=yes
-   ```
+    ```ini
+    fastboot.chosenSnapshotFile=
+    fastboot.forceChosenSnapshotBoot=no
+    fastboot.forceColdBoot=no
+    fastboot.forceFastBoot=yes
+    ```
 
 > Empirically, `forceFastBoot=yes` and `forceColdBoot=no` should be enough.
 
 1. Under the AVD’s home directory, either create or edit yet another `ini` file called `quickbootChoice.ini` with the following content:
 
-   ```ini
-   saveOnExit = true
-   ```
+    ```ini
+    saveOnExit = true
+    ```
 
 1. Now that everything is in place, [launch your emulator](#booting-an-emulator-via-command-line) once (in verbose mode) and wait for it to fully load. Then, shut it down, and make sure the [state has been saved](#verifying-the-emulators-quick-boot-snapshot-has-been-saved).
-
 1. Last but not least, go back to `quickbootChoice.ini` and now switch to:
 
-   ```ini
-   saveOnExit = false
-   ```
+    ```ini
+    saveOnExit = false
+    ```
 
 ### Disclaimer
 
@@ -192,9 +190,9 @@ This can be addressed by deleting and recreating the snapshots as explained, or 
 
 Each AVD generated by the Android tools gets it’s own directory where associated content is stored:
 
-- **Configuration file (i.e. `config.ini`)**
-- Snapshot images
-- SD-card content
+* **Configuration file (i.e. `config.ini`)**
+* Snapshot images
+* SD-card content
 
 to name a few.
 
@@ -206,12 +204,12 @@ $HOME/.android/avd/<AVD Name>.avd/
 
 _(for example: `/Users/root/.android/avd/Pixel_API_28_AOSP.avd/`)_
 
-The path should be similar on Linux machines, even though `$HOME` isn’t `/Users/root` but typically `/home/root` _(for example: `/home/root/.android/avd/Pixel_API_28_AOSP.avd/`)._
+The path should be similar on Linux machines, even though `$HOME` isn’t `/Users/root` but typically `/home/root` *(for example: `/home/root/.android/avd/Pixel_API_28_AOSP.avd/`).*
 
 ### Booting an emulator via command-line
 
-> - The following examples apply for both Mac and Linux, and should be similar on Windows.
-> - They assume the emulator’s name is `Pixel_API_28_AOSP`. If it isn’t, adjust the names accordingly:
+> * The following examples apply for both Mac and Linux, and should be similar on Windows.
+> * They assume the emulator’s name is `Pixel_API_28_AOSP`. If it isn’t, adjust the names accordingly:
 
 #### Shortcut for booting a verbose, visible emulator in a GUI supporting system
 

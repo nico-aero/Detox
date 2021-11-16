@@ -82,7 +82,7 @@ await expect(element(by.id('UniqueId533'))).toHaveValue('0');
 
 #### `toHaveSliderPosition(normalizedPosition, tolerance)`
 
-Expects the slider element to have the specified normalized position (\[0, 1]), within the provided tolerance (optional).
+Expects the slider element to have the specified normalized position ([0, 1]), within the provided tolerance (optional).
 
 ```js
 await expect(element(by.id('slider'))).toHaveSliderPosition(0.75);
