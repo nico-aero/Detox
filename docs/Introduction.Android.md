@@ -7,11 +7,11 @@
 
 > Follow our [Migration Guide](Guide.Migration.md) for instructions on how to upgrade from older versions.
 
-* **In version 11 we switched to using Android Espresso of Android’s new [androidx.\*  support libraries](https://developer.android.com/jetpack/androidx/).** We did this in order to stay up to date with Google’s latest features and bug fixes, in the hopes of using them to improve our own Android support (which gets better every day!).
+- **In version 11 we switched to using Android Espresso of Android’s new [androidx.\*  support libraries](https://developer.android.com/jetpack/androidx/).** We did this in order to stay up to date with Google’s latest features and bug fixes, in the hopes of using them to improve our own Android support (which gets better every day!).
 
-* **In version 10, we’ve made [Kotlin](https://kotlinlang.org/) mandatory for integrating Detox into your Android project.** In the very least, you must include the Kotlin Gradle plugin in your project, as we shall see later on. Nevertheless, this is a breaking change so bear that in mind when upgrading. In any case, worry not of the impact on your app, as - unless you effectively use Kotlin in your own native code, **there will be no impact on the final APK**, in terms of size and methods count.
+- **In version 10, we’ve made [Kotlin](https://kotlinlang.org/) mandatory for integrating Detox into your Android project.** In the very least, you must include the Kotlin Gradle plugin in your project, as we shall see later on. Nevertheless, this is a breaking change so bear that in mind when upgrading. In any case, worry not of the impact on your app, as - unless you effectively use Kotlin in your own native code, **there will be no impact on the final APK**, in terms of size and methods count.
 
-* **As of version 7** we require Android Gradle plugin 3.0.0 or newer. This is a breaking change that makes it impossible to support previous Android Gradle plugin versions.
+- **As of version 7** we require Android Gradle plugin 3.0.0 or newer. This is a breaking change that makes it impossible to support previous Android Gradle plugin versions.
 
   <https://developer.android.com/studio/build/gradle-plugin-3-0-0-migration.html>
 
@@ -70,9 +70,9 @@ Pay attention to `-DtestBuildType`, set either to `debug` or `release` according
 
 Following device types could be used to control Android devices:
 
-* `android.emulator`. Boot stock Android-SDK emulator (AVD) with provided `name`, for example `Pixel_API_28`.
+- `android.emulator`. Boot stock Android-SDK emulator (AVD) with provided `name`, for example `Pixel_API_28`.
 
-* `android.attached`. Connect to already-attached android device. The device should be listed in the output of `adb devices` command under provided `name`.
+- `android.attached`. Connect to already-attached android device. The device should be listed in the output of `adb devices` command under provided `name`.
   Use this type to connect to Genymotion emulator.
   The `avdName` property accepts a regular expression pattern that allows to specify the pool of device candidates to which you wish to connect. Use this property to run tests in parallel on multiple attached devices.
 
@@ -187,7 +187,7 @@ _Note: most guides advise of defining a global `kotlinVersion` constant - as in 
 Detox requires a dummy implementation of a single Android-native test.
 
 1. Add a new file to your project, under this path and name: `android/app/src/androidTest/java/com/[your.package]/DetoxTest.java`. **Double-check that the path is correct!**
-2. Copy & paste the content of the equivalent file from [the detox example app for RN](../examples/demo-react-native/android/app/src/androidTest/java/com/example/DetoxTest.java), into it. **Don’t forget to change the package name to your project’s package name!**
+1. Copy & paste the content of the equivalent file from [the detox example app for RN](../examples/demo-react-native/android/app/src/androidTest/java/com/example/DetoxTest.java), into it. **Don’t forget to change the package name to your project’s package name!**
 
 #### 6. Enable clear-text (unencrypted) traffic for Detox
 
@@ -280,7 +280,7 @@ If, when [setting up your work environment](Introduction.AndroidDevEnv.md), you�
 Setting Test Butler up for working with Detox is a bit different than explained in their guides. The process, as a whole, is twofold:
 
 1. Preinstalling the test-butler-app APK onto the test device.
-2. Integrating the test-butler-lib into your own test APK, and initializing it in a custom test-runner (as explained).
+1. Integrating the test-butler-lib into your own test APK, and initializing it in a custom test-runner (as explained).
 
 The library part can be easily achieved as explained there (i.e. by using Gradle’s `androidTestImplementation`). Same goes for initialization. As for the APK, the suggested usage of Gradle’s `androidTestUtil` is scarce when running with Detox (i.e. non-native instrumentation tests). Here’s what to do instead.
 

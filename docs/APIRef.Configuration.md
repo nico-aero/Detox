@@ -472,25 +472,25 @@ The build command will be triggered when running `detox build`.
 
 You can choose to build your project in any of these ways...
 
-* If there’s only one configuration, you can simply use:
+- If there’s only one configuration, you can simply use:
 
   ```sh
   detox build
   ```
 
-* To choose a specific configuration:
+- To choose a specific configuration:
 
   ```sh
   detox build --configuration yourConfiguration
   ```
 
-* Building with `xcodebuild`:
+- Building with `xcodebuild`:
 
   ```sh
   xcodebuild -project ios/YourProject.xcodeproj -scheme YourProject -sdk iphonesimulator -derivedDataPath ios/build
   ```
 
-* Building using React Native, this is the least suggested way of running your build, since it also starts a random simulator and installs the app on it.
+- Building using React Native, this is the least suggested way of running your build, since it also starts a random simulator and installs the app on it.
 
   ```sh
   react-native run-ios
@@ -500,7 +500,7 @@ You can choose to build your project in any of these ways...
 
 #### Test Configuration
 
-* If there’s only one configuration, you can simply use:
+- If there’s only one configuration, you can simply use:
 
   ```sh
   detox test ./e2e
@@ -508,7 +508,7 @@ You can choose to build your project in any of these ways...
 
 where `./e2e` is the path to your Detox tests folder.
 
-* For multiple configurations, choose your configuration by passing `--configuration` param:
+- For multiple configurations, choose your configuration by passing `--configuration` param:
 
   ```sh
   detox test ./e2e --configuration yourConfiguration

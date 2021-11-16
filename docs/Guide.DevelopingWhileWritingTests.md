@@ -10,16 +10,16 @@ Detox is going to need the executable for your app. This means we need to build 
 
 There are multiple ways to build your app, let’s find the alternative you like best:
 
-* **I like to build my app by clicking "Play" in Xcode** — This isn’t a great approach here because using Xcode IDE to build your app will place the executable in an internal directory which path that is difficult to predict (`~/Library/Developer/Xcode/DerivedData/...`). This means we won’t be able to tell Detox where to find it. Although you can change the default `derivedData` path by altering your Xcode settings, we encourage you to try the alternative ways to build.
+- **I like to build my app by clicking "Play" in Xcode** — This isn’t a great approach here because using Xcode IDE to build your app will place the executable in an internal directory which path that is difficult to predict (`~/Library/Developer/Xcode/DerivedData/...`). This means we won’t be able to tell Detox where to find it. Although you can change the default `derivedData` path by altering your Xcode settings, we encourage you to try the alternative ways to build.
   If you’d like to debug Detox with Xcode, see [Debugging In Xcode](Guide.DebuggingInXcode.md).
 
-* **I like to build my app with `react-native run-ios`** — The official React Native command line tools provide a script to build your app from terminal. Go to your project root and type `react-native run-ios`. This will build the app in debug and place the executable in the folder `ios/build/Build/Products/Debug-iphonesimulator`. This is a great way to build because it’s easy to specify this path in Detox configuration inside `package.json`. This is actually the path we specified in the getting started tutorial.
+- **I like to build my app with `react-native run-ios`** — The official React Native command line tools provide a script to build your app from terminal. Go to your project root and type `react-native run-ios`. This will build the app in debug and place the executable in the folder `ios/build/Build/Products/Debug-iphonesimulator`. This is a great way to build because it’s easy to specify this path in Detox configuration inside `package.json`. This is actually the path we specified in the getting started tutorial.
 
   ```sh
   react-native run-ios
   ```
 
-* **I like to build my app with `detox build`** — During the installation instructions, we provided Detox configuration in `package.json` with a command line to build your app executable. We can execute this build command by going to the project root and typing `detox build`. Please make sure that you’re using a Detox configuration that builds a debug version of your app. The default we specified in the getting started tutorial should work.
+- **I like to build my app with `detox build`** — During the installation instructions, we provided Detox configuration in `package.json` with a command line to build your app executable. We can execute this build command by going to the project root and typing `detox build`. Please make sure that you’re using a Detox configuration that builds a debug version of your app. The default we specified in the getting started tutorial should work.
 
   ```sh
   detox build

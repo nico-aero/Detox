@@ -35,9 +35,9 @@ If `java` isn’t in your path or not even installed (i.e. the command failed al
 
 If otherwise the version is simply wrong, try these refs for Macs; consider employing the `JAVA_HOME` variable to get things to work right:
 
-* <https://java.com/en/download/faq/java_mac.xml#version>
-* <https://www.java.com/en/download/help/version_manual.xml>
-* <https://medium.com/notes-for-geeks/java-home-and-java-home-on-macos-f246cab643bd>
+- <https://java.com/en/download/faq/java_mac.xml#version>
+- <https://www.java.com/en/download/help/version_manual.xml>
+- <https://medium.com/notes-for-geeks/java-home-and-java-home-on-macos-f246cab643bd>
 
 ## Android SDK
 
@@ -47,8 +47,8 @@ For more help on setting the SDK up, [this guide might be helpful](https://www.a
 
 Whatever option you choose, and whichever platform you’re running on (Mac, Linux, Windows), we strongly recommend that eventually you would have 2 additional things set up:
 
-* The path to the SDK’s root directory is set into the `ANDROID_SDK_ROOT` [environment variable](https://developer.android.com/studio/command-line/variables).
-* The path to the SDK’s root directory is bundled into the global [`PATH`](https://superuser.com/questions/284342/what-are-path-and-other-environment-variables-and-how-can-i-set-or-use-them) on your computer.
+- The path to the SDK’s root directory is set into the `ANDROID_SDK_ROOT` [environment variable](https://developer.android.com/studio/command-line/variables).
+- The path to the SDK’s root directory is bundled into the global [`PATH`](https://superuser.com/questions/284342/what-are-path-and-other-environment-variables-and-how-can-i-set-or-use-them) on your computer.
 
 _<sup>* Inspect the content of your `ANDROID_SDK_ROOT` and `ANDROID_HOME` environment variables.</sup>_
 
@@ -83,8 +83,8 @@ While it’s possible to do this using Android Studio, we’ll focus on the comm
     $ANDROID_HOME/tools/bin/sdkmanager --licenses
     ```
 
-    > * With `;android-28;`, we assumed SDK 28 here, but other APIs are supported just the same.
-    > * The `;default;` part replaces `;google_apis;`, which is the default, and is what matters here.
+    > - With `;android-28;`, we assumed SDK 28 here, but other APIs are supported just the same.
+    > - The `;default;` part replaces `;google_apis;`, which is the default, and is what matters here.
 
 1. Create an emulator (i.e. AVD - Android Virtual Device):
 
@@ -92,9 +92,9 @@ While it’s possible to do this using Android Studio, we’ll focus on the comm
     $ANDROID_HOME/tools/bin/avdmanager create avd -n Pixel_API_28_AOSP -d pixel --package "system-images;android-28;default;x86_64"
     ```
 
-    > * `Pixel_API_28_AOSP` is just a suggestion for a name. Any name can work here, even `Pixel_API_28` - but you might have to delete an existing non-AOSP emulator, first. In any case, the name used in Detox configuration (typically in `package.json`) should be identical to this one.
-    > * `-d pixel` will install an emulator with the specs of a Pixel-1 device. Other specs can be used.
-    > * `--package` is the most important argument: be sure to use the same value as you did in part 2, above, with `;default;`.
+    > - `Pixel_API_28_AOSP` is just a suggestion for a name. Any name can work here, even `Pixel_API_28` - but you might have to delete an existing non-AOSP emulator, first. In any case, the name used in Detox configuration (typically in `package.json`) should be identical to this one.
+    > - `-d pixel` will install an emulator with the specs of a Pixel-1 device. Other specs can be used.
+    > - `--package` is the most important argument: be sure to use the same value as you did in part 2, above, with `;default;`.
     >
     > Run `avdmanager create --help` for the full list of options.
 
@@ -131,8 +131,8 @@ This is something that we actually recommend applying in the emulator itself rat
 In any case, the general principle we’re going to instruct is as follows:
 
 1. Enable auto-save for an installed / running emulator.
-2. Launch it, and, when stable, terminate -- a snapshot is saved as a result.
-3. Disable auto-save, so that future, test-tainted snapshots won’t be saved.
+1. Launch it, and, when stable, terminate -- a snapshot is saved as a result.
+1. Disable auto-save, so that future, test-tainted snapshots won’t be saved.
 
 ### Setting up a quick-boot snapshot from the Emulator
 
@@ -146,8 +146,8 @@ Do this again after the emulator is back up, but set `No` in the `auto-save` opt
 
 You can also try these as alternative sources for this:
 
-* [Snapshots in Google Developers page](https://developer.android.com/studio/run/emulator#snapshots) for full details on snapshots.
-* [Highly detailed blog post](https://devblogs.microsoft.com/xamarin/android-emulator-quick-boot/)
+- [Snapshots in Google Developers page](https://developer.android.com/studio/run/emulator#snapshots) for full details on snapshots.
+- [Highly detailed blog post](https://devblogs.microsoft.com/xamarin/android-emulator-quick-boot/)
 
 ### Setting up a quick-boot snapshot from command-line
 
@@ -190,9 +190,9 @@ This can be addressed by deleting and recreating the snapshots as explained, or 
 
 Each AVD generated by the Android tools gets it’s own directory where associated content is stored:
 
-* **Configuration file (i.e. `config.ini`)**
-* Snapshot images
-* SD-card content
+- **Configuration file (i.e. `config.ini`)**
+- Snapshot images
+- SD-card content
 
 to name a few.
 
@@ -208,8 +208,8 @@ The path should be similar on Linux machines, even though `$HOME` isn’t `/User
 
 ### Booting an emulator via command-line
 
-> * The following examples apply for both Mac and Linux, and should be similar on Windows.
-> * They assume the emulator’s name is `Pixel_API_28_AOSP`. If it isn’t, adjust the names accordingly:
+> - The following examples apply for both Mac and Linux, and should be similar on Windows.
+> - They assume the emulator’s name is `Pixel_API_28_AOSP`. If it isn’t, adjust the names accordingly:
 
 #### Shortcut for booting a verbose, visible emulator in a GUI supporting system
 

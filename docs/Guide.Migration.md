@@ -298,8 +298,8 @@ See [#1514](https://github.com/wix/Detox/issues/1514).
 In `12.7.0` we’ve greatly improved our support in Jest - trying to tackle these two caveats which hold developers back from embracing it:
 
 1. Jest file-level summary logs take precedence over 'plain' output, which makes them and all other logs (e.g. user in-test logging) seem cluttered.
-2. Plain logs output is batched, and thus often does not show in real-time as the test is run. This is particularly annoying when running tests on the local computer.
-3. Jest offers no spec-level logging => no way to tell what’s running "right now" and which test created what log-outputs.
+1. Plain logs output is batched, and thus often does not show in real-time as the test is run. This is particularly annoying when running tests on the local computer.
+1. Jest offers no spec-level logging => no way to tell what’s running "right now" and which test created what log-outputs.
 
 _Put in simple words, Jest is optimized for running tests concurrently using multiple workers. This isn’t the case when writing/debugging tests on a local machine._
 
@@ -783,9 +783,9 @@ Previous config looked like this:
 The new configuration holds a dictionary of `configurations`.
 
 1. Each configuration must state `type` - currently only simulator is supported
-2. `app` is now `binaryPath`
-3. `build` - **[optional]** build command (either `xcodebuild`, `react-native run-ios`, etc...), will be later available through detox CLI tool.
-4. **session object is not mandatory anymore**, if is not provided detox will handle server creation by itself.
+1. `app` is now `binaryPath`
+1. `build` - **[optional]** build command (either `xcodebuild`, `react-native run-ios`, etc...), will be later available through detox CLI tool.
+1. **session object is not mandatory anymore**, if is not provided detox will handle server creation by itself.
 
 ```json
 //5.x.x

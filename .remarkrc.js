@@ -2,14 +2,29 @@ exports.frail = true;
 
 exports.settings = {
   bullet: '-',
+  bulletOther: '*',
+  bulletOrdered: '.',
+  closeAtx: false,
   emphasis: '_',
-  listItemIndent: 1,
+  fence: '`',
+  fences: true,
   incrementListMarker: false,
+  listItemIndent: 1,
+  quote: '"',
+  resourceLink: false,
+  rule: '-',
+  ruleRepetition: 3,
+  ruleSpaces: false,
+  setext: false,
+  strong: '*',
+  unsafe: [],
 };
 
 exports.plugins = [
   // GitHub and its flavored markdown integration
-  require('remark-gfm'),
+  [require('remark-gfm'), {
+    tablePipeAlign: true,
+  }],
   require('remark-github'),
   // Links integrity.
   require('remark-validate-links'), // TODO: check how to validate footnotes

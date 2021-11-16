@@ -11,8 +11,8 @@ In particular, the common use case of using launch argument (although not distin
 Typically, the process of setting up such servers - especially in a parallel test-execution environment, involves three major steps (within the context of a test set-up):
 
 1. Allocating a port for a mock server, dynamically.
-2. Bringing up a mock server instance bound to that port (e.g. at `localhost:1234`).
-3. Launching the app with a predefined argument that holds the port, for example `mockServerPort=1234`.
+1. Bringing up a mock server instance bound to that port (e.g. at `localhost:1234`).
+1. Launching the app with a predefined argument that holds the port, for example `mockServerPort=1234`.
    (It is assumed here that there’s designated mocked code inside the app that can read `mockServerPort` and rewire all connections to `localhost:1234` instead of to the real production server).
 
 In this context, launch argument are useful for implementing step #3.
@@ -33,7 +33,7 @@ User-defined launch arguments specification is very flexible, and can be defined
 Examples:
 
 1. In an environment where `mockServerPort` is statically pre-set to `1001` in Detox configuration, and then set to `1003` using `device.appLaunchArgs` inside a test, the app would eventually be launched with `1003` as its value, in calls to `device.launchApp()` in that test.
-2. (Scenario continues) In subsequent calls to `device.launchApp()` with this parameter: `device.launchApp({ launchArgs: {mockServerPort: 1004} })`, the app will be (re-)launched with `1004` as the value for `mockServerPort`.
+1. (Scenario continues) In subsequent calls to `device.launchApp()` with this parameter: `device.launchApp({ launchArgs: {mockServerPort: 1004} })`, the app will be (re-)launched with `1004` as the value for `mockServerPort`.
 
 ### In-App Arguments Access
 

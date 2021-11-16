@@ -8,7 +8,7 @@
 
 #### Step 1: Build the Demo Project
 
-* Build the demo project
+- Build the demo project
 
     ```sh
     detox build --configuration ios.sim.release
@@ -16,7 +16,7 @@
 
 #### Step 2: Run the E2E Tests
 
-* Run tests on the demo project
+- Run tests on the demo project
 
     ```sh
     detox test --configuration ios.sim.release

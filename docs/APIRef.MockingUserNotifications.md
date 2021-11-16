@@ -171,6 +171,6 @@ Note that on Android, data delivered through an intent at runtime, is typically 
 #### Examples
 
 1. [Calendar Trigger](https://github.com/wix/detox/blob/master/detox/ios/DetoxUserNotificationTests/user_notification_calendar_trigger.json)
-2. [Location Trigger](https://github.com/wix/detox/blob/master/detox/ios/DetoxUserNotificationTests/user_notification_location_trigger.json)
-3. [Time Interval Trigger](https://github.com/wix/detox/blob/master/detox/ios/DetoxUserNotificationTests/user_notification_timeInterval_trigger.json)
-4. [Push Trigger](https://github.com/wix/detox/blob/master/detox/ios/DetoxUserNotificationTests/user_notification_push_trigger.json)
+1. [Location Trigger](https://github.com/wix/detox/blob/master/detox/ios/DetoxUserNotificationTests/user_notification_location_trigger.json)
+1. [Time Interval Trigger](https://github.com/wix/detox/blob/master/detox/ios/DetoxUserNotificationTests/user_notification_timeInterval_trigger.json)
+1. [Push Trigger](https://github.com/wix/detox/blob/master/detox/ios/DetoxUserNotificationTests/user_notification_push_trigger.json)

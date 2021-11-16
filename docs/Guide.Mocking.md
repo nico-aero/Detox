@@ -4,9 +4,9 @@
 
 Mocking is an important part of testing. You may want to alter some behavior of your app during test and replace it with a mock. Here are some example reasons why this could be useful:
 
-* Change server endpoints to point to a mock/staging server instead of the regular production server
-* Stub a feature the simulator doesn’t support
-* Prepare mock environment data like GPS position, Contacts/Photos found on the device, etc
+- Change server endpoints to point to a mock/staging server instead of the regular production server
+- Stub a feature the simulator doesn’t support
+- Prepare mock environment data like GPS position, Contacts/Photos found on the device, etc
 
 Note that mocking in end-to-end tests like in Detox is very different from mocking in unit tests like in Jest. With unit tests, the mocks can change between test case to test case. With Detox, remember that we’re building the app once before all tests start. This means that mocks cannot be replaced between test cases. We’ll have to assume our mock remains static during all test cases.
 
@@ -22,10 +22,10 @@ This replacement mechanism provides a lot of flexibility to change implementatio
 
 #### Configuration
 
-0. For RN < 0.55, setup `react-native-repackager` in your library.
+1. For RN < 0.55, setup `react-native-repackager` in your library.
 1. Configure the Metro bundler to use the extensions defined by `RN_SRC_EXT`:
-   * If you use 0.55 <= RN < 0.59, create a file called `rn-cli.config.js` in the root folder.
-   * If you use RN >= 0.59 (which in turn uses Metro with breaking changes introduced in [0.43](https://github.com/facebook/metro/releases/tag/v0.43.0)) the file should be named `metro.config.js` or `metro.config.json` (or define metro field in `package.json`) to the root directory.
+   - If you use 0.55 <= RN < 0.59, create a file called `rn-cli.config.js` in the root folder.
+   - If you use RN >= 0.59 (which in turn uses Metro with breaking changes introduced in [0.43](https://github.com/facebook/metro/releases/tag/v0.43.0)) the file should be named `metro.config.js` or `metro.config.json` (or define metro field in `package.json`) to the root directory.
 
    Then set up `resolver.sourceExts` to prioritize any given source extension over the default one:
 
@@ -50,7 +50,7 @@ This replacement mechanism provides a lot of flexibility to change implementatio
 
      ```
 
-2. Create `anyfile.e2e.js` alongside `anyfile.js`
+1. Create `anyfile.e2e.js` alongside `anyfile.js`
 
 #### Triggering
 

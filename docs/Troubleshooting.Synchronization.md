@@ -10,19 +10,19 @@ When this works it’s like magic. You simply execute actions one after the othe
 
 ### What operations do we try to synchronize with automatically
 
-* **Network requests** - Detox monitors in-flight requests over the network.
+- **Network requests** - Detox monitors in-flight requests over the network.
 
-* **Main thread (native)** - Detox monitors pending native operations on the main thread (main dispatch queue and main `NSOperationQueue`).
+- **Main thread (native)** - Detox monitors pending native operations on the main thread (main dispatch queue and main `NSOperationQueue`).
 
-* **Layout of UI** - Detox monitors UI layout operations. There’s also special support for React Native layout which includes the Shadow Queue where [yoga](https://github.com/facebook/yoga) runs.
+- **Layout of UI** - Detox monitors UI layout operations. There’s also special support for React Native layout which includes the Shadow Queue where [yoga](https://github.com/facebook/yoga) runs.
 
-* **Timers** - Detox monitors timers (explicit asynchronous delays). There’s special support for JavaScript timers like `setTimeout` and `setInterval`.
+- **Timers** - Detox monitors timers (explicit asynchronous delays). There’s special support for JavaScript timers like `setTimeout` and `setInterval`.
 
-* **Animations** - Detox monitors active animations and transitions. There’s special support for React Native animations with the Animated library.
+- **Animations** - Detox monitors active animations and transitions. There’s special support for React Native animations with the Animated library.
 
-* **React Native JavaScript thread** - Detox monitors pending operations on the JavaScript thread in RN apps.
+- **React Native JavaScript thread** - Detox monitors pending operations on the JavaScript thread in RN apps.
 
-* **React Native bridge** - Detox monitors the React Native bridge and asynchronous messages sent on it.
+- **React Native bridge** - Detox monitors the React Native bridge and asynchronous messages sent on it.
 
 ### Automatic synchronization works most of the time
 
@@ -34,9 +34,9 @@ For the rest of this tutorial, we’ll assume the test is having some sort of a 
 
 When the automatic synchronization mechanism doesn’t work, we have 2 potential problems:
 
-* We are waiting too much - The test will appear to hang and fail with timeout. This happens because Detox thinks an asynchronous operation is currently taking place and is waiting for it endlessly.
+- We are waiting too much - The test will appear to hang and fail with timeout. This happens because Detox thinks an asynchronous operation is currently taking place and is waiting for it endlessly.
 
-* We are not waiting enough - The test will appear to fail at some point because an element isn’t found according to an expectation or isn’t found when attempting to perform an action on it. This happens because Detox didn’t take some asynchronous operation into account and isn’t waiting until it completes.
+- We are not waiting enough - The test will appear to fail at some point because an element isn’t found according to an expectation or isn’t found when attempting to perform an action on it. This happens because Detox didn’t take some asynchronous operation into account and isn’t waiting until it completes.
 
 ### Identifying which synchronization mechanism causes us to wait too much
 

@@ -15,8 +15,8 @@ Simulators/emulators run on a different process, outside of node, and require so
 
 > **Note:** Each worker is responsible of removing the device ID from the list in `device.registry.state.lock`. Exiting a test runner abruptly (using `Ctrl+C` / `⌘+C`) will not give the worker a chance to unregister the device from the lock file, resulting in an inconsistent state, which can result in creation of unnecessary new simulators.
 >
->* `detox-cli` makes sure `device.registry.state.lock` is cleaned whenever it executes.
->* If you use Detox without `detox-cli` make sure you delete or reset the lock file before running tests.
+>- `detox-cli` makes sure `device.registry.state.lock` is cleaned whenever it executes.
+>- If you use Detox without `detox-cli` make sure you delete or reset the lock file before running tests.
 >
 >    ```sh
 >    echo "[]" > ~/Library/Detox/device.registry.state.lock
@@ -25,9 +25,9 @@ Simulators/emulators run on a different process, outside of node, and require so
 
 The lock file location is determined by the OS, and [defined here](https://github.com/wix/detox/blob/master/detox/src/utils/appdatapath.js).
 
-* **MacOS**: `~/Library/Detox/device.registry.state.lock`
-* **Linux**: `~/.local/share/Detox/device.registry.state.lock`
-* **Windows**: `%LOCALAPPDATA%/data/Detox/device.registry.state.lock` or `%USERPROFILE%/Application Data/Detox/device.registry.state.lock`
+- **MacOS**: `~/Library/Detox/device.registry.state.lock`
+- **Linux**: `~/.local/share/Detox/device.registry.state.lock`
+- **Windows**: `%LOCALAPPDATA%/data/Detox/device.registry.state.lock` or `%USERPROFILE%/Application Data/Detox/device.registry.state.lock`
 
 #### Persisting the Lock File
 

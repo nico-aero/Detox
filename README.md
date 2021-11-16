@@ -44,20 +44,20 @@ High velocity native mobile development requires us to adopt continuous integrat
 
 The most difficult part of automated testing on mobile is the tip of the testing pyramid - E2E. The core problem with E2E tests is flakiness - tests are usually not deterministic. We believe the only way to tackle flakiness head on is by moving from black box testing to gray box testing. That’s where Detox comes into play.
 
-* **Cross Platform:** Write cross-platform tests in JavaScript. Currently supports iOS and Android.
-* **Runs on Devices** (not yet supported on iOS): Gain confidence to ship by testing your app on a device/simulator just like a real user.
-* **Automatically Synchronized:** Stops flakiness at the core by monitoring asynchronous operations in your app.
-* **Made For CI:** Execute your E2E tests on CI platforms like Travis without grief.
-* **Test Runner Independent:** Use Jest, Mocha, AVA, or any other JavaScript test runner you like (spoiler: we have our favorite).
-* **Debuggable:** Modern `async`-`await` API allows breakpoints in asynchronous tests to work as expected.
+- **Cross Platform:** Write cross-platform tests in JavaScript. Currently supports iOS and Android.
+- **Runs on Devices** (not yet supported on iOS): Gain confidence to ship by testing your app on a device/simulator just like a real user.
+- **Automatically Synchronized:** Stops flakiness at the core by monitoring asynchronous operations in your app.
+- **Made For CI:** Execute your E2E tests on CI platforms like Travis without grief.
+- **Test Runner Independent:** Use Jest, Mocha, AVA, or any other JavaScript test runner you like (spoiler: we have our favorite).
+- **Debuggable:** Modern `async`-`await` API allows breakpoints in asynchronous tests to work as expected.
 
 ## Supported Versions
 
 ### Environment
 
-* **OS**: macOS 10.15 (Catalina) or higher
-* **Xcode**: 11.0 or higher
-  * **iOS Simulator Runtime**: iOS 13.0 or higher
+- **OS**: macOS 10.15 (Catalina) or higher
+- **Xcode**: 11.0 or higher
+  - **iOS Simulator Runtime**: iOS 13.0 or higher
 
 ### React Native
 
@@ -91,8 +91,8 @@ Dive into Detox core by reading the [Detox Contribution Guide](docs/Guide.Contri
 
 ## License
 
-* Detox is licensed under the [MIT License](LICENSE)
+- Detox is licensed under the [MIT License](LICENSE)
 
 ## Non-English Resources (Community)
 
-* [Getting Started (Brazilian Portuguese)](https://medium.com/quia-digital/iniciando-com-detox-framework-1-4-ce31ad7ae812)
+- [Getting Started (Brazilian Portuguese)](https://medium.com/quia-digital/iniciando-com-detox-framework-1-4-ce31ad7ae812)
